@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <meta content='blogger' name='generator'/>
+    <meta content='Professional Newspaper Directory with Fullscreen Iframe Modal' name='description'/>
+    <b:if cond='data:blog.isMobile'>
+        <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes' name='viewport'/>
+    </b:if>
+    <title><data:blog.pageTitle/></title>
+    
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' rel='stylesheet'/>
+    
+    <b:skin version='2'><![CDATA[
+        /* === NewsPortal Pro - Optimized Fullscreen Iframe Modal Theme === */
+        :root {
+            --primary: #e74c3c;
+            --primary-dark: #c0392b;
+            --primary-light: #ff6b5b;
+            --secondary: #2c3e50;
+            --accent-gold: #f39c12;
+            --bg-light: #f5f7fb;
+            --surface: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5a6e7a;
+            --border-light: #eef2f6;
+            --shadow-sm: 0 8px 20px rgba(0,0,0,0.04);
+            --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.12);
+            --shadow-lg: 0 30px 50px -15px rgba(0,0,0,0.2);
+            --glass-bg: rgba(255,255,255,0.96);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-light);
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            color: var(--text-primary);
+            padding-top: 88px;
+        }
+
+        .premium-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 0 32px;
+            height: 88px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+            background: none;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 24px;
+            font-size: 0.85rem;
+            background: rgba(231,76,60,0.08);
+            padding: 8px 20px;
+            border-radius: 60px;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a1c23 0%, #2c3e50 100%);
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin-bottom: 48px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(231,76,60,0.15) 0%, transparent 70%);
+        }
+        .hero-content h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        .hero-stats { display: flex; gap: 32px; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary-light); }
+
+        .ad-premium {
+            background: var(--surface);
+            border-radius: 24px;
+            border: 1px solid var(--border-light);
+            margin: 28px 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .ad-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #a0aec0;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-header {
+            margin: 56px 0 28px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(231,76,60,0.2);
+            padding-bottom: 12px;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .section-badge {
+            background: var(--primary);
+            width: 6px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 28px;
+        }
+
+        .news-card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 28px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid var(--border-light);
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .news-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-gold));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+        .news-card:hover::after { transform: scaleX(1); }
+        .card-img {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .card-img img {
+            max-width: 140px;
+            max-height: 60px;
+            object-fit: contain;
+        }
+        .card-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .frame-badge {
+            font-size: 10px;
+            background: rgba(231,76,60,0.1);
+            padding: 4px 12px;
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .inline-ad {
+            margin: 48px 0;
+            background: var(--surface);
+            border-radius: 28px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+        /* Fullscreen Modal - Optimized */
+        .fullscreen-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .fullscreen-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 28px;
+            background: #1a1c23;
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .modal-site-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .modal-site-info img {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+            background: white;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .modal-controls {
+            display: flex;
+            gap: 12px;
+        }
+        .modal-control-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 44px;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+        .modal-control-btn:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+        .fullscreen-iframe {
+            flex: 1;
+            width: 100%;
+            background: #0a0c10;
+        }
+        .fullscreen-iframe iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .modal-footer-bar {
+            padding: 12px 28px;
+            background: #1a1c23;
+            color: #94a3b8;
+            font-size: 13px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .post {
+            background: var(--surface);
+            border-radius: 28px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+        .post-title { font-size: 1.8rem; margin-bottom: 16px; }
+        .post-title a { color: var(--text-primary); text-decoration: none; }
+        .post-title a:hover { color: var(--primary); }
+        .blog-pager { text-align: center; margin: 40px 0; }
+        .blog-pager a { background: var(--primary); color: white; padding: 12px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; }
+
+        footer {
+            margin-top: 80px;
+            padding: 48px 32px;
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 72px; }
+            .premium-header { padding: 0 16px; height: 72px; }
+            .container { padding: 0 20px; }
+            .premium-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .hero-section { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-content h1 { font-size: 1.5rem; }
+            .section-title h2 { font-size: 1.3rem; }
+            .modal-header-bar { padding: 12px 16px; }
+            .modal-control-btn { width: 36px; height: 36px; font-size: 1rem; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <header class='premium-header'>
+        <div class='header-container'>
+            <a class='logo' href='/'>News<span>Portal</span></a>
+            <div class='header-stats'>
+                <span><i class='fas fa-globe'/> Live Frame</span>
+                <span><i class='fas fa-expand-alt'/> Fullscreen</span>
+            </div>
+        </div>
+    </header>
+
+    <div class='container'>
+        <div class='hero-section'>
+            <div class='hero-content'>
+                <h1><i class='fas fa-crown' style='color:#f39c12;'/> Fullscreen News Portal</h1>
+                <p>Click any newspaper card &#8594; Opens in fullscreen iframe modal &#8226; Click <i class='fas fa-expand'/> for immersive experience</p>
+            </div>
+            <div class='hero-stats'>
+                <div class='stat-item'><div class='stat-number'>50+</div><div>News Sources</div></div>
+                <div class='stat-item'><div class='stat-number'>100%</div><div>In-Site Browsing</div></div>
+            </div>
+        </div>
+
+        <div class='ad-premium'>
+            <div style='padding: 24px; width:100%;'>
+                <div class='ad-label'>&#8212; Advertisement &#8212;</div>
+                <div style='font-weight:600;'>Google AdSense | Responsive Leaderboard</div>
+            </div>
+        </div>
+
+        <!-- Link Widget Sections - Manageable from Blogger Layout -->
+        <b:section class='link-sections' id='news-links-section' preferred='yes' showaddelement='yes'>
+          <b:widget id='HTML1' locked='false' title='জাতীয় দৈনিক | National Dailies' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'/>
+            </b:widget-settings>
+            <b:includable id='main'>
+                    <div class='section-header'>
+                        <div class='section-title'><div class='section-badge'/><h2><i class='fas fa-newspaper'/> <data:title/></h2></div>
+                    </div>
+                    <div class='premium-grid'>
+                        <div class='news-card' data-logo='https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Prothom_Alo_Logo.svg/512px-Prothom_Alo_Logo.svg.png' data-name='প্রথম আলো' data-url='https://www.prothomalo.com/'>
+                            <div class='card-img'><img alt='Prothom Alo' src='https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Prothom_Alo_Logo.svg/512px-Prothom_Alo_Logo.svg.png'/></div>
+                            <div class='card-title'>প&#2509;রথম আল&#2507;</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.bd-pratidin.com/assets/images/logo.png' data-name='বাংলাদেশ প্রতিদিন' data-url='https://www.bd-pratidin.com/'>
+                            <div class='card-img'><img alt='BD Pratidin' src='https://www.bd-pratidin.com/assets/images/logo.png'/></div>
+                            <div class='card-title'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ প&#2509;রত&#2495;দ&#2495;ন</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.ittefaq.com.bd/assets/images/logo.png' data-name='ইত্তেফাক' data-url='https://www.ittefaq.com.bd/'>
+                            <div class='card-img'><img alt='Ittefaq' src='https://www.ittefaq.com.bd/assets/images/logo.png'/></div>
+                            <div class='card-title'>ইত&#2509;ত&#2503;ফ&#2494;ক</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.jugantor.com/view/img/logo.png' data-name='যুগান্তর' data-url='https://www.jugantor.com/'>
+                            <div class='card-img'><img alt='Jugantor' src='https://www.jugantor.com/view/img/logo.png'/></div>
+                            <div class='card-title'>য&#2497;গ&#2494;ন&#2509;তর</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.kalerkantho.com/assets/images/logo.png' data-name='কালের কণ্ঠ' data-url='https://www.kalerkantho.com/'>
+                            <div class='card-img'><img alt='Kaler Kantho' src='https://www.kalerkantho.com/assets/images/logo.png'/></div>
+                            <div class='card-title'>ক&#2494;ল&#2503;র কণ&#2509;ঠ</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.thedailystar.net/sites/all/themes/pioneer/logo.png' data-name='The Daily Star' data-url='https://www.thedailystar.net/'>
+                            <div class='card-img'><img alt='Daily Star' src='https://www.thedailystar.net/sites/all/themes/pioneer/logo.png'/></div>
+                            <div class='card-title'>The Daily Star</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                    </div>
+                </b:includable>
+          </b:widget>
+          <b:widget id='HTML2' locked='false' title='অনলাইন পোর্টাল | Online Portals' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'/>
+            </b:widget-settings>
+            <b:includable id='main'>
+                    <div class='section-header'>
+                        <div class='section-title'><div class='section-badge'/><h2><i class='fas fa-laptop-code'/> <data:title/></h2></div>
+                    </div>
+                    <div class='premium-grid'>
+                        <div class='news-card' data-logo='https://bdnews24.com/assets/images/logo.png' data-name='বিডিনিউজ২৪' data-url='https://bdnews24.com/'>
+                            <div class='card-img'><img alt='bdnews24' src='https://bdnews24.com/assets/images/logo.png'/></div>
+                            <div class='card-title'>ব&#2495;ড&#2495;ন&#2495;উজ২৪</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.jagonews24.com/assets/images/logo.png' data-name='জাগো নিউজ' data-url='https://www.jagonews24.com/'>
+                            <div class='card-img'><img alt='Jago News' src='https://www.jagonews24.com/assets/images/logo.png'/></div>
+                            <div class='card-title'>জ&#2494;গ&#2507; ন&#2495;উজ</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.banglanews24.com/assets/images/logo.png' data-name='বাংলানিউজ২৪' data-url='https://www.banglanews24.com/'>
+                            <div class='card-img'><img alt='BanglaNews24' src='https://www.banglanews24.com/assets/images/logo.png'/></div>
+                            <div class='card-title'>ব&#2494;&#2434;ল&#2494;ন&#2495;উজ২৪</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.dhakapost.com/assets/images/logo.png' data-name='ঢাকা পোস্ট' data-url='https://www.dhakapost.com/'>
+                            <div class='card-img'><img alt='Dhaka Post' src='https://www.dhakapost.com/assets/images/logo.png'/></div>
+                            <div class='card-title'>ঢ&#2494;ক&#2494; প&#2507;স&#2509;ট</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                    </div>
+                </b:includable>
+          </b:widget>
+          <b:widget id='HTML3' locked='false' title='টিভি চ্যানেল | TV Channels' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'/>
+            </b:widget-settings>
+            <b:includable id='main'>
+                    <div class='section-header'>
+                        <div class='section-title'><div class='section-badge'/><h2><i class='fas fa-tv'/> <data:title/></h2></div>
+                    </div>
+                    <div class='premium-grid'>
+                        <div class='news-card' data-logo='https://www.somoynews.tv/assets/images/logo.png' data-name='সময় টিভি' data-url='https://www.somoynews.tv/'>
+                            <div class='card-img'><img alt='Somoy TV' src='https://www.somoynews.tv/assets/images/logo.png'/></div>
+                            <div class='card-title'>সময় ট&#2495;ভ&#2495;</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.jamuna.tv/assets/images/logo.png' data-name='যমুনা টিভি' data-url='https://www.jamuna.tv/'>
+                            <div class='card-img'><img alt='Jamuna TV' src='https://www.jamuna.tv/assets/images/logo.png'/></div>
+                            <div class='card-title'>যম&#2497;ন&#2494; ট&#2495;ভ&#2495;</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.ntvbd.com/assets/images/logo.png' data-name='এনটিভি' data-url='https://www.ntvbd.com/'>
+                            <div class='card-img'><img alt='NTV' src='https://www.ntvbd.com/assets/images/logo.png'/></div>
+                            <div class='card-title'>এনট&#2495;ভ&#2495;</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                    </div>
+                </b:includable>
+          </b:widget>
+          <b:widget id='HTML4' locked='false' title='International Media' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'/>
+            </b:widget-settings>
+            <b:includable id='main'>
+                    <div class='section-header'>
+                        <div class='section-title'><div class='section-badge'/><h2><i class='fas fa-globe-americas'/> <data:title/></h2></div>
+                    </div>
+                    <div class='premium-grid'>
+                        <div class='news-card' data-logo='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/The_New_York_Times_logo.svg/2560px-The_New_York_Times_logo.svg.png' data-name='The New York Times' data-url='https://www.nytimes.com/'>
+                            <div class='card-img'><img alt='NYT' src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/The_New_York_Times_logo.svg/2560px-The_New_York_Times_logo.svg.png'/></div>
+                            <div class='card-title'>The New York Times</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://static.files.bbci.co.uk/core/static/img/bbc-blocks-dark-71a7b50c3d.png' data-name='BBC News' data-url='https://www.bbc.com/news'>
+                            <div class='card-img'><img alt='BBC' src='https://static.files.bbci.co.uk/core/static/img/bbc-blocks-dark-71a7b50c3d.png'/></div>
+                            <div class='card-title'>BBC News</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://i.cdn.turner.com/cnn/.e/img/3.0/global/misc/cnn-logo.png' data-name='CNN' data-url='https://www.cnn.com/'>
+                            <div class='card-img'><img alt='CNN' src='https://i.cdn.turner.com/cnn/.e/img/3.0/global/misc/cnn-logo.png'/></div>
+                            <div class='card-title'>CNN</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/The_Guardian_Wordmark.svg/2560px-The_Guardian_Wordmark.svg.png' data-name='The Guardian' data-url='https://www.theguardian.com/'>
+                            <div class='card-img'><img alt='Guardian' src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/The_Guardian_Wordmark.svg/2560px-The_Guardian_Wordmark.svg.png'/></div>
+                            <div class='card-title'>The Guardian</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.aljazeera.com/assets/images/svg/aljazeera-logo.svg' data-name='Al Jazeera' data-url='https://www.aljazeera.com/'>
+                            <div class='card-img'><img alt='Al Jazeera' src='https://www.aljazeera.com/assets/images/svg/aljazeera-logo.svg'/></div>
+                            <div class='card-title'>Al Jazeera</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                        <div class='news-card' data-logo='https://www.reuters.com/pf/resources/images/reuters/brand/reuters-logo-vt.png' data-name='Reuters' data-url='https://www.reuters.com/'>
+                            <div class='card-img'><img alt='Reuters' src='https://www.reuters.com/pf/resources/images/reuters/brand/reuters-logo-vt.png'/></div>
+                            <div class='card-title'>Reuters</div>
+                            <div class='frame-badge'><i class='fas fa-expand'/> Fullscreen</div>
+                        </div>
+                    </div>
+                </b:includable>
+          </b:widget>
+          <b:widget id='Blog1' locked='true' title='ব্লগ পোস্টগুলি' type='Blog' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+              <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+              <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+              <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showAuthor'>true</b:widget-setting>
+              <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+              <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='reactionsLabel'/>
+              <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+              <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+              <b:widget-setting name='showLabels'>true</b:widget-setting>
+              <b:widget-setting name='showLocation'>true</b:widget-setting>
+              <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+              <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+              <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+              <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+              <b:widget-setting name='showReactions'>false</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+                    <div class='section-header'>
+                        <div class='section-title'><div class='section-badge'/><h2><i class='fas fa-blog'/> Latest Articles</h2></div>
+                    </div>
+                    <b:loop values='data:posts' var='post'>
+                        <div class='post'>
+                            <h3 class='post-title'><a expr:href='data:post.url'><data:post.title/></a></h3>
+                            <div class='post-body'><data:post.body/></div>
+                        </div>
+                    </b:loop>
+                    <b:include name='nextPageLink'/>
+                </b:includable>
+            <b:includable id='aboutPostAuthor'>
+  <div class='author-name'>
+    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+      <span>
+        <data:post.author.name/>
+      </span>
+    </a>
+  </div>
+  <div>
+    <span class='author-desc'>
+      <data:post.author.aboutMe/>
+    </span>
+  </div>
+</b:includable>
+            <b:includable id='addComments'>
+  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:message name='messages.postAComment'/>
+  </a>
+</b:includable>
+            <b:includable id='commentAuthorAvatar'>
+  <div class='avatar-image-container'>
+    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+  </div>
+</b:includable>
+            <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+            <b:includable id='commentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+            <b:includable id='commentFormIframeSrc' var='post'>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+            <b:includable id='commentItem' var='comment'>
+  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
+
+    <div class='comment-block'>
+      <div class='comment-author'>
+        <b:if cond='data:comment.authorUrl'>
+          <b:message name='messages.authorSaidWithLink'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+          </b:message>
+        <b:else/>
+          <b:message name='messages.authorSaid'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+          </b:message>
+        </b:if>
+      </div>
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
+      <div class='comment-footer'>
+        <span class='comment-timestamp'>
+          <a expr:href='data:comment.url' title='comment permalink'>
+            <data:comment.timestamp/>
+          </a>
+          <b:include data='comment' name='commentDeleteIcon'/>
+        </span>
+      </div>
+    </div>
+  </div>
+</b:includable>
+            <b:includable id='commentList' var='comments'>
+  <div id='comments-block'>
+    <b:loop values='data:comments' var='comment'>
+      <b:include data='comment' name='commentItem'/>
+    </b:loop>
+  </div>
+</b:includable>
+            <b:includable id='commentPicker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threadedComments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+            <b:includable id='comments' var='post'>
+  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+
+      <b:include name='commentsTitle'/>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <div class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+              <data:messages.oldest/>
+            </a>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+              <data:messages.older/>
+            </a>
+          </b:if>
+
+          <span class='comment-range-text'>
+            <data:post.commentRangeText/>
+          </span>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+              <data:messages.newer/>
+            </a>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+              <data:messages.newest/>
+            </a>
+          </b:if>
+        </div>
+      </b:if>
+
+      <div class='footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='commentForm'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <b:include data='post' name='addComments'/>
+          </b:if>
+        </b:if>
+      </div>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+            <b:includable id='commentsTitle'>
+  <h3 class='title'><data:messages.comments/></h3>
+</b:includable>
+            <b:includable id='feedLinks'>
+  <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.allowComments and data:post.feedLinks'>
+          <b:include data='post.feedLinks' name='feedLinksBody'/>
+        </b:if>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+            <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:messages.subscribeTo/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+            <b:includable id='homePageLink'>
+  <a class='home-link' expr:href='data:blog.homepageUrl'>
+    <data:messages.home/>
+  </a>
+</b:includable>
+            <b:includable id='iframeComments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+            <b:includable id='inlineAd' var='post'>
+  <b:if cond='!data:view.isPreview'>
+    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
+      <!-- Ad -->
+      <div class='inline-ad'>
+        <b:if cond='data:this.adCode != &quot;&quot;'>
+          <data:this.adCode/>
+        <b:else/>
+          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
+        </b:if>
+      </div>
+    </b:if>
+  <b:else/>
+    <div class='inline-ad'>
+      <div class='inline-ad-placeholder'>
+        <span><b:message name='messages.adsGoHere'/></span>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+            <b:includable id='nextPageLink'>
+  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+    <data:messages.olderPosts/>
+  </a>
+</b:includable>
+            <b:includable id='post' var='post'>
+  <div class='post'>
+    <b:include data='post' name='postMeta'/>
+    <b:include data='post' name='postTitle'/>
+    <b:include name='headerByline'/>
+    <b:if cond='data:view.isSingleItem'>
+      <b:include data='post' name='postBody'/>
+    <b:else/>
+      <b:include data='post' name='postBodySnippet'/>
+      <b:include data='post' name='postJumpLink'/>
+    </b:if>
+    <b:include data='post' name='postFooter'/>
+  </div>
+</b:includable>
+            <b:includable id='postBody' var='post'>
+  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+    <data:post.body/>
+  </div>
+</b:includable>
+            <b:includable id='postBodySnippet' var='post'>
+  <b:include data='post' name='postBody'/>
+</b:includable>
+            <b:includable id='postCommentsAndAd' var='post'>
+  <article class='post-outer-container'>
+    <!-- Post title and body -->
+    <div class='post-outer'>
+      <b:include data='post' name='post'/>
+    </div>
+
+    <!-- Comments -->
+    <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+
+    <!-- Show ad inside post container, after comments, if single item. -->
+    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
+  </article>
+
+  <!-- Show ad outside post container (between posts) for feed pages. -->
+  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+</b:includable>
+            <b:includable id='postCommentsLink'>
+  <b:if cond='data:view.isMultipleItems'>
+    <span class='byline post-comment-link container'>
+      <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+    </span>
+  </b:if>
+</b:includable>
+            <b:includable id='postFooter' var='post'>
+  <div class='post-footer'>
+    <b:include name='footerBylines'/>
+    <b:include data='post' name='postFooterAuthorProfile'/>
+  </div>
+</b:includable>
+            <b:includable id='postFooterAuthorProfile' var='post'>
+  <b:if cond='data:post.author.aboutMe and data:view.isPost'>
+    <div class='author-profile'>
+      <b:if cond='data:post.author.authorPhoto.url'>
+        <img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
+        <div class='author-about'>
+          <b:include data='post' name='aboutPostAuthor'/>
+        </div>
+      <b:else/>
+        <b:include data='post' name='aboutPostAuthor'/>
+      </b:if>
+    </div>
+  </b:if>
+</b:includable>
+            <b:includable id='postHeader' var='post'>
+  <b:include name='headerByline'/>
+</b:includable>
+            <b:includable id='postMeta' var='post'>
+  <b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+            <b:includable id='postPagination'>
+  <div class='blog-pager container' id='blog-pager'>
+    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+  </div>
+</b:includable>
+            <b:includable id='postTitle' var='post'>
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title entry-title'>
+      <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+        <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+    </h3>
+  </b:if>
+</b:includable>
+            <b:includable id='previousPageLink'>
+  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+    <data:messages.newerPosts/>
+  </a>
+</b:includable>
+            <b:includable id='threadedCommentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+            <b:includable id='threadedCommentJs' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+  <b:template-script inline='true' name='threaded_comments'/>
+  <script type='text/javascript'>
+    blogger.widgets.blog.initThreadedComments(
+        <data:post.commentJso/>,
+        <data:post.commentMsgs/>,
+        <data:post.commentConfig/>);
+  </script>
+</b:includable>
+            <b:includable id='threadedComments' var='post'>
+  <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+
+    <b:include name='commentsTitle'/>
+
+    <div class='comments-content'>
+      <b:if cond='data:post.embedCommentForm'>
+        <b:include data='post' name='threadedCommentJs'/>
+      </b:if>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threadedCommentForm'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+      <b:if cond='data:post.showManageComments'>
+        <b:include data='post' name='manageComments'/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+            <b:includable id='tooltipCss'>
+  <!-- LINT.IfChange -->
+  <style>
+    .post-body a.b-tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip {
+      display: block !important;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-20%, 1px);
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip iframe {
+      width: 200px;
+      height: 198px;
+      max-width: none;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) {
+      .post-body a.b-tooltip-container:hover .b-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  </style>
+  <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
+</b:includable>
+          </b:widget>
+        </b:section>
+
+        <div class='ad-premium' style='margin: 50px 0 20px;'>
+            <div class='ad-label'>&#8212; Footer Banner &#8212;</div>
+            <div>Premium Ad Placement | High Visibility</div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Iframe Modal -->
+    <div class='fullscreen-modal' id='fullscreenModal'>
+        <div class='modal-header-bar'>
+            <div class='modal-site-info' id='modalSiteInfo'>
+                <img alt='site icon' id='modalFavicon' src=''/>
+                <span id='modalSiteName'><strong>Loading...</strong></span>
+            </div>
+            <div class='modal-controls'>
+                <button class='modal-control-btn' id='openExternalBtn' title='Open in new tab'><i class='fas fa-external-link-alt'/></button>
+                <button class='modal-control-btn' id='closeModalBtn' title='Close (ESC)'><i class='fas fa-times'/></button>
+            </div>
+        </div>
+        <div class='fullscreen-iframe'>
+            <iframe id='fullscreenIframe' sandbox='allow-same-origin allow-scripts allow-popups allow-forms allow-modals allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox' title='Live News Website'/>
+        </div>
+        <div class='modal-footer-bar'>
+            <span><i class='fas fa-info-circle'/> Fullscreen iframe mode &#8212; Browse any website inside NewsPortal | Press ESC to close</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class='container'>
+            <p><i class='fas fa-shield-alt'/> NewsPortal &#8212; Fullscreen Iframe Newspaper Directory</p>
+            <p style='margin-top: 16px; font-size: 12px;'>&#169; <script>document.write(new Date().getFullYear())</script> <data:blog.title/> | Add/Manage links from Blogger Layout &#8594; Add Gadget (HTML/JavaScript)</p>
+        </div>
+    </footer>
+
+    <b:if cond='data:blog.adsenseClientId'>
+        <script async='async' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
+    </b:if>
+
+    <!-- Optimized JavaScript - No Mutation Observer to prevent hanging -->
+    <script type='text/javascript'>
+    //<![CDATA[
+    (function() {
+        var modal = document.getElementById('fullscreenModal');
+        var iframe = document.getElementById('fullscreenIframe');
+        var modalSiteName = document.getElementById('modalSiteName');
+        var modalFavicon = document.getElementById('modalFavicon');
+        var currentUrl = '';
+
+        function openFullscreenModal(url, siteName, logoUrl) {
+            if (!url) return;
+            currentUrl = url;
+            modalSiteName.innerHTML = '<strong>' + siteName + '</strong>';
+            if (logoUrl && logoUrl !== '') {
+                modalFavicon.src = logoUrl;
+                modalFavicon.style.display = 'block';
+                modalFavicon.onerror = function() { modalFavicon.style.display = 'none'; };
+            } else {
+                modalFavicon.style.display = 'none';
+            }
+            iframe.src = url;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            iframe.src = 'about:blank';
+            document.body.style.overflow = '';
+        }
+
+        function openExternalTab() {
+            if (currentUrl) {
+                window.open(currentUrl, '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        var closeBtn = document.getElementById('closeModalBtn');
+        var externalBtn = document.getElementById('openExternalBtn');
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (externalBtn) externalBtn.addEventListener('click', openExternalTab);
+        
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) closeModal();
+        });
+
+        // Simple click delegation - no mutation observer to prevent hang
+        document.body.addEventListener('click', function(e) {
+            var card = e.target.closest('.news-card');
+            if (card) {
+                var url = card.getAttribute('data-url');
+                var name = card.getAttribute('data-name');
+                var logo = card.getAttribute('data-logo');
+                if (url) {
+                    e.preventDefault();
+                    openFullscreenModal(url, name, logo);
+                }
+            }
+        });
+    })();
+    //]]>
+    </script>
+</body>
+</html>

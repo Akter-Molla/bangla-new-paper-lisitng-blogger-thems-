@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    
+    <link href='https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&amp;family=Inter:wght@400;500;700;800&amp;display=swap' rel='stylesheet'/>
+
+    <b:skin version='2'><![CDATA[
+        :root {
+            --primary: #e74c3c;
+            --accent-soft: rgba(231, 76, 60, 0.08);
+            --bg-body: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-body);
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            margin: 0; padding: 0;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* Smart Sticky Header */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+
+        /* Search Section */
+        .hero-section { padding: 50px 0 20px; text-align: center; }
+        .hero-section h1 { font-size: 32px; font-weight: 800; margin-bottom: 25px; font-family: 'Hind Siliguri'; }
+        
+        .search-wrapper { position: relative; max-width: 600px; margin: 0 auto; }
+        #searchBox {
+            width: 100%; padding: 18px 30px; border-radius: 50px; border: 1px solid var(--border);
+            box-shadow: var(--shadow); outline: none; font-size: 16px;
+            font-family: 'Hind Siliguri'; transition: all 0.3s;
+        }
+        #searchBox:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--accent-soft); }
+
+        /* Ad Slots Management */
+        .ad-container { margin: 20px auto; max-width: 1000px; }
+        .ad-placeholder { 
+            background: #fff; border: 1px dashed #cbd5e1; border-radius: 16px;
+            min-height: 90px; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .ad-placeholder::after { content: 'ADVERTISEMENT'; position: absolute; top: 5px; right: 10px; font-size: 9px; color: #94a3b8; }
+
+        /* Layout Grid */
+        .page-layout { display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin-top: 30px; }
+
+        /* Category Wise Sections */
+        .category-block { margin-bottom: 40px; }
+        .category-header { 
+            display: flex; align-items: center; gap: 15px; margin-bottom: 20px;
+            padding-bottom: 10px; border-bottom: 2px solid var(--border);
+        }
+        .category-header h2 { font-size: 20px; font-weight: 700; font-family: 'Hind Siliguri'; margin: 0; }
+        .category-header .badge { background: var(--primary); color: #fff; font-size: 11px; padding: 3px 8px; border-radius: 6px; }
+
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px;
+        }
+
+        /* Smart Bento Card */
+        .news-card {
+            background: var(--card-bg); border-radius: 24px; padding: 25px 15px;
+            text-align: center; border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .news-card .icon-circle {
+            width: 60px; height: 60px; background: #f8fafc; border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 15px; border: 1px solid var(--border);
+        }
+
+        .news-card img { width: 35px; height: 35px; border-radius: 8px; }
+
+        .news-card span {
+            font-size: 15px; font-weight: 600; font-family: 'Hind Siliguri';
+            color: var(--text-main); line-height: 1.4;
+        }
+
+        /* Professional Modal Viewer */
+        .viewer-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px);
+            display: none; z-index: 2000; justify-content: center; align-items: center;
+        }
+
+        .viewer-content {
+            width: 96%; height: 94%; background: #fff; border-radius: 28px;
+            overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .viewer-bar {
+            padding: 15px 25px; background: #fff; border-bottom: 1px solid #eee;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .viewer-bar .title-group { display: flex; align-items: center; gap: 10px; }
+        .viewer-bar h2 { font-size: 16px; margin: 0; font-family: 'Hind Siliguri'; color: var(--text-main); }
+        
+        iframe#contentFrame { width: 100%; height: 100%; border: none; background: #fff; }
+
+        .btn-close { 
+            background: #f1f5f9; color: var(--text-main); border: none; 
+            padding: 10px 20px; border-radius: 12px; cursor: pointer; 
+            font-weight: 700; transition: 0.2s;
+        }
+        .btn-close:hover { background: var(--primary); color: #fff; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .page-layout { grid-template-columns: 1fr; }
+            .side-ads { display: none; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <header>
+        <div class='container header-content'>
+            <a class='logo-text' href='/'>NEWS HUB</a>
+            <div style='background: var(--accent-soft); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; color: var(--primary);'>
+                ONLINE DIRECTORY
+            </div>
+        </div>
+    </header>
+
+    <div class='container'>
+        <div class='ad-container'>
+            <b:section id='top-ad' maxwidgets='1' showaddelement='yes'>
+              <b:widget id='HTML11' locked='false' title='Top Banner' type='HTML' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'/>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='ad-placeholder'><data:content/></div>
+                    </b:includable>
+              </b:widget>
+            </b:section>
+        </div>
+
+        <div class='hero-section'>
+            <h1>সকল স&#2434;ব&#2494;দপত&#2509;র&#2503;র সহজ ড&#2495;র&#2503;ক&#2509;টর&#2495;</h1>
+            <div class='search-wrapper'>
+                <input id='searchBox' onkeyup='searchNews()' placeholder='সংবাদপত্রের নাম দিয়ে সার্চ করুন...' type='text'/>
+            </div>
+        </div>
+
+        <div class='page-layout'>
+            <div class='main-area'>
+                <b:section id='newspaper-categories' showaddelement='yes'>
+                  <b:widget id='LinkList1' locked='false' title='Bloge' type='LinkList' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-0'>AmarDesh</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://www.dailyamardesh.com/</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                  <b:widget id='LinkList101' locked='false' title='জাতীয় সংবাদপত্র' type='LinkList' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-1'>thedailystar</b:widget-setting>
+                      <b:widget-setting name='link-1'>https://www.thedailystar.net/</b:widget-setting>
+                      <b:widget-setting name='text-0'>Prothom Alo</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://www.prothomalo.com/</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='category-block'>
+                                <div class='category-header'>
+                                    <h2><data:title/></h2>
+                                    <span class='badge'><b:eval expr='data:links.length'/> PAPERS</span>
+                                </div>
+                                <div class='bento-grid'>
+                                    <b:loop values='data:links' var='link'>
+                                        <div class='news-card' expr:onclick='&quot;openReader(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                            <div class='icon-circle'>
+                                                <img expr:src='&quot;https://www.google.com/s2/favicons?sz=64&amp;domain=&quot; + data:link.target'/>
+                                            </div>
+                                            <span><data:link.name/></span>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+            </div>
+
+            <aside class='side-ads'>
+                <b:section id='side-ad' maxwidgets='1' showaddelement='yes'>
+                  <b:widget id='HTML12' locked='false' title='Sidebar Sky' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'/>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='ad-placeholder' style='height: 600px; position: sticky; top: 100px;'><data:content/></div>
+                        </b:includable>
+                  </b:widget>
+                </b:section>
+            </aside>
+        </div>
+    </div>
+
+    <div class='viewer-overlay' id='newsViewer'>
+        <div class='viewer-content'>
+            <div class='viewer-bar'>
+                <div class='title-group'>
+                    <div style='width: 10px; height: 10px; background: #2ecc71; border-radius: 50%;'/>
+                    <h2 id='viewerSiteTitle'>Loading...</h2>
+                </div>
+                <button class='btn-close' onclick='closeReader()'>বন&#2509;ধ কর&#2497;ন (Close)</button>
+            </div>
+            <iframe id='contentFrame' src=''/>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+        function openReader(url, name) {
+            const modal = document.getElementById(&#39;newsViewer&#39;);
+            const frame = document.getElementById(&#39;contentFrame&#39;);
+            const title = document.getElementById(&#39;viewerSiteTitle&#39;);
+            
+            title.innerText = name;
+            frame.src = url;
+            modal.style.display = &#39;flex&#39;;
+            document.body.style.overflow = &#39;hidden&#39;;
+        }
+
+        function closeReader() {
+            const modal = document.getElementById(&#39;newsViewer&#39;);
+            const frame = document.getElementById(&#39;contentFrame&#39;);
+            modal.style.display = &#39;none&#39;;
+            frame.src = &#39;&#39;;
+            document.body.style.overflow = &#39;auto&#39;;
+        }
+
+        function searchNews() {
+            let input = document.getElementById(&#39;searchBox&#39;).value.toLowerCase();
+            let cards = document.getElementsByClassName(&#39;news-card&#39;);
+            for (let i = 0; i &lt; cards.length; i++) {
+                let name = cards[i].innerText.toLowerCase();
+                cards[i].style.display = name.includes(input) ? &quot;flex&quot; : &quot;none&quot;;
+            }
+        }
+    </script>
+</body>
+</html>

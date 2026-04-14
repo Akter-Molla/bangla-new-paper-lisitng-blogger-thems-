@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>
+
+    <b:skin version='2'><![CDATA[
+        :root {
+            --primary: #e74c3c;
+            --primary-light: #ff6b5b;
+            --primary-dark: #c0392b;
+            --secondary: #0f172a;
+            --secondary-light: #1e293b;
+            --bg-light: #f0f4f8;
+            --surface: #ffffff;
+            --surface-glass: rgba(255, 255, 255, 0.95);
+            --border: rgba(226, 232, 240, 0.6);
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --gradient-primary: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 20px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 35px -10px rgba(0,0,0,0.1);
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-md: 20px;
+            --border-radius-lg: 28px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-light);
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            color: var(--text-dark);
+            padding-top: 70px;
+            line-height: 1.5;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 25% 40%, rgba(231,76,60,0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 28px; }
+
+        /* Header */
+        header {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { font-size: 28px; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; background: linear-gradient(135deg, #0f172a 0%, #334155 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo span { background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+        /* Small Hero */
+        .hero {
+            background: var(--gradient-dark);
+            border-radius: var(--border-radius-lg);
+            padding: 25px 35px;
+            margin: 20px 0 35px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .hero::before { content: '📰'; position: absolute; font-size: 120px; opacity: 0.06; bottom: -20px; right: -15px; pointer-events: none; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,0.12); border-radius: 50px; padding: 4px 16px; font-size: 0.7rem; margin-bottom: 10px; }
+        .hero h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+        .hero p { font-size: 0.85rem; opacity: 0.85; }
+        .hero-stats { display: flex; justify-content: center; gap: 18px; margin-top: 14px; flex-wrap: wrap; }
+        .hero-stats div { background: rgba(255,255,255,0.08); padding: 4px 16px; border-radius: 40px; font-size: 0.7rem; }
+        .hero-stats i { margin-right: 5px; color: var(--primary-light); }
+
+        /* Layout */
+        .main-wrapper { display: flex; flex-wrap: wrap; gap: 32px; margin-bottom: 50px; }
+        .main-content { flex: 2.5; min-width: 0; }
+        .sidebar-right { flex: 1; min-width: 280px; }
+
+        /* Categories */
+        .category-section { margin-bottom: 45px; animation: fadeInUp 0.5s ease-out forwards; opacity: 0; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .category-section:nth-child(1) { animation-delay: 0.05s; }
+        .category-section:nth-child(2) { animation-delay: 0.1s; }
+        .category-section:nth-child(3) { animation-delay: 0.15s; }
+        .category-section:nth-child(4) { animation-delay: 0.2s; }
+        .category-section:nth-child(5) { animation-delay: 0.25s; }
+        .category-section:nth-child(6) { animation-delay: 0.3s; }
+
+        .cat-header { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; padding-left: 16px; position: relative; }
+        .cat-header::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--gradient-primary); border-radius: 10px; }
+        .cat-header i { font-size: 1.4rem; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .cat-header h2 { font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
+
+        /* Cards */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+        .news-card {
+            background: var(--surface);
+            border-radius: var(--border-radius-md);
+            padding: 20px 14px 18px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .news-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 3px; background: var(--gradient-primary); transition: var(--transition); }
+        .news-card:hover::before { left: 0; }
+        .news-card:hover { transform: translateY(-5px); border-color: transparent; box-shadow: var(--shadow-lg); }
+        .news-card img { width: 52px; height: 52px; border-radius: 16px; margin-bottom: 12px; background: #fff; padding: 5px; object-fit: contain; transition: var(--transition); }
+        .news-card:hover img { transform: scale(1.05); }
+        .news-card span { display: block; font-weight: 700; font-size: 0.88rem; color: var(--text-dark); }
+        .news-card small { font-size: 0.65rem; color: var(--text-muted); margin-top: 6px; display: block; }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--surface-glass);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border);
+            padding: 22px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-md);
+        }
+        .sidebar-widget:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .sidebar-widget-title { font-size: 1.2rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; padding-bottom: 6px; margin-bottom: 18px; border-bottom: 2px solid var(--primary-light); }
+        .sidebar-list { list-style: none; }
+        .sidebar-list li { margin-bottom: 12px; padding: 6px 0 6px 12px; border-left: 3px solid var(--border); transition: var(--transition); }
+        .sidebar-list li:hover { border-left-color: var(--primary); background: rgba(231,76,60,0.05); border-radius: 0 10px 10px 0; }
+        .sidebar-list a { text-decoration: none; color: var(--text-dark); font-weight: 500; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.88rem; }
+        .sidebar-list a:hover { color: var(--primary); transform: translateX(4px); }
+        .sidebar-list i { width: 26px; color: var(--primary); }
+
+        /* Modal - Simple, No Auto Error Detection */
+        .modal-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.96);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-bar {
+            background: var(--secondary-light);
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .modal-bar .site-info { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+        
+        .action-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .action-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .action-btn:hover { background: var(--primary); border-color: var(--primary); transform: scale(1.02); }
+        .bypass-btn { background: #2c7da0; border-color: #2c7da0; }
+        .bypass-btn:hover { background: #1f5e7a; }
+
+        iframe#readerFrame { flex: 1; border: none; background: #fff; width: 100%; }
+        .close-btn { background: var(--gradient-primary); border: none; color: #fff; padding: 6px 20px; border-radius: 40px; cursor: pointer; font-weight: 600; }
+
+        /* Manual Error Message - Only shown when user clicks "Show Error" or iframe fails visibly */
+        .error-message {
+            display: none;
+            text-align: center;
+            padding: 60px 30px;
+            background: var(--surface);
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .error-icon { font-size: 70px; margin-bottom: 20px; }
+        .error-message h3 { font-size: 1.6rem; margin-bottom: 10px; color: var(--secondary); }
+        .error-message p { margin-bottom: 15px; color: var(--text-muted); max-width: 500px; }
+        .error-solutions {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            max-width: 500px;
+        }
+        .error-solutions h4 { color: var(--primary); margin-bottom: 12px; font-size: 1rem; }
+        .error-solutions ul { list-style: none; }
+        .error-solutions li { margin: 10px 0; display: flex; align-items: center; gap: 10px; }
+        .error-solutions i { width: 24px; color: var(--primary); }
+        .bypass-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 15px; }
+        .bypass-option {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .bypass-option:hover { transform: scale(1.05); filter: brightness(1.05); }
+        .proxy-option { background: #2c7da0; }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-dark);
+            color: #cbd5e1;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+            border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+        }
+        .footer-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; margin-bottom: 35px; }
+        .footer-col { flex: 1; min-width: 170px; }
+        .footer-logo { font-size: 22px; font-weight: 800; color: white; margin-bottom: 12px; display: inline-block; }
+        .footer-logo span { color: var(--primary-light); }
+        .footer-text { opacity: 0.7; font-size: 0.8rem; }
+        .footer-title { color: white; font-weight: 700; margin-bottom: 16px; border-left: 3px solid var(--primary); padding-left: 12px; font-size: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #cbd5e1; text-decoration: none; transition: var(--transition); font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--primary-light); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; }
+
+        @media (max-width: 800px) {
+            body { padding-top: 60px; }
+            .hero h1 { font-size: 1.3rem; }
+            .hero { padding: 18px 20px; margin: 15px 0 25px; }
+            .main-wrapper { flex-direction: column; }
+            .news-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+            .cat-header h2 { font-size: 1.3rem; }
+            header { height: auto; }
+            body { padding-top: 90px; }
+            .header-flex { height: auto; padding: 10px 0; flex-direction: column; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <header id='mainHeader'>
+        <div class='container header-flex'>
+            <div class='logo-area'>
+                <i class='fas fa-newspaper logo-icon'/>
+                <a class='logo' href='/'>NEWS<span>PORTAL</span> BANGLA</a>
+            </div>
+            <div class='header-widget'>
+                <b:section id='header-area' name='Header Widget' showaddelement='yes'>
+                  <b:widget id='HTML1' locked='false' title='Search' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'/>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <i class='fas fa-search' style='color:#64748b; font-size:18px; cursor:pointer;'/>
+                        </b:includable>
+                  </b:widget>
+                </b:section>
+            </div>
+        </div>
+    </header>
+
+    <div class='container'>
+        <div class='hero'>
+            <div class='hero-badge'>&#10024; ব&#2494;&#2434;ল&#2494;র গর&#2509;ব | ২৪/৭ স&#2434;ব&#2494;দ স&#2503;ব&#2494; &#10024;</div>
+            <h1>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সকল পত&#2509;র&#2495;ক&#2494; এক স&#2494;থ&#2503;</h1>
+            <p>সহজ&#2503;ই পড&#2492;&#2497;ন আপন&#2494;র প&#2509;র&#2495;য&#2492; ন&#2495;উজ প&#2507;র&#2509;ট&#2494;ল | দ&#2503;শ&#2503;র সব কণ&#2509;ঠ এক জ&#2494;য&#2492;গ&#2494;য&#2492;</p>
+            <div class='hero-stats'>
+                <div><i class='fas fa-newspaper'/> ১০০+ পত&#2509;র&#2495;ক&#2494;</div>
+                <div><i class='fas fa-tv'/> ৪৫+ ট&#2495;ভ&#2495; চ&#2509;য&#2494;ন&#2503;ল</div>
+                <div><i class='fas fa-globe'/> আন&#2509;তর&#2509;জ&#2494;ত&#2495;ক</div>
+            </div>
+        </div>
+
+        <div class='main-wrapper'>
+            <div class='main-content'>
+                <!-- 6 Category Sections -->
+                <b:section id='national-dailies' name='১. জাতীয় দৈনিক পত্রিকা' showaddelement='yes'>
+                  <b:widget id='LinkList101' locked='false' title='জাতীয় দৈনিক' type='LinkList' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='link-3'>https://www.jugantor.com/</b:widget-setting>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-1'>Ittefaq</b:widget-setting>
+                      <b:widget-setting name='link-1'>https://www.ittefaq.com.bd/</b:widget-setting>
+                      <b:widget-setting name='text-0'>Prothom Alo</b:widget-setting>
+                      <b:widget-setting name='link-2'>https://www.kalerkantho.com/</b:widget-setting>
+                      <b:widget-setting name='text-3'>Jugantor</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://www.prothomalo.com/</b:widget-setting>
+                      <b:widget-setting name='text-2'>Kaler Kantho</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='category-section'>
+                                <div class='cat-header'><i class='fas fa-landmark'/><h2><data:title/></h2></div>
+                                <div class='news-grid'>
+                                    <b:loop values='data:links' var='link'>
+                                        <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                            <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                            <span><data:link.name/></span>
+                                            <small>দ&#2504;ন&#2495;ক স&#2434;ব&#2494;দপত&#2509;র</small>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+
+                <b:section id='online-portals' name='২. অনলাইন নিউজ পোর্টাল' showaddelement='yes'>
+                  <b:widget id='LinkList102' locked='false' title='অনলাইন পোর্টাল' type='LinkList' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-1'>BanglaNews24</b:widget-setting>
+                      <b:widget-setting name='link-1'>https://www.banglanews24.com/</b:widget-setting>
+                      <b:widget-setting name='text-0'>bdnews24</b:widget-setting>
+                      <b:widget-setting name='link-2'>https://www.dhakapost.com/</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://bangla.bdnews24.com/</b:widget-setting>
+                      <b:widget-setting name='text-2'>Dhaka Post</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='category-section'>
+                                <div class='cat-header'><i class='fas fa-globe'/><h2><data:title/></h2></div>
+                                <div class='news-grid'>
+                                    <b:loop values='data:links' var='link'>
+                                        <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                            <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                            <span><data:link.name/></span>
+                                            <small>২৪/৭ আপড&#2503;ট</small>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+
+                <b:section id='tv-channels' name='৩. টিভি চ্যানেল ও মিডিয়া' showaddelement='yes'>
+                  <b:widget id='LinkList103' locked='false' title='টিভি চ্যানেল' type='LinkList' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-1'>Jamuna TV</b:widget-setting>
+                      <b:widget-setting name='link-1'>https://www.jamuna.tv/</b:widget-setting>
+                      <b:widget-setting name='text-0'>Somoy TV</b:widget-setting>
+                      <b:widget-setting name='link-2'>https://www.ntvbd.com/</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://www.somoynews.tv/</b:widget-setting>
+                      <b:widget-setting name='text-2'>NTV BD</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='category-section'>
+                                <div class='cat-header'><i class='fas fa-tv'/><h2><data:title/></h2></div>
+                                <div class='news-grid'>
+                                    <b:loop values='data:links' var='link'>
+                                        <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                            <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                            <span><data:link.name/></span>
+                                            <small>ল&#2494;ইভ স&#2509;ট&#2509;র&#2495;ম</small>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+
+                <b:section id='international' name='৪. আন্তর্জাতিক পত্রিকা' showaddelement='yes'>
+                  <b:widget id='LinkList104' locked='false' title='আন্তর্জাতিক সংবাদ' type='LinkList' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-1'>Al Jazeera</b:widget-setting>
+                      <b:widget-setting name='link-1'>https://www.aljazeera.com/</b:widget-setting>
+                      <b:widget-setting name='text-0'>BBC Bangla</b:widget-setting>
+                      <b:widget-setting name='link-2'>https://www.reuters.com/</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://www.bbc.com/bengali</b:widget-setting>
+                      <b:widget-setting name='text-2'>Reuters</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='category-section'>
+                                <div class='cat-header'><i class='fas fa-passport'/><h2><data:title/></h2></div>
+                                <div class='news-grid'>
+                                    <b:loop values='data:links' var='link'>
+                                        <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                            <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                            <span><data:link.name/></span>
+                                            <small>ব&#2495;শ&#2509;ব স&#2434;ব&#2494;দ</small>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+
+                <b:section id='sports-entertainment' name='৫. খেলাধুলা ও বিনোদন' showaddelement='yes'>
+                  <b:widget id='LinkList105' locked='false' title='স্পোর্টস ও বিনোদন' type='LinkList' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-1'>Pavilion</b:widget-setting>
+                      <b:widget-setting name='link-1'>https://www.pavilion.com.bd/</b:widget-setting>
+                      <b:widget-setting name='text-0'>Cricinfo</b:widget-setting>
+                      <b:widget-setting name='link-2'>https://www.anandabazar.com/entertainment</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://www.espncricinfo.com/</b:widget-setting>
+                      <b:widget-setting name='text-2'>Anandabazar</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='category-section'>
+                                <div class='cat-header'><i class='fas fa-futbol'/><h2><data:title/></h2></div>
+                                <div class='news-grid'>
+                                    <b:loop values='data:links' var='link'>
+                                        <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                            <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                            <span><data:link.name/></span>
+                                            <small>ব&#2495;ন&#2507;দন ও খ&#2503;ল&#2494;</small>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+
+                <b:section id='tech-science' name='৬. বিজ্ঞান ও প্রযুক্তি' showaddelement='yes'>
+                  <b:widget id='LinkList106' locked='false' title='টেক ও বিজ্ঞান' type='LinkList' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                      <b:widget-setting name='text-1'>Biggan Chinta</b:widget-setting>
+                      <b:widget-setting name='link-1'>https://www.bigganchinta.com/</b:widget-setting>
+                      <b:widget-setting name='text-0'>Techtunes</b:widget-setting>
+                      <b:widget-setting name='link-0'>https://www.techtunes.co/</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='category-section'>
+                                <div class='cat-header'><i class='fas fa-microchip'/><h2><data:title/></h2></div>
+                                <div class='news-grid'>
+                                    <b:loop values='data:links' var='link'>
+                                        <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                            <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                            <span><data:link.name/></span>
+                                            <small>ট&#2503;ক ন&#2495;উজ</small>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+            </div>
+
+            <div class='sidebar-right'>
+                <b:section id='sidebar-widgets' name='সাইডবার উইজেট' showaddelement='yes'>
+                  <b:widget id='HTML2' locked='false' title='🔥 ট্রেন্ডিং সংবাদ' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'/>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='sidebar-widget'>
+                                <div class='sidebar-widget-title'><i class='fas fa-fire'/> <data:title/></div>
+                                <ul class='sidebar-list'>
+                                    <li><i class='fas fa-newspaper'/> <a onclick='viewNews(&apos;https://www.prothomalo.com&apos;, &apos;প্রথম আলো&apos;)'>প&#2509;রথম আল&#2507; - প&#2509;রধ&#2494;ন স&#2434;ব&#2494;দ</a></li>
+                                    <li><i class='fas fa-chart-line'/> <a onclick='viewNews(&apos;https://www.bdnews24.com&apos;, &apos;বিডিনিউজ২৪&apos;)'>ব&#2495;ড&#2495;ন&#2495;উজ২৪ - সর&#2509;বশ&#2503;ষ</a></li>
+                                    <li><i class='fas fa-futbol'/> <a onclick='viewNews(&apos;https://www.kalerkantho.com&apos;, &apos;কালের কণ্ঠ&apos;)'>ক&#2494;ল&#2503;র কণ&#2509;ঠ - খ&#2503;ল&#2494;ধ&#2497;ল&#2494;</a></li>
+                                </ul>
+                            </div>
+                        </b:includable>
+                  </b:widget>
+                  <b:widget id='LinkList108' locked='false' title='⭐ জনপ্রিয় সাইট' type='LinkList' version='2' visible='true'>
+                    <b:includable id='main'>
+                            <div class='sidebar-widget'>
+                                <div class='sidebar-widget-title'><i class='fas fa-star'/> <data:title/></div>
+                                <ul class='sidebar-list'>
+                                    <b:loop values='data:links' var='link'>
+                                        <li><i class='fas fa-link'/> <a expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'><data:link.name/></a></li>
+                                    </b:loop>
+                                </ul>
+                            </div>
+                        </b:includable>
+                    <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                  </b:widget>
+                </b:section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class='container'>
+            <div class='footer-grid'>
+                <div class='footer-col'>
+                    <div class='footer-logo'>NEWS<span>PORTAL</span> BANGLA</div>
+                    <p class='footer-text'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সবচ&#2503;য&#2492;&#2503; ন&#2495;র&#2509;ভরয&#2507;গ&#2509;য স&#2434;ব&#2494;দ স&#2434;গ&#2509;রহস&#2509;থল&#2404;</p>
+                </div>
+                <div class='footer-col'>
+                    <b:section id='footer-col1' name='ফুটার কলাম ১' showaddelement='yes'>
+                      <b:widget id='LinkList109' locked='false' title='গুরুত্বপূর্ণ লিংক' type='LinkList' version='2' visible='true'>
+                        <b:includable id='main'>
+                                <h4 class='footer-title'><data:title/></h4>
+                                <ul class='footer-links'>
+                                    <b:loop values='data:links' var='link'>
+                                        <li><a expr:href='data:link.target'><data:link.name/></a></li>
+                                    </b:loop>
+                                </ul>
+                            </b:includable>
+                        <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+                <div class='footer-col'>
+                    <b:section id='footer-col2' name='ফুটার কলাম ২' showaddelement='yes'>
+                      <b:widget id='HTML3' locked='false' title='যোগাযোগ' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'/>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <h4 class='footer-title'><data:title/></h4>
+                                <ul class='footer-links'>
+                                    <li><i class='fas fa-envelope'/> info@newsportalbangla.com</li>
+                                    <li><i class='fab fa-facebook'/> facebook.com/newsportalbangla</li>
+                                </ul>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+            </div>
+            <div class='copyright'>&amp;copy; 2025 NEWS PORTAL BANGLA | সর&#2509;বস&#2509;বত&#2509;ব স&#2434;রক&#2509;ষ&#2495;ত</div>
+        </div>
+    </footer>
+
+    <!-- Modal - No Auto Error Detection -->
+    <div class='modal-view' id='newsModal'>
+        <div class='modal-bar'>
+            <div class='site-info'>
+                <span id='activePaper'><i class='fas fa-newspaper'/> পত&#2509;র&#2495;ক&#2494; পড&#2492;&#2497;ন</span>
+            </div>
+            <div class='action-buttons'>
+                <a class='action-btn' href='#' id='openInNewTab' target='_blank'><i class='fas fa-external-link-alt'/> নত&#2497;ন ট&#2509;য&#2494;ব</a>
+                <button class='action-btn' id='showErrorBtn' onclick='showManualError()' style='background:#e74c3c;'><i class='fas fa-exclamation-triangle'/> ল&#2507;ড ন&#2494; হল&#2503; এখ&#2494;ন&#2503; ক&#2509;ল&#2495;ক কর&#2497;ন</button>
+                <button class='close-btn' onclick='closeNews()'><i class='fas fa-times'/> বন&#2509;ধ</button>
+            </div>
+        </div>
+        <iframe id='readerFrame' src='' title='news-reader'/>
+        
+        <!-- Error message - shown only when user manually clicks or iframe visibly fails -->
+        <div class='error-message' id='iframeError' style='display:none;'>
+            <div class='error-icon'>🔒</div>
+            <h3>স&#2494;ইটট&#2495; ল&#2507;ড কর&#2494; য&#2494;চ&#2509;ছ&#2503; ন&#2494;!</h3>
+            <p><strong id='errorSiteName'/> এই ওয&#2492;&#2503;বস&#2494;ইটট&#2495; ন&#2495;র&#2494;পত&#2509;ত&#2494;জন&#2495;ত ক&#2494;রণ&#2503; অন&#2509;য স&#2494;ইট&#2503;র ভ&#2495;তর&#2503; দ&#2503;খ&#2494;ন&#2507; বন&#2509;ধ কর&#2503; দ&#2495;য&#2492;&#2503;ছ&#2503;&#2404;</p>
+            
+            <div class='error-solutions'>
+                <h4><i class='fas fa-lightbulb'/> সম&#2494;ধ&#2494;ন:</h4>
+                <ul>
+                    <li><i class='fas fa-external-link-alt'/> <strong>&quot;নত&#2497;ন ট&#2509;য&#2494;ব&#2503; খ&#2497;ল&#2497;ন&quot;</strong> ব&#2494;টন&#2503; ক&#2509;ল&#2495;ক কর&#2497;ন</li>
+                    <li><i class='fas fa-copy'/> ল&#2495;&#2434;ক কপ&#2495; কর&#2503; ব&#2509;র&#2494;উজ&#2494;র&#2503; প&#2503;স&#2509;ট কর&#2497;ন</li>
+                    <li><i class='fas fa-shield-alt'/> ক&#2495;ছ&#2497; স&#2494;ইট প&#2509;রক&#2509;স&#2495; স&#2494;প&#2507;র&#2509;ট কর&#2503; ন&#2494;</li>
+                </ul>
+            </div>
+            
+            <div class='bypass-buttons'>
+                <a class='bypass-option' href='#' id='errorOpenLink' target='_blank'><i class='fas fa-external-link-alt'/> নত&#2497;ন ট&#2509;য&#2494;ব&#2503; পড&#2492;&#2497;ন</a>
+            </div>
+            <p style='margin-top: 20px; font-size: 0.8rem;'><i class='fas fa-info-circle'/> অধ&#2495;ক&#2494;&#2434;শ বড&#2492; স&#2494;ইট (BBC, CNN, Prothom Alo) iframe এ ল&#2507;ড হত&#2503; ব&#2494;ধ&#2494; দ&#2503;য&#2492;&#2404;</p>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+    //<![CDATA[
+        var currentUrl = '';
+        var currentName = '';
+        
+        function viewNews(url, name) {
+            if (!url) return;
+            currentUrl = url;
+            currentName = name || 'পত্রিকা';
+            
+            var modal = document.getElementById('newsModal');
+            var frame = document.getElementById('readerFrame');
+            var errorDiv = document.getElementById('iframeError');
+            var titleSpan = document.getElementById('activePaper');
+            var newTabLink = document.getElementById('openInNewTab');
+            var errorLink = document.getElementById('errorOpenLink');
+            var errorSiteName = document.getElementById('errorSiteName');
+            
+            if (titleSpan) titleSpan.innerHTML = '<i class="fas fa-globe"></i> ' + currentName;
+            if (newTabLink) newTabLink.href = url;
+            if (errorLink) errorLink.href = url;
+            if (errorSiteName) errorSiteName.innerText = currentName;
+            
+            // Hide error and load iframe
+            if (errorDiv) errorDiv.style.display = 'none';
+            if (frame) {
+                frame.style.display = 'block';
+                frame.src = url;
+            }
+            
+            if (modal) modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Manual error button - user clicks this if site doesn't load
+        function showManualError() {
+            var frame = document.getElementById('readerFrame');
+            var errorDiv = document.getElementById('iframeError');
+            
+            if (frame && errorDiv) {
+                frame.style.display = 'none';
+                errorDiv.style.display = 'flex';
+            }
+        }
+        
+        function closeNews() {
+            var modal = document.getElementById('newsModal');
+            var frame = document.getElementById('readerFrame');
+            var errorDiv = document.getElementById('iframeError');
+            
+            if (modal) modal.style.display = 'none';
+            if (frame) {
+                frame.src = '';
+                frame.style.display = 'block';
+            }
+            if (errorDiv) errorDiv.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var modal = document.getElementById('newsModal');
+                if (modal && modal.style.display === 'flex') closeNews();
+            }
+        });
+        
+        // Click background to close
+        var modal = document.getElementById('newsModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeNews();
+            });
+        }
+    //]]>
+    </script>
+</body>
+</html>

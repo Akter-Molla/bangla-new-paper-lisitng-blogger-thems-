@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title><data:blog.title/></title>
+    <b:skin><![CDATA[
+        /* --- CSS Reset & Variables --- */
+        :root {
+            --primary-color: #007bff;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --header-bg: #1a237e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        /* --- Layout --- */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .cat-header {
+            display: flex;
+            align-items: center;
+            background: var(--header-bg);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px 8px 0 0;
+            margin-top: 30px;
+        }
+        .cat-header i { margin-right: 15px; font-size: 1.5rem; }
+        .cat-header h2 { margin: 0; font-size: 1.2rem; font-weight: 500; }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .news-card img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            background: #f9f9f9;
+        }
+        .news-card span {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .news-card small {
+            color: #777;
+            font-size: 11px;
+        }
+
+        /* --- News Viewer (Modal) --- */
+        #newsViewer {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            z-index: 9999;
+        }
+        .viewer-header {
+            height: 50px;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        #newsFrame {
+            width: 100%;
+            height: calc(100% - 50px);
+            border: none;
+        }
+        .close-btn { cursor: pointer; font-size: 24px; }
+    ]]></b:skin>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>
+</head>
+<body>
+    <div class='main-wrapper'>
+        <header style='text-align:center; padding: 40px 0;'>
+            <h1 style='color: #1a237e;'><data:blog.title/></h1>
+            <p>আপন&#2494;র পছন&#2509;দ&#2503;র সকল ন&#2495;উজ প&#2507;র&#2509;ট&#2494;ল এক জ&#2494;য়গ&#2494;য়</p>
+        </header>
+
+        <div class='main-content'>
+            
+            <!-- Category 1: National Dailies -->
+            <b:section id='national-dailies' name='১. জাতীয় দৈনিক পত্রিকা' showaddelement='yes'>
+              <b:widget id='LinkList101' locked='false' title='জাতীয় দৈনিক' type='LinkList' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='link-3'>https://www.jugantor.com/</b:widget-setting>
+                  <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                  <b:widget-setting name='text-1'>Ittefaq</b:widget-setting>
+                  <b:widget-setting name='link-1'>https://www.ittefaq.com.bd/</b:widget-setting>
+                  <b:widget-setting name='text-0'>Prothom Alo</b:widget-setting>
+                  <b:widget-setting name='link-2'>https://www.kalerkantho.com/</b:widget-setting>
+                  <b:widget-setting name='text-3'>Jugantor</b:widget-setting>
+                  <b:widget-setting name='link-0'>https://www.prothomalo.com/</b:widget-setting>
+                  <b:widget-setting name='text-2'>Kaler Kantho</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='category-section'>
+                            <div class='cat-header'><i class='fas fa-landmark'/><h2><data:title/></h2></div>
+                            <div class='news-grid'>
+                                <b:loop values='data:links' var='link'>
+                                    <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                        <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                        <span><data:link.name/></span>
+                                        <small>দ&#2504;ন&#2495;ক স&#2434;ব&#2494;দপত&#2509;র</small>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+
+            <!-- Category 2: Online Portals -->
+            <b:section id='online-portals' name='২. অনলাইন নিউজ পোর্টাল' showaddelement='yes'>
+              <b:widget id='LinkList102' locked='false' title='অনলাইন পোর্টাল' type='LinkList' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                  <b:widget-setting name='text-1'>BanglaNews24</b:widget-setting>
+                  <b:widget-setting name='link-1'>https://www.banglanews24.com/</b:widget-setting>
+                  <b:widget-setting name='text-0'>bdnews24</b:widget-setting>
+                  <b:widget-setting name='link-2'>https://www.dhakapost.com/</b:widget-setting>
+                  <b:widget-setting name='link-0'>https://bangla.bdnews24.com/</b:widget-setting>
+                  <b:widget-setting name='text-2'>Dhaka Post</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='category-section'>
+                            <div class='cat-header'><i class='fas fa-globe'/><h2><data:title/></h2></div>
+                            <div class='news-grid'>
+                                <b:loop values='data:links' var='link'>
+                                    <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                        <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                        <span><data:link.name/></span>
+                                        <small>২৪/৭ আপড&#2503;ট</small>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+
+            <!-- Category 3: TV Channels -->
+            <b:section id='tv-channels' name='৩. টিভি চ্যানেল ও মিডিয়া' showaddelement='yes'>
+              <b:widget id='LinkList103' locked='false' title='টিভি চ্যানেল' type='LinkList' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                  <b:widget-setting name='text-1'>Jamuna TV</b:widget-setting>
+                  <b:widget-setting name='link-1'>https://www.jamuna.tv/</b:widget-setting>
+                  <b:widget-setting name='text-0'>Somoy TV</b:widget-setting>
+                  <b:widget-setting name='link-2'>https://www.ntvbd.com/</b:widget-setting>
+                  <b:widget-setting name='link-0'>https://www.somoynews.tv/</b:widget-setting>
+                  <b:widget-setting name='text-2'>NTV BD</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='category-section'>
+                            <div class='cat-header'><i class='fas fa-tv'/><h2><data:title/></h2></div>
+                            <div class='news-grid'>
+                                <b:loop values='data:links' var='link'>
+                                    <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                        <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                        <span><data:link.name/></span>
+                                        <small>ল&#2494;ইভ ন&#2495;উজ</small>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+
+            <!-- Category 4: International -->
+            <b:section id='international' name='৪. আন্তর্জাতিক সংবাদ' showaddelement='yes'>
+              <b:widget id='LinkList104' locked='false' title='আন্তর্জাতিক' type='LinkList' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                  <b:widget-setting name='text-1'>Al Jazeera</b:widget-setting>
+                  <b:widget-setting name='link-1'>https://www.aljazeera.com/</b:widget-setting>
+                  <b:widget-setting name='text-0'>BBC Bangla</b:widget-setting>
+                  <b:widget-setting name='link-2'>https://www.reuters.com/</b:widget-setting>
+                  <b:widget-setting name='link-0'>https://www.bbc.com/bengali</b:widget-setting>
+                  <b:widget-setting name='text-2'>Reuters</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='category-section'>
+                            <div class='cat-header'><i class='fas fa-passport'/><h2><data:title/></h2></div>
+                            <div class='news-grid'>
+                                <b:loop values='data:links' var='link'>
+                                    <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                        <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                        <span><data:link.name/></span>
+                                        <small>ব&#2495;শ&#2509;ব স&#2434;ব&#2494;দ</small>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+
+            <!-- Category 5: Sports & Entertainment -->
+            <b:section id='sports-entertainment' name='৫. খেলাধুলা ও বিনোদন' showaddelement='yes'>
+              <b:widget id='LinkList105' locked='false' title='স্পোর্টস ও বিনোদন' type='LinkList' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                  <b:widget-setting name='text-1'>Pavilion</b:widget-setting>
+                  <b:widget-setting name='link-1'>https://www.pavilion.com.bd/</b:widget-setting>
+                  <b:widget-setting name='text-0'>Cricinfo</b:widget-setting>
+                  <b:widget-setting name='link-2'>https://www.anandabazar.com/entertainment</b:widget-setting>
+                  <b:widget-setting name='link-0'>https://www.espncricinfo.com/</b:widget-setting>
+                  <b:widget-setting name='text-2'>Anandabazar</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='category-section'>
+                            <div class='cat-header'><i class='fas fa-futbol'/><h2><data:title/></h2></div>
+                            <div class='news-grid'>
+                                <b:loop values='data:links' var='link'>
+                                    <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                        <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                        <span><data:link.name/></span>
+                                        <small>ব&#2495;ন&#2507;দন ও খ&#2503;ল&#2494;</small>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+
+            <!-- Category 6: Technology -->
+            <b:section id='tech-science' name='৬. বিজ্ঞান ও প্রযুক্তি' showaddelement='yes'>
+              <b:widget id='LinkList106' locked='false' title='টেক ও বিজ্ঞান' type='LinkList' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                  <b:widget-setting name='text-1'>Biggan Chinta</b:widget-setting>
+                  <b:widget-setting name='link-1'>https://www.bigganchinta.com/</b:widget-setting>
+                  <b:widget-setting name='text-0'>Techtunes</b:widget-setting>
+                  <b:widget-setting name='link-0'>https://www.techtunes.co/</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='category-section'>
+                            <div class='cat-header'><i class='fas fa-microchip'/><h2><data:title/></h2></div>
+                            <div class='news-grid'>
+                                <b:loop values='data:links' var='link'>
+                                    <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                        <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                        <span><data:link.name/></span>
+                                        <small>ট&#2503;ক ন&#2495;উজ</small>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+
+            <!-- Category 7: Business -->
+            <b:section id='business-economy' name='৭. অর্থনীতি ও বাণিজ্য' showaddelement='yes'>
+              <b:widget id='LinkList107' locked='false' title='অর্থ-বাণিজ্য' type='LinkList' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                  <b:widget-setting name='text-1'>The TBS</b:widget-setting>
+                  <b:widget-setting name='link-1'>https://www.tbsnews.net/</b:widget-setting>
+                  <b:widget-setting name='text-0'>Bonik Barta</b:widget-setting>
+                  <b:widget-setting name='link-0'>https://bonikbarta.net/</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='category-section'>
+                            <div class='cat-header'><i class='fas fa-chart-line'/><h2><data:title/></h2></div>
+                            <div class='news-grid'>
+                                <b:loop values='data:links' var='link'>
+                                    <div class='news-card' expr:onclick='&quot;viewNews(\&quot;&quot; + data:link.target + &quot;\&quot;, \&quot;&quot; + data:link.name + &quot;\&quot;)&quot;'>
+                                        <img expr:src='&quot;https://www.google.com/s2/favicons?sz=80&amp;domain=&quot; + data:link.target'/>
+                                        <span><data:link.name/></span>
+                                        <small>ব&#2494;জ&#2494;র স&#2434;ব&#2494;দ</small>
+                                    </div>
+                                </b:loop>
+                            </div>
+                        </div>
+                    </b:includable>
+                <b:includable id='content'>
+ <div class='widget-content'>
+   <ul>
+     <b:loop values='data:links' var='link'>
+       <li><a expr:href='data:link.target'><data:link.name/></a></li>
+     </b:loop>
+   </ul>
+ </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+
+        </div>
+    </div>
+
+    <!-- News Viewer Modal -->
+    <div id='newsViewer'>
+        <div class='viewer-header'>
+            <span id='viewerTitle'>Loading...</span>
+            <span class='close-btn' onclick='closeNews()'>&amp;times;</span>
+        </div>
+        <iframe id='newsFrame' src=''/>
+    </div>
+<div id='iframeError' style='display:none; padding:30px; text-align:center; color:#fff;'>
+    <i class='fas fa-exclamation-triangle' style='font-size:44px; color:#f59e0b;'/>
+    <h3 style='margin-top:12px;'>এই স&#2494;ইটট&#2495; frame-এ খ&#2507;ল&#2494; য&#2494;চ&#2509;ছ&#2503; ন&#2494;</h3>
+    <p style='margin:10px 0 18px;'>স&#2494;ইটট&#2495; ন&#2495;র&#2494;পত&#2509;ত&#2494;র ক&#2494;রণ&#2503; iframe block কর&#2503;ছ&#2503;&#2404; নত&#2497;ন ট&#2509;য&#2494;ব&#2503; খ&#2507;ল&#2494; হচ&#2509;ছ&#2503;&#2404;</p>
+    <a class='open-new-tab-btn' href='#' id='errorOpenLink' target='_blank'>
+        <i class='fas fa-external-link-alt'/> নত&#2497;ন ট&#2509;য&#2494;ব&#2503; খ&#2497;ল&#2497;ন
+    </a>
+</div>
+  <div id='viewer'/>
+<script>
+function loadSite(url) {
+  fetch(&#39;/proxy.php?url=&#39; + encodeURIComponent(url))
+    .then(r =&gt; r.text())
+    .then(html =&gt; {
+      document.getElementById(&#39;viewer&#39;).innerHTML = html;
+    })
+    .catch(() =&gt; {
+      window.open(url, &#39;_blank&#39;);
+    });
+}
+</script>
+<script type='text/javascript'>
+var loadTimer = null;
+var currentUrl = &#39;&#39;;
+var blockedHosts = [
+    &#39;ntvbd.com&#39;,
+    &#39;www.ntvbd.com&#39;,
+    &#39;facebook.com&#39;,
+    &#39;www.facebook.com&#39;
+];
+
+function isBlockedSite(url) {
+    try {
+        var host = new URL(url).hostname.replace(/^www\./, &#39;&#39;);
+        return blockedHosts.indexOf(host) !== -1;
+    } catch (e) {
+        return false;
+    }
+}
+
+function viewNews(url, title) {
+    currentUrl = url;
+
+    document.getElementById(&#39;newsViewer&#39;).style.display = &#39;block&#39;;
+    document.getElementById(&#39;viewerTitle&#39;).innerText = title || &#39;News&#39;;
+    document.body.style.overflow = &#39;hidden&#39;;
+
+    var frame = document.getElementById(&#39;newsFrame&#39;);
+    var errorBox = document.getElementById(&#39;iframeError&#39;);
+    var openLink = document.getElementById(&#39;errorOpenLink&#39;);
+
+    if (openLink) openLink.href = url;
+    if (errorBox) errorBox.style.display = &#39;none&#39;;
+
+    if (isBlockedSite(url)) {
+        if (frame) frame.style.display = &#39;none&#39;;
+        if (errorBox) errorBox.style.display = &#39;block&#39;;
+        window.open(url, &#39;_blank&#39;);
+        return;
+    }
+
+    if (frame) {
+        frame.style.display = &#39;block&#39;;
+        frame.src = &#39;about:blank&#39;;
+        setTimeout(function () {
+            frame.src = url;
+        }, 50);
+    }
+
+    if (loadTimer) clearTimeout(loadTimer);
+    loadTimer = setTimeout(function () {
+        showIframeError();
+    }, 5000);
+}
+
+function showIframeError() {
+    var frame = document.getElementById(&#39;newsFrame&#39;);
+    var errorBox = document.getElementById(&#39;iframeError&#39;);
+    var openLink = document.getElementById(&#39;errorOpenLink&#39;);
+
+    if (frame) frame.style.display = &#39;none&#39;;
+    if (errorBox) errorBox.style.display = &#39;block&#39;;
+    if (openLink &amp;&amp; currentUrl) openLink.href = currentUrl;
+}
+
+function closeNews() {
+    if (loadTimer) clearTimeout(loadTimer);
+
+    document.getElementById(&#39;newsViewer&#39;).style.display = &#39;none&#39;;
+    document.getElementById(&#39;newsFrame&#39;).src = &#39;&#39;;
+    document.getElementById(&#39;newsFrame&#39;).style.display = &#39;block&#39;;
+
+    var errorBox = document.getElementById(&#39;iframeError&#39;);
+    if (errorBox) errorBox.style.display = &#39;none&#39;;
+
+    document.body.style.overflow = &#39;auto&#39;;
+}
+</script>
+</body>
+</html>

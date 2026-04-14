@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>
+
+    <b:skin version='2'><![CDATA[
+        :root {
+            --primary: #e74c3c;
+            --secondary: #0f172a;
+            --bg-light: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --transition: all 0.25s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-light);
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            color: var(--text-dark);
+            padding-top: 80px;
+            line-height: 1.5;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            background: var(--surface);
+            height: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--secondary) 0%, #2d3a5e 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff6b5b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo-icon { font-size: 32px; color: var(--primary); }
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2a4a 100%);
+            border-radius: 32px;
+            padding: 50px 30px;
+            margin: 30px 0 40px;
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+        .main-content { flex: 2.5; min-width: 0; }
+        .sidebar-right { flex: 1; min-width: 280px; }
+
+        .category-section { margin-bottom: 48px; }
+        .cat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--primary);
+            padding-left: 18px;
+        }
+        .cat-header h2 { font-size: 1.6rem; font-weight: 700; color: var(--secondary); }
+        .cat-header i { color: var(--primary); font-size: 1.4rem; }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 18px 14px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        .news-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .news-card img {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            background: #fff;
+            padding: 5px;
+            object-fit: contain;
+        }
+        .news-card span { display: block; font-weight: 700; font-size: 0.95rem; color: var(--text-dark); }
+        .news-card small { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; display: block; }
+
+        .news-desc {
+            margin-top: 8px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            min-height: 32px;
+        }
+
+        .sidebar-widget {
+            background: var(--surface);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+        .sidebar-widget-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 6px;
+            margin-bottom: 18px;
+            color: var(--secondary);
+        }
+        .sidebar-list { list-style: none; }
+        .sidebar-list li {
+            margin-bottom: 12px;
+            border-left: 2px solid var(--border);
+            padding-left: 12px;
+        }
+        .sidebar-list a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .sidebar-list a:hover { color: var(--primary); transform: translateX(3px); }
+        .sidebar-list i { width: 24px; color: var(--primary); }
+
+        .modal-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+        }
+        .modal-bar {
+            background: #1e293b;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .modal-bar .site-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .open-new-tab-btn {
+            background: #2d3748;
+            border: 1px solid #4a5568;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .open-new-tab-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+        iframe#readerFrame {
+            flex: 1;
+            border: none;
+            background: #fff;
+            width: 100%;
+        }
+        .close-btn {
+            background: var(--primary);
+            border: none;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .error-message {
+            display: none;
+            text-align: center;
+            padding: 80px 20px;
+            background: #f8fafc;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .error-message i { font-size: 64px; color: var(--primary); margin-bottom: 20px; }
+        .error-message h3 { margin-bottom: 15px; color: var(--secondary); }
+        .error-message p { margin-bottom: 20px; color: var(--text-muted); max-width: 400px; }
+
+        footer {
+            background: var(--secondary);
+            color: #cbd5e1;
+            padding: 48px 0 24px;
+            margin-top: 40px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .footer-col { flex: 1; min-width: 180px; }
+        .footer-logo { font-size: 24px; font-weight: 800; color: white; margin-bottom: 12px; display: inline-block; }
+        .footer-logo span { color: var(--primary); }
+        .footer-title { color: white; font-weight: 700; margin-bottom: 18px; border-left: 3px solid var(--primary); padding-left: 12px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #cbd5e1; text-decoration: none; transition: var(--transition); font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; }
+
+        @media (max-width: 800px) {
+            body { padding-top: 110px; }
+            .hero h1 { font-size: 1.8rem; }
+            .main-wrapper { flex-direction: column; }
+            .news-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            header { height: auto; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <header>
+        <div class='container header-flex'>
+            <div class='logo-area'>
+                <i class='fas fa-newspaper logo-icon'/>
+                <a class='logo' href='/'>ALL<span>NEWSPAPER</span> BANGLA</a>
+            </div>
+            <div class='header-widget'>
+                <b:section id='header-area' name='Header Widget' showaddelement='yes'>
+                  <b:widget id='HTML1' locked='false' title='Search' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'/>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <i class='fas fa-search' style='color:#64748b; font-size:20px; cursor:pointer;'/>
+                        </b:includable>
+                  </b:widget>
+                </b:section>
+            </div>
+        </div>
+    </header>
+
+    <div class='container'>
+        <div class='hero'>
+            <div class='hero-badge'>📰 ২৪/৭ স&#2434;ব&#2494;দ স&#2503;ব&#2494; | ১০০+ পত&#2509;র&#2495;ক&#2494;</div>
+            <h1>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সকল পত&#2509;র&#2495;ক&#2494; এক স&#2494;থ&#2503;</h1>
+            <p>ন&#2495;চ&#2503;র প&#2509;রত&#2495;ট&#2495; ক&#2509;য&#2494;ট&#2494;গর&#2495;ত&#2503; ৫ট&#2495; কর&#2503; sample site এব&#2434; sample content য&#2507;গ কর&#2494; আছ&#2503;&#2404;</p>
+        </div>
+
+        <div class='main-wrapper'>
+            <div class='main-content'>
+
+                <!-- 1 -->
+                <div class='category-section'>
+                    <div class='cat-header'><i class='fas fa-landmark'/><h2>১. জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক পত&#2509;র&#2495;ক&#2494;</h2></div>
+                    <div class='news-grid'>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.prothomalo.com&apos;, &apos;প্রথম আলো&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=prothomalo.com'/>
+                            <span>প&#2509;রথম আল&#2507;</span>
+                            <small>দ&#2504;ন&#2495;ক</small>
+                            <div class='news-desc'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র জনপ&#2509;র&#2495;য&#2492; জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.kalerkantho.com&apos;, &apos;কালের কণ্ঠ&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=kalerkantho.com'/>
+                            <span>ক&#2494;ল&#2503;র কণ&#2509;ঠ</span>
+                            <small>দ&#2504;ন&#2495;ক</small>
+                            <div class='news-desc'>র&#2494;জন&#2496;ত&#2495;, খ&#2503;ল&#2494;ধ&#2497;ল&#2494; ও ব&#2495;ন&#2507;দন&#2503;র খবর&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.ittefaq.com.bd&apos;, &apos;ইত্তেফাক&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=ittefaq.com.bd'/>
+                            <span>ইত&#2509;ত&#2503;ফ&#2494;ক</span>
+                            <small>দ&#2504;ন&#2495;ক</small>
+                            <div class='news-desc'>দ&#2503;শ&#2503;র ঐত&#2495;হ&#2509;যব&#2494;হ&#2496; স&#2434;ব&#2494;দপত&#2509;র&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.jugantor.com&apos;, &apos;যুগান্তর&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=jugantor.com'/>
+                            <span>য&#2497;গ&#2494;ন&#2509;তর</span>
+                            <small>দ&#2504;ন&#2495;ক</small>
+                            <div class='news-desc'>জ&#2494;ত&#2496;য&#2492; ও আঞ&#2509;চল&#2495;ক স&#2434;ব&#2494;দ কভ&#2494;র&#2503;জ&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.samakal.com&apos;, &apos;সমকাল&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=samakal.com'/>
+                            <span>সমক&#2494;ল</span>
+                            <small>দ&#2504;ন&#2495;ক</small>
+                            <div class='news-desc'>দ&#2509;র&#2497;ত আপড&#2503;ট ও ব&#2495;শ&#2509;ল&#2503;ষণভ&#2495;ত&#2509;ত&#2495;ক খবর&#2404;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class='category-section'>
+                    <div class='cat-header'><i class='fas fa-globe'/><h2>২. অনল&#2494;ইন ন&#2495;উজ প&#2507;র&#2509;ট&#2494;ল</h2></div>
+                    <div class='news-grid'>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.bdnews24.com&apos;, &apos;বিডিনিউজ২৪&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=bdnews24.com'/>
+                            <span>ব&#2495;ড&#2495;ন&#2495;উজ২৪</span>
+                            <small>২৪/৭ আপড&#2503;ট</small>
+                            <div class='news-desc'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র শ&#2496;র&#2509;ষ অনল&#2494;ইন ন&#2495;উজ প&#2507;র&#2509;ট&#2494;ল&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.dhakatribune.com&apos;, &apos;ঢাকা ট্রিবিউন&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=dhakatribune.com'/>
+                            <span>ঢ&#2494;ক&#2494; ট&#2509;র&#2495;ব&#2495;উন</span>
+                            <small>২৪/৭ আপড&#2503;ট</small>
+                            <div class='news-desc'>ব&#2494;&#2434;ল&#2494; ও ই&#2434;র&#2503;জ&#2495; স&#2434;ব&#2494;দ একস&#2494;থ&#2503;&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.banglatribune.com&apos;, &apos;বাংলা ট্রিবিউন&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=banglatribune.com'/>
+                            <span>ব&#2494;&#2434;ল&#2494; ট&#2509;র&#2495;ব&#2495;উন</span>
+                            <small>২৪/৭ আপড&#2503;ট</small>
+                            <div class='news-desc'>অনল&#2494;ইনভ&#2495;ত&#2509;ত&#2495;ক জনপ&#2509;র&#2495;য&#2492; স&#2434;ব&#2494;দ ম&#2494;ধ&#2509;যম&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.jagonews24.com&apos;, &apos;জাগো নিউজ&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=jagonews24.com'/>
+                            <span>জ&#2494;গ&#2507; ন&#2495;উজ</span>
+                            <small>২৪/৭ আপড&#2503;ট</small>
+                            <div class='news-desc'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ ও ব&#2495;শ&#2509;ব&#2503;র ত&#2494;জ&#2494; খবর&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.risingbd.com&apos;, &apos;রাইজিংবিডি&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=risingbd.com'/>
+                            <span>র&#2494;ইজ&#2495;&#2434;ব&#2495;ড&#2495;</span>
+                            <small>২৪/৭ আপড&#2503;ট</small>
+                            <div class='news-desc'>ন&#2495;উজ, ফ&#2495;চ&#2494;র এব&#2434; ব&#2495;শ&#2509;ল&#2503;ষণম&#2498;লক কনট&#2503;ন&#2509;ট&#2404;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class='category-section'>
+                    <div class='cat-header'><i class='fas fa-tv'/><h2>৩. ট&#2495;ভ&#2495; চ&#2509;য&#2494;ন&#2503;ল ও ম&#2495;ড&#2495;য&#2492;&#2494;</h2></div>
+                    <div class='news-grid'>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.channelionline.com&apos;, &apos;চ্যানেল আই&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=channelionline.com'/>
+                            <span>চ&#2509;য&#2494;ন&#2503;ল আই</span>
+                            <small>ল&#2494;ইভ</small>
+                            <div class='news-desc'>দ&#2503;শ&#2503;র জনপ&#2509;র&#2495;য&#2492; ট&#2495;ভ&#2495; ও অনল&#2494;ইন ম&#2495;ড&#2495;য&#2492;&#2494;&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.jamuna.tv&apos;, &apos;যমুনা টিভি&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=jamuna.tv'/>
+                            <span>যম&#2497;ন&#2494; ট&#2495;ভ&#2495;</span>
+                            <small>ল&#2494;ইভ</small>
+                            <div class='news-desc'>সর&#2509;বশ&#2503;ষ ব&#2509;র&#2503;ক&#2495;&#2434; ন&#2495;উজ ও ভ&#2495;ড&#2495;ও আপড&#2503;ট&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.ekattor.tv&apos;, &apos;একাত্তর টিভি&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=ekattor.tv'/>
+                            <span>এক&#2494;ত&#2509;তর ট&#2495;ভ&#2495;</span>
+                            <small>ল&#2494;ইভ</small>
+                            <div class='news-desc'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র গ&#2497;র&#2497;ত&#2509;বপ&#2498;র&#2509;ণ খবর&#2503;র ট&#2495;ভ&#2495; কভ&#2494;র&#2503;জ&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.independent24.com&apos;, &apos;ইনডিপেনডেন্ট টিভি&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=independent24.com'/>
+                            <span>ইনড&#2495;প&#2503;নড&#2503;ন&#2509;ট ট&#2495;ভ&#2495;</span>
+                            <small>ল&#2494;ইভ</small>
+                            <div class='news-desc'>ন&#2495;উজ, টকশ&#2507; এব&#2434; আল&#2507;চন&#2494;ভ&#2495;ত&#2509;ত&#2495;ক অন&#2497;ষ&#2509;ঠ&#2494;ন&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.ntvbd.com&apos;, &apos;এনটিভি&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=ntvbd.com'/>
+                            <span>এনট&#2495;ভ&#2495;</span>
+                            <small>ল&#2494;ইভ</small>
+                            <div class='news-desc'>স&#2434;ব&#2494;দ ও ব&#2495;ন&#2507;দন&#2503;র সম&#2499;দ&#2509;ধ ট&#2495;ভ&#2495; প&#2509;ল&#2509;য&#2494;টফর&#2509;ম&#2404;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class='category-section'>
+                    <div class='cat-header'><i class='fas fa-passport'/><h2>৪. আন&#2509;তর&#2509;জ&#2494;ত&#2495;ক পত&#2509;র&#2495;ক&#2494;</h2></div>
+                    <div class='news-grid'>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.bbc.com/news&apos;, &apos;BBC News&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=bbc.com'/>
+                            <span>BBC News</span>
+                            <small>ব&#2495;শ&#2509;ব স&#2434;ব&#2494;দ</small>
+                            <div class='news-desc'>ব&#2495;শ&#2509;বব&#2509;য&#2494;প&#2496; ন&#2495;র&#2509;ভরয&#2507;গ&#2509;য স&#2434;ব&#2494;দ স&#2503;ব&#2494;&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://edition.cnn.com&apos;, &apos;CNN&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=cnn.com'/>
+                            <span>CNN</span>
+                            <small>ব&#2495;শ&#2509;ব স&#2434;ব&#2494;দ</small>
+                            <div class='news-desc'>আন&#2509;তর&#2509;জ&#2494;ত&#2495;ক খবর ও ল&#2494;ইভ আপড&#2503;ট&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.reuters.com&apos;, &apos;Reuters&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=reuters.com'/>
+                            <span>Reuters</span>
+                            <small>ব&#2495;শ&#2509;ব স&#2434;ব&#2494;দ</small>
+                            <div class='news-desc'>ব&#2509;র&#2503;ক&#2495;&#2434; ন&#2495;উজ ও এজ&#2503;ন&#2509;স&#2495; র&#2495;প&#2507;র&#2509;ট&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.aljazeera.com&apos;, &apos;Al Jazeera&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=aljazeera.com'/>
+                            <span>Al Jazeera</span>
+                            <small>ব&#2495;শ&#2509;ব স&#2434;ব&#2494;দ</small>
+                            <div class='news-desc'>মধ&#2509;যপ&#2509;র&#2494;চ&#2509;য ও ব&#2495;শ&#2509;ব পর&#2495;স&#2509;থ&#2495;ত&#2495;&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.theguardian.com&apos;, &apos;The Guardian&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=theguardian.com'/>
+                            <span>The Guardian</span>
+                            <small>ব&#2495;শ&#2509;ব স&#2434;ব&#2494;দ</small>
+                            <div class='news-desc'>র&#2494;জন&#2496;ত&#2495;, সম&#2494;জ ও ব&#2495;শ&#2509;ল&#2503;ষণধর&#2509;ম&#2496; প&#2509;রত&#2495;ব&#2503;দন&#2404;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class='category-section'>
+                    <div class='cat-header'><i class='fas fa-futbol'/><h2>৫. খ&#2503;ল&#2494;ধ&#2497;ল&#2494; ও ব&#2495;ন&#2507;দন</h2></div>
+                    <div class='news-grid'>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.cricbuzz.com&apos;, &apos;Cricbuzz&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=cricbuzz.com'/>
+                            <span>Cricbuzz</span>
+                            <small>ক&#2509;র&#2495;ক&#2503;ট</small>
+                            <div class='news-desc'>ল&#2494;ইভ স&#2509;ক&#2507;র, ম&#2509;য&#2494;চ র&#2495;প&#2507;র&#2509;ট, ব&#2495;শ&#2509;ল&#2503;ষণ&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.espncricinfo.com&apos;, &apos;ESPNcricinfo&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=espncricinfo.com'/>
+                            <span>ESPNcricinfo</span>
+                            <small>ক&#2509;র&#2495;ক&#2503;ট</small>
+                            <div class='news-desc'>ক&#2509;র&#2495;ক&#2503;ট ব&#2495;শ&#2509;ব&#2503;র অন&#2509;যতম জনপ&#2509;র&#2495;য&#2492; স&#2494;ইট&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.tsportsbd.com&apos;, &apos;T Sports&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=tsportsbd.com'/>
+                            <span>T Sports</span>
+                            <small>স&#2509;প&#2507;র&#2509;টস</small>
+                            <div class='news-desc'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র স&#2509;প&#2507;র&#2509;টস ট&#2495;ভ&#2495; ও অনল&#2494;ইন কনট&#2503;ন&#2509;ট&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.rtvonline.com&apos;, &apos;RTV&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=rtvonline.com'/>
+                            <span>RTV</span>
+                            <small>ব&#2495;ন&#2507;দন</small>
+                            <div class='news-desc'>ড&#2509;র&#2494;ম&#2494;, শ&#2507;, স&#2503;ল&#2495;ব&#2509;র&#2495;ট&#2495; ও ল&#2494;ইফস&#2509;ট&#2494;ইল&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.channeli.tv&apos;, &apos;চ্যানেল আই বিনোদন&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=channelionline.com'/>
+                            <span>চ&#2509;য&#2494;ন&#2503;ল আই</span>
+                            <small>ব&#2495;ন&#2507;দন</small>
+                            <div class='news-desc'>স&#2434;গ&#2496;ত, স&#2495;ন&#2503;ম&#2494; ও স&#2494;&#2434;স&#2509;ক&#2499;ত&#2495;ক অন&#2497;ষ&#2509;ঠ&#2494;ন&#2404;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class='category-section'>
+                    <div class='cat-header'><i class='fas fa-microchip'/><h2>৬. ব&#2495;জ&#2509;ঞ&#2494;ন ও প&#2509;রয&#2497;ক&#2509;ত&#2495;</h2></div>
+                    <div class='news-grid'>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.theverge.com&apos;, &apos;The Verge&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=theverge.com'/>
+                            <span>The Verge</span>
+                            <small>ট&#2503;ক ন&#2495;উজ</small>
+                            <div class='news-desc'>গ&#2509;য&#2494;জ&#2503;ট, সফটওয&#2492;&#2509;য&#2494;র ও ট&#2503;ক ট&#2509;র&#2503;ন&#2509;ড&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://techcrunch.com&apos;, &apos;TechCrunch&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=techcrunch.com'/>
+                            <span>TechCrunch</span>
+                            <small>ট&#2503;ক ন&#2495;উজ</small>
+                            <div class='news-desc'>স&#2509;ট&#2494;র&#2509;টআপ ও প&#2509;রয&#2497;ক&#2509;ত&#2495; স&#2434;ক&#2509;র&#2494;ন&#2509;ত খবর&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.wired.com&apos;, &apos;Wired&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=wired.com'/>
+                            <span>Wired</span>
+                            <small>ট&#2503;ক ন&#2495;উজ</small>
+                            <div class='news-desc'>ড&#2495;জ&#2495;ট&#2494;ল ব&#2495;শ&#2509;ব ও নত&#2497;ন উদ&#2509;ভ&#2494;বন&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://www.cnet.com&apos;, &apos;CNET&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=cnet.com'/>
+                            <span>CNET</span>
+                            <small>ট&#2503;ক ন&#2495;উজ</small>
+                            <div class='news-desc'>প&#2509;র&#2507;ড&#2494;ক&#2509;ট র&#2495;ভ&#2495;উ ও প&#2509;রয&#2497;ক&#2509;ত&#2495; খবর&#2404;</div>
+                        </div>
+                        <div class='news-card' onclick='viewNews(&apos;https://arstechnica.com&apos;, &apos;Ars Technica&apos;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=80&amp;domain=arstechnica.com'/>
+                            <span>Ars Technica</span>
+                            <small>ট&#2503;ক ন&#2495;উজ</small>
+                            <div class='news-desc'>ড&#2495;প ট&#2503;ক ও স&#2494;য়&#2503;ন&#2509;স কভ&#2494;র&#2503;জ&#2404;</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class='sidebar-right'>
+                <div class='sidebar-widget'>
+                    <div class='sidebar-widget-title'>শ&#2496;র&#2509;ষ স&#2434;ব&#2494;দ</div>
+                    <ul class='sidebar-list'>
+                        <li><i class='fas fa-fire'/> <a onclick='viewNews(&apos;https://www.prothomalo.com&apos;, &apos;প্রথম আলো&apos;)'>প&#2509;রথম আল&#2507; - শ&#2496;র&#2509;ষ স&#2434;ব&#2494;দ</a></li>
+                        <li><i class='fas fa-chart-line'/> <a onclick='viewNews(&apos;https://www.bdnews24.com&apos;, &apos;বিডিনিউজ২৪&apos;)'>ব&#2495;ড&#2495;ন&#2495;উজ২৪ - ল&#2503;ট&#2503;স&#2509;ট</a></li>
+                        <li><i class='fas fa-futbol'/> <a onclick='viewNews(&apos;https://www.kalerkantho.com&apos;, &apos;কালের কণ্ঠ&apos;)'>ক&#2494;ল&#2503;র কণ&#2509;ঠ - খ&#2503;ল&#2494;ধ&#2497;ল&#2494;</a></li>
+                    </ul>
+                </div>
+
+                <div class='sidebar-widget'>
+                    <div class='sidebar-widget-title'>জনপ&#2509;র&#2495;য় স&#2494;ইট</div>
+                    <ul class='sidebar-list'>
+                        <li><i class='fas fa-link'/> <a onclick='viewNews(&apos;https://www.jugantor.com&apos;, &apos;যুগান্তর&apos;)'>য&#2497;গ&#2494;ন&#2509;তর</a></li>
+                        <li><i class='fas fa-link'/> <a onclick='viewNews(&apos;https://www.samakal.com&apos;, &apos;সমকাল&apos;)'>সমক&#2494;ল</a></li>
+                        <li><i class='fas fa-link'/> <a onclick='viewNews(&apos;https://www.dhakatribune.com&apos;, &apos;ঢাকা ট্রিবিউন&apos;)'>ঢ&#2494;ক&#2494; ট&#2509;র&#2495;ব&#2495;উন</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class='container'>
+            <div class='footer-grid'>
+                <div class='footer-col'>
+                    <div class='footer-logo'>ALL<span>NEWSPAPER</span> BANGLA</div>
+                    <p>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সবচ&#2503;য&#2492;&#2503; ন&#2495;র&#2509;ভরয&#2507;গ&#2509;য স&#2434;ব&#2494;দ স&#2434;গ&#2509;রহস&#2509;থল&#2404; দ&#2509;র&#2497;ত, ন&#2495;র&#2509;ভ&#2497;ল এব&#2434; ন&#2495;রপ&#2503;ক&#2509;ষ স&#2494;&#2434;ব&#2494;দ&#2495;কত&#2494;র প&#2509;রত&#2495;শ&#2509;র&#2497;ত&#2495;&#2404;</p>
+                </div>
+                <div class='footer-col'>
+                    <h4 class='footer-title'>গ&#2497;র&#2497;ত&#2509;বপ&#2498;র&#2509;ণ ল&#2495;&#2434;ক</h4>
+                    <ul class='footer-links'>
+                        <li><a href='/'>হ&#2507;ম</a></li>
+                        <li><a href='#'>ন&#2495;উজ ক&#2509;য&#2494;ট&#2494;গর&#2495;</a></li>
+                        <li><a href='#'>য&#2507;গ&#2494;য&#2507;গ</a></li>
+                    </ul>
+                </div>
+                <div class='footer-col'>
+                    <h4 class='footer-title'>য&#2507;গ&#2494;য&#2507;গ</h4>
+                    <ul class='footer-links'>
+                        <li><i class='fas fa-envelope'/> info@allnewspaperbangla.com</li>
+                        <li><i class='fab fa-facebook'/> facebook.com/allnewspaperbangla</li>
+                    </ul>
+                </div>
+            </div>
+            <div class='copyright'>
+                &amp;copy; 2025 ALL NEWSPAPER BANGLA | সর&#2509;বস&#2509;বত&#2509;ব স&#2434;রক&#2509;ষ&#2495;ত
+            </div>
+        </div>
+    </footer>
+
+    <div class='modal-view' id='newsModal'>
+        <div class='modal-bar'>
+            <div class='site-info'>
+                <span id='activePaper'><i class='fas fa-newspaper'/> পত&#2509;র&#2495;ক&#2494; পড&#2492;&#2497;ন</span>
+                <a class='open-new-tab-btn' href='#' id='openInNewTab' target='_blank'><i class='fas fa-external-link-alt'/> নত&#2497;ন ট&#2509;য&#2494;ব&#2503; খ&#2497;ল&#2497;ন</a>
+            </div>
+            <button class='close-btn' onclick='closeNews()'><i class='fas fa-times'/> বন&#2509;ধ কর&#2497;ন</button>
+        </div>
+        <div class='error-message' id='iframeError' style='display:none;'>
+            <i class='fas fa-ban'/>
+            <h3>স&#2494;ইটট&#2495; ল&#2507;ড কর&#2494; য&#2494;চ&#2509;ছ&#2503; ন&#2494;</h3>
+            <p>এই ওয&#2492;&#2503;বস&#2494;ইটট&#2495; iframe-এ দ&#2503;খ&#2494;ত&#2503; দ&#2495;চ&#2509;ছ&#2503; ন&#2494;&#2404; নত&#2497;ন ট&#2509;য&#2494;ব&#2503; খ&#2497;ল&#2503; পড&#2492;&#2497;ন&#2404;</p>
+            <a class='open-new-tab-btn' href='#' id='errorOpenLink' style='background:var(--primary);' target='_blank'><i class='fas fa-external-link-alt'/> নত&#2497;ন ট&#2509;য&#2494;ব&#2503; পড&#2492;&#2497;ন</a>
+        </div>
+        <iframe id='readerFrame' src='' title='news-reader'/>
+    </div>
+
+    <script type='text/javascript'>
+    //<![CDATA[
+        function viewNews(url, name) {
+            if (!url) return;
+            var modal = document.getElementById('newsModal');
+            var frame = document.getElementById('readerFrame');
+            var errorDiv = document.getElementById('iframeError');
+            var titleSpan = document.getElementById('activePaper');
+            var newTabLink = document.getElementById('openInNewTab');
+            var errorLink = document.getElementById('errorOpenLink');
+
+            if (titleSpan) titleSpan.innerHTML = '<i class="fas fa-globe"></i> ' + (name || 'পত্রিকা');
+            if (newTabLink) newTabLink.href = url;
+            if (errorLink) errorLink.href = url;
+
+            if (errorDiv) errorDiv.style.display = 'none';
+            if (frame) {
+                frame.style.display = 'block';
+                frame.src = url;
+            }
+
+            if (modal) modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeNews() {
+            var modal = document.getElementById('newsModal');
+            var frame = document.getElementById('readerFrame');
+            var errorDiv = document.getElementById('iframeError');
+
+            if (modal) modal.style.display = 'none';
+            if (frame) {
+                frame.src = '';
+                frame.style.display = 'block';
+            }
+            if (errorDiv) errorDiv.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var modal = document.getElementById('newsModal');
+                if (modal && modal.style.display === 'flex') closeNews();
+            }
+        });
+    //]]>
+    </script>
+</body>
+</html>
