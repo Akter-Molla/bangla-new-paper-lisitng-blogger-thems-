@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    
+    <!-- Professional Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+
+    <b:skin version='2'><![CDATA[
+        :root {
+            --pro-primary: #1a73e8;
+            --pro-secondary: #202124;
+            --pro-accent: #d93025;
+            --pro-bg: #f8f9fa;
+            --pro-surface: #ffffff;
+            --pro-border: #dadce0;
+            --pro-text: #3c4043;
+            --pro-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            --pro-transition: all 0.3s ease;
+        }
+
+        body { 
+            background: var(--pro-bg); 
+            font-family: 'Inter', 'Hind Siliguri', sans-serif; 
+            color: var(--pro-text); 
+            margin: 0; 
+            padding-top: 160px; 
+            line-height: 1.6; 
+            transition: padding-top 0.3s ease;
+        }
+        
+        body.header-compact {
+            padding-top: 60px;
+        }
+        
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background: var(--pro-surface);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .header-full {
+            transition: all 0.3s ease;
+            max-height: 160px;
+            overflow: hidden;
+        }
+        
+        body.header-compact .header-full {
+            max-height: 0;
+            opacity: 0;
+            padding: 0;
+            margin: 0;
+            visibility: hidden;
+        }
+        
+        body.header-compact nav {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header-top { 
+            border-bottom: 1px solid var(--pro-border); 
+            padding: 10px 0; 
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .header-flex { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            text-decoration: none; 
+        }
+        
+        .logo-icon { 
+            width: 45px; 
+            height: 45px; 
+            background: var(--pro-primary); 
+            color: #fff; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 10px; 
+            font-size: 24px; 
+        }
+        
+        .logo-text { 
+            font-size: 26px; 
+            font-weight: 800; 
+            color: var(--pro-secondary); 
+            letter-spacing: -0.5px; 
+        }
+        
+        .logo-text span { 
+            color: var(--pro-primary); 
+        }
+        
+        .logo-image {
+            max-height: 55px;
+            width: auto;
+        }
+
+        .header-ad-area { 
+            width: 728px; 
+            height: 90px; 
+            background: #fafafa; 
+            border: 1px dashed #ccc; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 12px; 
+            color: #999; 
+        }
+
+        nav { 
+            background: var(--pro-surface); 
+            border-bottom: 1px solid var(--pro-border);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-list { 
+            display: flex; 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            overflow-x: auto; 
+            scrollbar-width: thin;
+        }
+        
+        .nav-list li a { 
+            display: block; 
+            padding: 16px 20px; 
+            text-decoration: none; 
+            color: var(--pro-secondary); 
+            font-weight: 600; 
+            font-size: 14px; 
+            transition: var(--pro-transition); 
+            border-bottom: 3px solid transparent; 
+            white-space: nowrap; 
+        }
+        
+        .nav-list li a:hover { 
+            color: var(--pro-primary); 
+            border-bottom-color: var(--pro-primary); 
+            background: rgba(26,115,232,0.04); 
+        }
+
+        .sub-nav { 
+            background: #fff; 
+            border-bottom: 1px solid var(--pro-border); 
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .search-wrapper { 
+            position: relative; 
+            width: 100%; 
+            max-width: 500px; 
+            display: flex; 
+            background: #f1f3f4; 
+            border-radius: 24px; 
+            padding: 2px 15px; 
+            align-items: center; 
+        }
+        
+        .search-wrapper input { 
+            border: none; 
+            background: transparent; 
+            padding: 10px; 
+            width: 100%; 
+            outline: none; 
+            font-size: 15px; 
+        }
+        
+        .compact-menu-items {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .compact-logo {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .compact-logo img {
+            height: 35px;
+            width: auto;
+        }
+        
+        .compact-logo span {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--pro-secondary);
+        }
+        
+        .compact-logo i {
+            font-size: 24px;
+            color: var(--pro-primary);
+        }
+        
+        .compact-search {
+            display: none;
+            background: #f1f3f4;
+            border-radius: 20px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        
+        body.header-compact .compact-logo {
+            display: flex;
+        }
+        
+        body.header-compact .compact-search {
+            display: block;
+        }
+        
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--pro-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top-btn:hover {
+            background: #1557b0;
+            transform: scale(1.1);
+        }
+        
+        .pro-ad-slot { margin: 25px auto; text-align: center; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+        .ad-label { font-size: 10px; color: #999; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
+
+        .main-wrapper { display: grid; grid-template-columns: 1fr 320px; gap: 30px; margin-top: 30px; }
+
+        .cat-box { background: #fff; border: 1px solid var(--pro-border); border-radius: 12px; padding: 25px; margin-bottom: 35px; }
+        .cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid var(--pro-bg); padding-bottom: 15px; }
+        .cat-header h2 { font-size: 20px; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 10px; }
+        .cat-header h2 i { color: var(--pro-primary); }
+
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; }
+        .news-card { background: #fff; border: 1px solid var(--pro-border); border-radius: 8px; padding: 15px 5px; text-align: center; transition: var(--pro-transition); cursor: pointer; text-decoration: none; }
+        .news-card:hover { transform: translateY(-3px); box-shadow: var(--pro-shadow); border-color: var(--pro-primary); }
+        .news-card img { width: 45px; height: 45px; object-fit: contain; margin-bottom: 10px; }
+        .news-card span { display: block; font-weight: 700; font-size: 13px; color: var(--pro-secondary); }
+
+        .post-container { background: #fff; padding: 40px; border-radius: 12px; border: 1px solid var(--pro-border); }
+        .post-title { font-size: 34px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .post-meta { font-size: 14px; color: #5f6368; margin-bottom: 30px; display: flex; gap: 20px; }
+        .post-body img { max-width: 100%; border-radius: 8px; }
+
+        .sidebar-widget { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--pro-border); margin-bottom: 30px; position: sticky; top: 170px; }
+        .widget-title { font-size: 18px; font-weight: 700; border-bottom: 2px solid var(--pro-primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
+
+        footer { background: var(--pro-secondary); color: #fff; padding: 70px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 20px; display: block; color: var(--pro-primary); }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #bdc1c6; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-links a:hover { color: #fff; padding-left: 5px; }
+
+        .iframe-error-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+        }
+        .error-content {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            max-width: 450px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.5s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .error-icon { font-size: 70px; color: #d93025; margin-bottom: 20px; }
+        .error-title { font-size: 24px; font-weight: 800; color: var(--pro-secondary); margin-bottom: 15px; }
+        .error-message { font-size: 15px; color: #5f6368; margin-bottom: 25px; line-height: 1.6; }
+        .retry-btn {
+            background: var(--pro-primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .retry-btn:hover { background: #1557b0; transform: scale(1.05); }
+        .iframe-container { position: relative; width: 100%; height: 100%; }
+
+        @media (max-width: 1024px) {
+            .header-ad-area { display: none; }
+            body { padding-top: 130px; }
+            body.header-compact { padding-top: 60px; }
+        }
+        @media (max-width: 768px) {
+            .main-wrapper { grid-template-columns: 1fr; }
+            .post-container { padding: 20px; }
+            .post-title { font-size: 24px; }
+            .error-content { margin: 20px; padding: 25px; }
+            .error-title { font-size: 20px; }
+            .compact-logo span { display: none; }
+            .header-flex { flex-direction: column; text-align: center; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <header>
+        <!-- Full Header Section -->
+        <div class='header-full'>
+            <div class='header-top'>
+                <div class='container header-flex'>
+                    <!-- Logo Widget Area - Use HTML widget for logo -->
+                    <b:section id='logo-widget-section' maxwidgets='1' showaddelement='yes'>
+                      <b:widget id='HTML16' locked='false' title='Main Logo' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'><![CDATA[<a class='logo-area' href='/'>
+    <div class='logo-icon'><i class='fas fa-newspaper'></i></div>
+    <div class='logo-text'>NEWS<span>PORTAL</span></div>
+</a>]]></b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <data:content/>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                    
+                    <!-- AdSense Header Slot -->
+                    <b:section id='header-ad-section' maxwidgets='1' showaddelement='yes'>
+                      <b:widget id='HTML1' locked='false' title='Header Ad' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'><![CDATA[<!-- Paste AdSense Code Here -->]]></b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <div class='header-ad-area'>
+                                    <data:content/>
+                                    <b:if cond='data:content == &quot;&quot;'>Responsive Header Ad (728x90)</b:if>
+                                </div>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class='sub-nav'>
+                <div class='container' style='display:flex; justify-content:space-between; align-items:center;'>
+                    <div class='search-wrapper'>
+                        <i class='fas fa-search' style='color:#5f6368'/>
+                        <input id='proSearch' onkeyup='proFilter()' placeholder='পত্রিকা বা জেলা খুঁজুন...' type='text'/>
+                    </div>
+                    <div id='proDate' style='font-size:13px; font-weight:600; color:var(--pro-primary);'/>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu (Always visible) -->
+        <nav>
+            <div class='container' style='display:flex; justify-content:space-between; align-items:center;'>
+                <ul class='nav-list'>
+                    <li><a href='/'><i class='fas fa-home'/> প&#2509;রধ&#2494;ন</a></li>
+                    <li><a href='#national'><i class='fas fa-flag'/> জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক</a></li>
+                    <li><a href='#online'><i class='fas fa-bolt'/> অনল&#2494;ইন প&#2507;র&#2509;ট&#2494;ল</a></li>
+                    <li><a href='#tv'><i class='fas fa-tv'/> ট&#2495;ভ&#2495; চ&#2509;য&#2494;ন&#2503;ল</a></li>
+                    <li><a href='#district'><i class='fas fa-map-marker-alt'/> জ&#2503;ল&#2494; ভ&#2495;ত&#2509;ত&#2495;ক</a></li>
+                    <li><a href='#international'><i class='fas fa-globe-americas'/> আন&#2509;তর&#2509;জ&#2494;ত&#2495;ক</a></li>
+                    <li><a href='#sports'><i class='fas fa-futbol'/> খ&#2503;ল&#2494;ধ&#2497;ল&#2494;</a></li>
+                </ul>
+                
+                <!-- Compact menu items (shown when scrolled) -->
+                <div class='compact-menu-items'>
+                    <b:section id='compact-logo-section' maxwidgets='1' showaddelement='yes'>
+                      <b:widget id='HTML17' locked='false' title='Compact Logo' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'><![CDATA[<a class='compact-logo' href='/'>
+    <i class='fas fa-newspaper'></i>
+    <span>NEWS</span>
+</a>]]></b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <data:content/>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                    <div class='compact-search' onclick='showSearchBar()'>
+                        <i class='fas fa-search'/>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class='container'>
+        <div class='main-wrapper'>
+            
+            <main>
+                
+                <div class='pro-ad-slot'>
+                    <span class='ad-label'>Advertisement</span>
+                    <b:section id='above-content-ad-section' maxwidgets='1' showaddelement='yes'>
+                      <b:widget id='HTML2' locked='false' title='Above Content Ad' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'/>
+                        </b:widget-settings>
+                        <b:includable id='main'><data:content/><b:if cond='data:content == &quot;&quot;'>Horizontal Ad Slot</b:if></b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+
+                <b:if cond='data:view.isHomepage'>
+                    
+                    <!-- NATIONAL SECTION -->
+                    <div class='cat-box' id='national'>
+                        <div class='cat-header'>
+                            <h2><i class='fas fa-landmark'/> জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক পত&#2509;র&#2495;ক&#2494;</h2>
+                        </div>
+                        <b:section id='national-section' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML10' locked='false' title='National Newspapers' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'><![CDATA[<div class='news-grid'>
+<div class='news-card' data-title='প্রথম আলো' onclick="openReader('https://www.prothomalo.com','প্রথম আলো')"><img src='https://www.google.com/s2/favicons?sz=128&domain=prothomalo.com'/><span>প্রথম আলো</span></div>
+<div class='news-card' data-title='ইত্তেফাক' onclick="openReader('https://www.ittefaq.com','ইত্তেফাক')"><img src='https://www.google.com/s2/favicons?sz=128&domain=ittefaq.com'/><span>ইত্তেফাক</span></div>
+<div class='news-card' data-title='যুগান্তর' onclick="openReader('https://www.jugantor.com','যুগান্তর')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jugantor.com'/><span>যুগান্তর</span></div>
+<div class='news-card' data-title='কালের কণ্ঠ' onclick="openReader('https://www.kalerkantho.com','কালের কণ্ঠ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=kalerkantho.com'/><span>কালের কণ্ঠ</span></div>
+<div class='news-card' data-title='বাংলাদেশ প্রতিদিন' onclick="openReader('https://www.bd-pratidin.com','বাংলাদেশ প্রতিদিন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bd-pratidin.com'/><span>বাংলাদেশ প্রতিদিন</span></div>
+<div class='news-card' data-title='নয়া দিগন্ত' onclick="openReader('https://www.dailynayadiganta.com','নয়া দিগন্ত')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dailynayadiganta.com'/><span>নয়া দিগন্ত</span></div>
+<div class='news-card' data-title='মানবকণ্ঠ' onclick="openReader('https://www.manobkantha.com','মানবকণ্ঠ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=manobkantha.com'/><span>মানবকণ্ঠ</span></div>
+<div class='news-card' data-title='ভোরের কাগজ' onclick="openReader('https://www.bhorerkagoj.com','ভোরের কাগজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bhorerkagoj.com'/><span>ভোরের কাগজ</span></div>
+<div class='news-card' data-title='বাংলা ট্রিবিউন' onclick="openReader('https://www.banglatribune.com','বাংলা ট্রিবিউন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglatribune.com'/><span>বাংলা ট্রিবিউন</span></div>
+<div class='news-card' data-title='দৈনিক ইনকিলাব' onclick="openReader('https://www.dailyinqilab.com','দৈনিক ইনকিলাব')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dailyinqilab.com'/><span>দৈনিক ইনকিলাব</span></div>
+<div class='news-card' data-title='সমকাল' onclick="openReader('https://www.samakal.com','সমকাল')"><img src='https://www.google.com/s2/favicons?sz=128&domain=samakal.com'/><span>সমকাল</span></div>
+<div class='news-card' data-title='দৈনিক জনকণ্ঠ' onclick="openReader('https://www.dailyjanakantha.com','দৈনিক জনকণ্ঠ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dailyjanakantha.com'/><span>দৈনিক জনকণ্ঠ</span></div>
+<div class='news-card' data-title='আমার দেশ' onclick="openReader('https://www.amardeshonline.com','আমার দেশ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=amardeshonline.com'/><span>আমার দেশ</span></div>
+<div class='news-card' data-title='ডেইলি বাংলাদেশ' onclick="openReader('https://www.dailybangladesh.org','ডেইলি বাংলাদেশ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dailybangladesh.org'/><span>ডেইলি বাংলাদেশ</span></div>
+<div class='news-card' data-title='দৈনিক আজাদী' onclick="openReader('https://www.dainikazadi.org','দৈনিক আজাদী')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dainikazadi.org'/><span>দৈনিক আজাদী</span></div>
+<div class='news-card' data-title='দৈনিক শিক্ষা' onclick="openReader('https://www.dainikshiksha.com','দৈনিক শিক্ষা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dainikshiksha.com'/><span>দৈনিক শিক্ষা</span></div>
+<div class='news-card' data-title='আজকের পত্রিকা' onclick="openReader('https://www.ajkerpatrika.com','আজকের পত্রিকা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=ajkerpatrika.com'/><span>আজকের পত্রিকা</span></div>
+<div class='news-card' data-title='দি অবজারভার' onclick="openReader('https://www.observerbd.com','দি অবজারভার')"><img src='https://www.google.com/s2/favicons?sz=128&domain=observerbd.com'/><span>দি অবজারভার</span></div>
+<div class='news-card' data-title='নিউ এইজ' onclick="openReader('https://www.newagebd.net','নিউ এইজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=newagebd.net'/><span>নিউ এইজ</span></div>
+<div class='news-card' data-title='ঢাকা ট্রিবিউন' onclick="openReader('https://www.dhakatribune.com','ঢাকা ট্রিবিউন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dhakatribune.com'/><span>ঢাকা ট্রিবিউন</span></div>
+<div class='news-card' data-title='দ্য ডেইলি স্টার' onclick="openReader('https://www.thedailystar.net','দ্য ডেইলি স্টার')"><img src='https://www.google.com/s2/favicons?sz=128&domain=thedailystar.net'/><span>দ্য ডেইলি স্টার</span></div>
+<div class='news-card' data-title='বিডিনিউজ২৪' onclick="openReader('https://www.bdnews24.com','বিডিনিউজ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bdnews24.com'/><span>বিডিনিউজ২৪</span></div>
+<div class='news-card' data-title='আমাদের সময়' onclick="openReader('https://www.amadershomoy.com','আমাদের সময়')"><img src='https://www.google.com/s2/favicons?sz=128&domain=amadershomoy.com'/><span>আমাদের সময়</span></div>
+<div class='news-card' data-title='জনমত' onclick="openReader('https://www.janomot.net','জনমত')"><img src='https://www.google.com/s2/favicons?sz=128&domain=janomot.net'/><span>জনমত</span></div>
+<div class='news-card' data-title='দৈনিক সংগ্রাম' onclick="openReader('https://www.dailysangram.com','দৈনিক সংগ্রাম')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dailysangram.com'/><span>দৈনিক সংগ্রাম</span></div>
+<div class='news-card' data-title='জয়যাত্রা' onclick="openReader('https://www.jaijaidinbd.com','জয়যাত্রা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jaijaidinbd.com'/><span>জয়যাত্রা</span></div>
+<div class='news-card' data-title='বাংলানিউজ২৪' onclick="openReader('https://www.banglanews24.com','বাংলানিউজ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglanews24.com'/><span>বাংলানিউজ২৪</span></div>
+<div class='news-card' data-title='দৈনিক দেশ' onclick="openReader('https://www.dailydesh.com','দৈনিক দেশ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dailydesh.com'/><span>দৈনিক দেশ</span></div>
+<div class='news-card' data-title='সংবাদ' onclick="openReader('https://www.sangbad.net.bd','সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sangbad.net.bd'/><span>সংবাদ</span></div>
+</div>]]></b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+
+                    <!-- ONLINE SECTION -->
+                    <div class='cat-box' id='online'>
+                        <div class='cat-header'>
+                            <h2><i class='fas fa-globe'/> অনল&#2494;ইন ন&#2495;উজ প&#2507;র&#2509;ট&#2494;ল</h2>
+                        </div>
+                        <b:section id='online-section' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML11' locked='false' title='Online Portals' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'><![CDATA[<div class='news-grid'>
+<div class='news-card' data-title='বিডিনিউজ২৪' onclick="openReader('https://www.bdnews24.com','বিডিনিউজ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bdnews24.com'/><span>বিডিনিউজ২৪</span></div>
+<div class='news-card' data-title='বাংলানিউজ২৪' onclick="openReader('https://www.banglanews24.com','বাংলানিউজ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglanews24.com'/><span>বাংলানিউজ২৪</span></div>
+<div class='news-card' data-title='জাগোনিউজ২৪' onclick="openReader('https://www.jagonews24.com','জাগোনিউজ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jagonews24.com'/><span>জাগোনিউজ২৪</span></div>
+<div class='news-card' data-title='ঢাকা ট্রিবিউন' onclick="openReader('https://www.dhakatribune.com','ঢাকা ট্রিবিউন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dhakatribune.com'/><span>ঢাকা ট্রিবিউন</span></div>
+<div class='news-card' data-title='বাংলা ট্রিবিউন' onclick="openReader('https://www.banglatribune.com','বাংলা ট্রিবিউন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglatribune.com'/><span>বাংলা ট্রিবিউন</span></div>
+<div class='news-card' data-title='রাইজিং বিডি' onclick="openReader('https://www.risingbd.com','রাইজিং বিডি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=risingbd.com'/><span>রাইজিং বিডি</span></div>
+<div class='news-card' data-title='সময় নিউজ' onclick="openReader('https://www.somoynews.tv','সময় নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=somoynews.tv'/><span>সময় নিউজ</span></div>
+<div class='news-card' data-title='বাংলাদেশ টাইমস' onclick="openReader('https://www.bangladeshtimes.com','বাংলাদেশ টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bangladeshtimes.com'/><span>বাংলাদেশ টাইমস</span></div>
+<div class='news-card' data-title='বাংলা মেইল২৪' onclick="openReader('https://www.banglamail24.com','বাংলা মেইল২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglamail24.com'/><span>বাংলা মেইল২৪</span></div>
+<div class='news-card' data-title='বিডি জার্নাল' onclick="openReader('https://www.bdjournal.com','বিডি জার্নাল')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bdjournal.com'/><span>বিডি জার্নাল</span></div>
+<div class='news-card' data-title='সময়ের আলো' onclick="openReader('https://www.shomoyeralo.com','সময়ের আলো')"><img src='https://www.google.com/s2/favicons?sz=128&domain=shomoyeralo.com'/><span>সময়ের আলো</span></div>
+<div class='news-card' data-title='নিউজ বাংলা২৪' onclick="openReader('https://www.newsbangla24.com','নিউজ বাংলা২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=newsbangla24.com'/><span>নিউজ বাংলা২৪</span></div>
+<div class='news-card' data-title='বিবিসি বাংলা' onclick="openReader('https://www.bbc.com/bengali','বিবিসি বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bbc.com'/><span>বিবিসি বাংলা</span></div>
+<div class='news-card' data-title='ডয়চে ভেলে বাংলা' onclick="openReader('https://www.dw.com/bn','ডয়চে ভেলে বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dw.com'/><span>ডয়চে ভেলে বাংলা</span></div>
+<div class='news-card' data-title='ভিওএ বাংলা' onclick="openReader('https://www.voabangla.com','ভিওএ বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=voabangla.com'/><span>ভিওএ বাংলা</span></div>
+<div class='news-card' data-title='আমার সংবাদ' onclick="openReader('https://www.amarsangbad.com','আমার সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=amarsangbad.com'/><span>আমার সংবাদ</span></div>
+<div class='news-card' data-title='দৈনিক সংবাদ' onclick="openReader('https://www.dailysangbad.com','দৈনিক সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dailysangbad.com'/><span>দৈনিক সংবাদ</span></div>
+<div class='news-card' data-title='সিটি নিউজ' onclick="openReader('https://www.citynewsbd.com','সিটি নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=citynewsbd.com'/><span>সিটি নিউজ</span></div>
+<div class='news-card' data-title='নিউজ নেক্সট' onclick="openReader('https://www.newsnextbd.com','নিউজ নেক্সট')"><img src='https://www.google.com/s2/favicons?sz=128&domain=newsnextbd.com'/><span>নিউজ নেক্সট</span></div>
+<div class='news-card' data-title='বাংলা ভিশন' onclick="openReader('https://www.banglavision.news','বাংলা ভিশন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglavision.news'/><span>বাংলা ভিশন</span></div>
+<div class='news-card' data-title='একাত্তর টিভি নিউজ' onclick="openReader('https://www.ekattor.tv','একাত্তর টিভি নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=ekattor.tv'/><span>একাত্তর টিভি নিউজ</span></div>
+<div class='news-card' data-title='দেশ রূপান্তর' onclick="openReader('https://www.deshrupantor.com','দেশ রূপান্তর')"><img src='https://www.google.com/s2/favicons?sz=128&domain=deshrupantor.com'/><span>দেশ রূপান্তর</span></div>
+<div class='news-card' data-title='বাংলা পোস্ট' onclick="openReader('https://www.banglapostbd.com','বাংলা পোস্ট')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglapostbd.com'/><span>বাংলা পোস্ট</span></div>
+<div class='news-card' data-title='প্রথম খবর' onclick="openReader('https://www.prothomkhobor.com','প্রথম খবর')"><img src='https://www.google.com/s2/favicons?sz=128&domain=prothomkhobor.com'/><span>প্রথম খবর</span></div>
+<div class='news-card' data-title='সকালের সংবাদ' onclick="openReader('https://www.sokalersangbad.com','সকালের সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sokalersangbad.com'/><span>সকালের সংবাদ</span></div>
+<div class='news-card' data-title='আরটিভি অনলাইন' onclick="openReader('https://www.rtvonline.com','আরটিভি অনলাইন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=rtvonline.com'/><span>আরটিভি অনলাইন</span></div>
+<div class='news-card' data-title='চ্যানেল২৪ অনলাইন' onclick="openReader('https://www.channel24bd.tv','চ্যানেল২৪ অনলাইন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=channel24bd.tv'/><span>চ্যানেল২৪ অনলাইন</span></div>
+<div class='news-card' data-title='যমুনা টিভি নিউজ' onclick="openReader('https://www.jamuna.tv','যমুনা টিভি নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jamuna.tv'/><span>যমুনা টিভি নিউজ</span></div>
+<div class='news-card' data-title='এটিএন নিউজ' onclick="openReader('https://www.atnnews.com','এটিএন নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=atnnews.com'/><span>এটিএন নিউজ</span></div>
+</div>]]></b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+
+                    <!-- TV SECTION -->
+                    <div class='cat-box' id='tv'>
+                        <div class='cat-header'>
+                            <h2><i class='fas fa-tv'/> ট&#2495;ভ&#2495; চ&#2509;য&#2494;ন&#2503;ল</h2>
+                        </div>
+                        <b:section id='tv-section' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML12' locked='false' title='TV Channels' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'><![CDATA[<div class='news-grid'>
+<div class='news-card' data-title='চ্যানেল২৪' onclick="openReader('https://www.channel24bd.tv','চ্যানেল২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=channel24bd.tv'/><span>চ্যানেল২৪</span></div>
+<div class='news-card' data-title='যমুনা টিভি' onclick="openReader('https://www.jamuna.tv','যমুনা টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jamuna.tv'/><span>যমুনা টিভি</span></div>
+<div class='news-card' data-title='এটিএন নিউজ' onclick="openReader('https://www.atnnews.com','এটিএন নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=atnnews.com'/><span>এটিএন নিউজ</span></div>
+<div class='news-card' data-title='চ্যানেল আই' onclick="openReader('https://www.channelionline.com','চ্যানেল আই')"><img src='https://www.google.com/s2/favicons?sz=128&domain=channelionline.com'/><span>চ্যানেল আই</span></div>
+<div class='news-card' data-title='সময় টিভি' onclick="openReader('https://www.somoynews.tv','সময় টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=somoynews.tv'/><span>সময় টিভি</span></div>
+<div class='news-card' data-title='বাংলাভিশন' onclick="openReader('https://www.banglavision.tv','বাংলাভিশন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglavision.tv'/><span>বাংলাভিশন</span></div>
+<div class='news-card' data-title='ডিবিসি নিউজ' onclick="openReader('https://www.dbcnews.tv','ডিবিসি নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dbcnews.tv'/><span>ডিবিসি নিউজ</span></div>
+<div class='news-card' data-title='একাত্তর টিভি' onclick="openReader('https://www.ekattor.tv','একাত্তর টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=ekattor.tv'/><span>একাত্তর টিভি</span></div>
+<div class='news-card' data-title='দেশ টিভি' onclick="openReader('https://www.desh.tv','দেশ টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=desh.tv'/><span>দেশ টিভি</span></div>
+<div class='news-card' data-title='নিউজ২৪' onclick="openReader('https://www.news24bd.tv','নিউজ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=news24bd.tv'/><span>নিউজ২৪</span></div>
+<div class='news-card' data-title='দিগন্ত টিভি' onclick="openReader('https://www.digantatv.com','দিগন্ত টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=digantatv.com'/><span>দিগন্ত টিভি</span></div>
+<div class='news-card' data-title='মোহনা টিভি' onclick="openReader('https://www.mohona.tv','মোহনা টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=mohona.tv'/><span>মোহনা টিভি</span></div>
+<div class='news-card' data-title='বিজয় টিভি' onclick="openReader('https://www.bijoytv.com','বিজয় টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bijoytv.com'/><span>বিজয় টিভি</span></div>
+<div class='news-card' data-title='মাই টিভি' onclick="openReader('https://www.mytvbd.tv','মাই টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=mytvbd.tv'/><span>মাই টিভি</span></div>
+<div class='news-card' data-title='আরটিভি' onclick="openReader('https://www.rtvonline.com','আরটিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=rtvonline.com'/><span>আরটিভি</span></div>
+<div class='news-card' data-title='গাজী টিভি' onclick="openReader('https://www.gazitv.com','গাজী টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=gazitv.com'/><span>গাজী টিভি</span></div>
+<div class='news-card' data-title='নাগরিক টিভি' onclick="openReader('https://www.nagorik.tv','নাগরিক টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=nagorik.tv'/><span>নাগরিক টিভি</span></div>
+<div class='news-card' data-title='বরিশাল টিভি' onclick="openReader('https://www.barishaltv.com','বরিশাল টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=barishaltv.com'/><span>বরিশাল টিভি</span></div>
+<div class='news-card' data-title='চট্টগ্রাম টিভি' onclick="openReader('https://www.chattogramtv.com','চট্টগ্রাম টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=chattogramtv.com'/><span>চট্টগ্রাম টিভি</span></div>
+<div class='news-card' data-title='সিলেট টিভি' onclick="openReader('https://www.sylhettv.com','সিলেট টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sylhettv.com'/><span>সিলেট টিভি</span></div>
+<div class='news-card' data-title='খুলনা টিভি' onclick="openReader('https://www.khulnatv.com','খুলনা টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=khulnatv.com'/><span>খুলনা টিভি</span></div>
+<div class='news-card' data-title='রংপুর টিভি' onclick="openReader('https://www.rangpurtv.com','রংপুর টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=rangpurtv.com'/><span>রংপুর টিভি</span></div>
+<div class='news-card' data-title='এনটিভি' onclick="openReader('https://www.ntvbd.com','এনটিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=ntvbd.com'/><span>এনটিভি</span></div>
+<div class='news-card' data-title='বিএনবি নিউজ' onclick="openReader('https://www.bnbnews.tv','বিএনবি নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bnbnews.tv'/><span>বিএনবি নিউজ</span></div>
+<div class='news-card' data-title='সংবাদ টিভি' onclick="openReader('https://www.sangbadtv.com','সংবাদ টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sangbadtv.com'/><span>সংবাদ টিভি</span></div>
+<div class='news-card' data-title='ভয়েস টিভি' onclick="openReader('https://www.voicetvbd.com','ভয়েস টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=voicetvbd.com'/><span>ভয়েস টিভি</span></div>
+<div class='news-card' data-title='বিশ্ব টিভি' onclick="openReader('https://www.biswotv.com','বিশ্ব টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=biswotv.com'/><span>বিশ্ব টিভি</span></div>
+<div class='news-card' data-title='আমার টিভি' onclick="openReader('https://www.amartv.com','আমার টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=amartv.com'/><span>আমার টিভি</span></div>
+<div class='news-card' data-title='ইন্ডিপেন্ডেন্ট টিভি' onclick="openReader('https://www.itvbd.com','ইন্ডিপেন্ডেন্ট টিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=itvbd.com'/><span>ইন্ডিপেন্ডেন্ট টিভি</span></div>
+</div>]]></b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+
+                    <!-- DISTRICT SECTION -->
+                    <div class='cat-box' id='district'>
+                        <div class='cat-header'>
+                            <h2><i class='fas fa-map-marker-alt'/> জ&#2503;ল&#2494; ভ&#2495;ত&#2509;ত&#2495;ক পত&#2509;র&#2495;ক&#2494;</h2>
+                        </div>
+                        <b:section id='district-section' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML13' locked='false' title='District Newspapers' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'><![CDATA[<div class='news-grid'>
+<div class='news-card' data-title='চট্টগ্রাম টাইমস' onclick="openReader('https://www.chittagongtimes.com','চট্টগ্রাম টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=chittagongtimes.com'/><span>চট্টগ্রাম টাইমস</span></div>
+<div class='news-card' data-title='খুলনা নিউজ' onclick="openReader('https://www.khulnanews.com','খুলনা নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=khulnanews.com'/><span>খুলনা নিউজ</span></div>
+<div class='news-card' data-title='রাজশাহী নিউজ' onclick="openReader('https://www.rajshahinews.com','রাজশাহী নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=rajshahinews.com'/><span>রাজশাহী নিউজ</span></div>
+<div class='news-card' data-title='বরিশাল নিউজ' onclick="openReader('https://www.barisalnews.com','বরিশাল নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=barisalnews.com'/><span>বরিশাল নিউজ</span></div>
+<div class='news-card' data-title='সিলেট নিউজ' onclick="openReader('https://www.sylhetnews.com','সিলেট নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sylhetnews.com'/><span>সিলেট নিউজ</span></div>
+<div class='news-card' data-title='রংপুর নিউজ২৪' onclick="openReader('https://www.rangpurnews24.com','রংপুর নিউজ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=rangpurnews24.com'/><span>রংপুর নিউজ২৪</span></div>
+<div class='news-card' data-title='ময়মনসিংহ টাইমস' onclick="openReader('https://www.mymensinghtimes.com','ময়মনসিংহ টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=mymensinghtimes.com'/><span>ময়মনসিংহ টাইমস</span></div>
+<div class='news-card' data-title='কুমিল্লা ভিশন' onclick="openReader('https://www.comillavision.com','কুমিল্লা ভিশন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=comillavision.com'/><span>কুমিল্লা ভিশন</span></div>
+<div class='news-card' data-title='নোয়াখালী ভিশন' onclick="openReader('https://www.noakhalivision.com','নোয়াখালী ভিশন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=noakhalivision.com'/><span>নোয়াখালী ভিশন</span></div>
+<div class='news-card' data-title='বগুড়া এক্সপ্রেস' onclick="openReader('https://www.bograexpress.com','বগুড়া এক্সপ্রেস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bograexpress.com'/><span>বগুড়া এক্সপ্রেস</span></div>
+<div class='news-card' data-title='যশোর নিউজ' onclick="openReader('https://www.jessorenews.com','যশোর নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jessorenews.com'/><span>যশোর নিউজ</span></div>
+<div class='news-card' data-title='দিনাজপুর টাইমস' onclick="openReader('https://www.dinajpurtimes.com','দিনাজপুর টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dinajpurtimes.com'/><span>দিনাজপুর টাইমস</span></div>
+<div class='news-card' data-title='পাবনা নিউজ' onclick="openReader('https://www.pabnanews.com','পাবনা নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=pabnanews.com'/><span>পাবনা নিউজ</span></div>
+<div class='news-card' data-title='নাটোর নিউজ' onclick="openReader('https://www.natorenews.com','নাটোর নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=natorenews.com'/><span>নাটোর নিউজ</span></div>
+<div class='news-card' data-title='কুষ্টিয়া টাইমস' onclick="openReader('https://www.kushtiatimes.com','কুষ্টিয়া টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=kushtiatimes.com'/><span>কুষ্টিয়া টাইমস</span></div>
+<div class='news-card' data-title='ফরিদপুর নিউজ' onclick="openReader('https://www.faridpurnews.com','ফরিদপুর নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=faridpurnews.com'/><span>ফরিদপুর নিউজ</span></div>
+<div class='news-card' data-title='গাজীপুর টাইমস' onclick="openReader('https://www.gazipurtimes.com','গাজীপুর টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=gazipurtimes.com'/><span>গাজীপুর টাইমস</span></div>
+<div class='news-card' data-title='নরসিংদী নিউজ' onclick="openReader('https://www.narsingdinews.com','নরসিংদী নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=narsingdinews.com'/><span>নরসিংদী নিউজ</span></div>
+<div class='news-card' data-title='টাঙ্গাইল টাইমস' onclick="openReader('https://www.tangailtimes.com','টাঙ্গাইল টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=tangailtimes.com'/><span>টাঙ্গাইল টাইমস</span></div>
+<div class='news-card' data-title='জামালপুর নিউজ' onclick="openReader('https://www.jamalpurnews.com','জামালপুর নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jamalpurnews.com'/><span>জামালপুর নিউজ</span></div>
+<div class='news-card' data-title='শেরপুর নিউজ' onclick="openReader('https://www.sherpurnews.com','শেরপুর নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sherpurnews.com'/><span>শেরপুর নিউজ</span></div>
+<div class='news-card' data-title='নেত্রকোনা টাইমস' onclick="openReader('https://www.netrakonatimes.com','নেত্রকোনা টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=netrakonatimes.com'/><span>নেত্রকোনা টাইমস</span></div>
+<div class='news-card' data-title='কিশোরগঞ্জ নিউজ' onclick="openReader('https://www.kishoreganjnews.com','কিশোরগঞ্জ নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=kishoreganjnews.com'/><span>কিশোরগঞ্জ নিউজ</span></div>
+<div class='news-card' data-title='মানিকগঞ্জ টাইমস' onclick="openReader('https://www.manikganjtimes.com','মানিকগঞ্জ টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=manikganjtimes.com'/><span>মানিকগঞ্জ টাইমস</span></div>
+<div class='news-card' data-title='মুন্সিগঞ্জ নিউজ' onclick="openReader('https://www.munshiganjnews.com','মুন্সিগঞ্জ নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=munshiganjnews.com'/><span>মুন্সিগঞ্জ নিউজ</span></div>
+<div class='news-card' data-title='রাজবাড়ী হেরাল্ড' onclick="openReader('https://www.rajbariherald.com','রাজবাড়ী হেরাল্ড')"><img src='https://www.google.com/s2/favicons?sz=128&domain=rajbariherald.com'/><span>রাজবাড়ী হেরাল্ড</span></div>
+<div class='news-card' data-title='মাগুরা টাইমস' onclick="openReader('https://www.maguratimes.com','মাগুরা টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=maguratimes.com'/><span>মাগুরা টাইমস</span></div>
+<div class='news-card' data-title='ঝিনাইদহ নিউজ' onclick="openReader('https://www.jhenaidahnews.com','ঝিনাইদহ নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jhenaidahnews.com'/><span>ঝিনাইদহ নিউজ</span></div>
+<div class='news-card' data-title='চুয়াডাঙ্গা টাইমস' onclick="openReader('https://www.chuadangatimes.com','চুয়াডাঙ্গা টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=chuadangatimes.com'/><span>চুয়াডাঙ্গা টাইমস</span></div>
+<div class='news-card' data-title='মেহেরপুর নিউজ' onclick="openReader('https://www.meherpurnews.com','মেহেরপুর নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=meherpurnews.com'/><span>মেহেরপুর নিউজ</span></div>
+</div>]]></b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+
+                    <!-- INTERNATIONAL SECTION -->
+                    <div class='cat-box' id='international'>
+                        <div class='cat-header'>
+                            <h2><i class='fas fa-globe-americas'/> আন&#2509;তর&#2509;জ&#2494;ত&#2495;ক স&#2434;ব&#2494;দ</h2>
+                        </div>
+                        <b:section id='international-section' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML14' locked='false' title='International News' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'><![CDATA[<div class='news-grid'>
+<div class='news-card' data-title='বিবিসি বাংলা' onclick="openReader('https://www.bbc.com/bengali','বিবিসি বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bbc.com'/><span>বিবিসি বাংলা</span></div>
+<div class='news-card' data-title='ডয়চে ভেলে বাংলা' onclick="openReader('https://www.dw.com/bn','ডয়চে ভেলে বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dw.com'/><span>ডয়চে ভেলে বাংলা</span></div>
+<div class='news-card' data-title='ভিওএ বাংলা' onclick="openReader('https://www.voabangla.com','ভিওএ বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=voabangla.com'/><span>ভিওএ বাংলা</span></div>
+<div class='news-card' data-title='টিআরটি বাংলা' onclick="openReader('https://www.trt.net.tr/bengali','টিআরটি বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=trt.net.tr'/><span>টিআরটি বাংলা</span></div>
+<div class='news-card' data-title='সিএনএন' onclick="openReader('https://www.cnn.com','সিএনএন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=cnn.com'/><span>সিএনএন</span></div>
+<div class='news-card' data-title='আল জাজিরা' onclick="openReader('https://www.aljazeera.com','আল জাজিরা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=aljazeera.com'/><span>আল জাজিরা</span></div>
+<div class='news-card' data-title='রয়টার্স' onclick="openReader('https://www.reuters.com','রয়টার্স')"><img src='https://www.google.com/s2/favicons?sz=128&domain=reuters.com'/><span>রয়টার্স</span></div>
+<div class='news-card' data-title='ফ্রান্স ২৪' onclick="openReader('https://www.france24.com','ফ্রান্স ২৪')"><img src='https://www.google.com/s2/favicons?sz=128&domain=france24.com'/><span>ফ্রান্স ২৪</span></div>
+<div class='news-card' data-title='এনডিটিভি' onclick="openReader('https://www.ndtv.com','এনডিটিভি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=ndtv.com'/><span>এনডিটিভি</span></div>
+<div class='news-card' data-title='টাইমস অফ ইন্ডিয়া' onclick="openReader('https://www.timesofindia.com','টাইমস অফ ইন্ডিয়া')"><img src='https://www.google.com/s2/favicons?sz=128&domain=timesofindia.com'/><span>টাইমস অফ ইন্ডিয়া</span></div>
+<div class='news-card' data-title='দ্য গার্ডিয়ান' onclick="openReader('https://www.theguardian.com','দ্য গার্ডিয়ান')"><img src='https://www.google.com/s2/favicons?sz=128&domain=theguardian.com'/><span>দ্য গার্ডিয়ান</span></div>
+<div class='news-card' data-title='নিউ ইয়র্ক টাইমস' onclick="openReader('https://www.nytimes.com','নিউ ইয়র্ক টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=nytimes.com'/><span>নিউ ইয়র্ক টাইমস</span></div>
+<div class='news-card' data-title='ওয়াল স্ট্রিট জার্নাল' onclick="openReader('https://www.wsj.com','ওয়াল স্ট্রিট জার্নাল')"><img src='https://www.google.com/s2/favicons?sz=128&domain=wsj.com'/><span>ওয়াল স্ট্রিট জার্নাল</span></div>
+<div class='news-card' data-title='ওয়াশিংটন পোস্ট' onclick="openReader('https://www.washingtonpost.com','ওয়াশিংটন পোস্ট')"><img src='https://www.google.com/s2/favicons?sz=128&domain=washingtonpost.com'/><span>ওয়াশিংটন পোস্ট</span></div>
+<div class='news-card' data-title='এবিসি নিউজ' onclick="openReader('https://abcnews.go.com','এবিসি নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=abcnews.go.com'/><span>এবিসি নিউজ</span></div>
+<div class='news-card' data-title='এনবিসি নিউজ' onclick="openReader('https://www.nbcnews.com','এনবিসি নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=nbcnews.com'/><span>এনবিসি নিউজ</span></div>
+<div class='news-card' data-title='সিবিএস নিউজ' onclick="openReader('https://www.cbsnews.com','সিবিএস নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=cbsnews.com'/><span>সিবিএস নিউজ</span></div>
+<div class='news-card' data-title='ইউরোনিউজ' onclick="openReader('https://www.euronews.com','ইউরোনিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=euronews.com'/><span>ইউরোনিউজ</span></div>
+<div class='news-card' data-title='স্কাই নিউজ' onclick="openReader('https://news.sky.com','স্কাই নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sky.com'/><span>স্কাই নিউজ</span></div>
+<div class='news-card' data-title='দ্য হিন্দু' onclick="openReader('https://www.thehindu.com','দ্য হিন্দু')"><img src='https://www.google.com/s2/favicons?sz=128&domain=thehindu.com'/><span>দ্য হিন্দু</span></div>
+<div class='news-card' data-title='ডন নিউজ' onclick="openReader('https://www.dawn.com','ডন নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dawn.com'/><span>ডন নিউজ</span></div>
+<div class='news-card' data-title='খালিজ টাইমস' onclick="openReader('https://www.khaleejtimes.com','খালিজ টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=khaleejtimes.com'/><span>খালিজ টাইমস</span></div>
+<div class='news-card' data-title='আরব নিউজ' onclick="openReader('https://www.arabnews.com','আরব নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=arabnews.com'/><span>আরব নিউজ</span></div>
+<div class='news-card' data-title='জাপান টাইমস' onclick="openReader('https://www.japantimes.co.jp','জাপান টাইমস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=japantimes.co.jp'/><span>জাপান টাইমস</span></div>
+<div class='news-card' data-title='চায়না ডেইলি' onclick="openReader('https://www.chinadaily.com.cn','চায়না ডেইলি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=chinadaily.com.cn'/><span>চায়না ডেইলি</span></div>
+<div class='news-card' data-title='সি জি টিএন বাংলা' onclick="openReader('https://bengali.cgtn.com','সি জি টিএন বাংলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=cgtn.com'/><span>সি জি টিএন বাংলা</span></div>
+<div class='news-card' data-title='আন্তর্জাতিক সংবাদ' onclick="openReader('https://www.globalnews.com','আন্তর্জাতিক সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=globalnews.com'/><span>আন্তর্জাতিক সংবাদ</span></div>
+<div class='news-card' data-title='জাতিসংঘ সংবাদ' onclick="openReader('https://news.un.org','জাতিসংঘ সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=un.org'/><span>জাতিসংঘ সংবাদ</span></div>
+<div class='news-card' data-title='ডব্লিউএইচও সংবাদ' onclick="openReader('https://www.who.int/news-room','ডব্লিউএইচও সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=who.int'/><span>ডব্লিউএইচও সংবাদ</span></div>
+</div>]]></b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+
+                    <!-- SPORTS SECTION -->
+                    <div class='cat-box' id='sports'>
+                        <div class='cat-header'>
+                            <h2><i class='fas fa-futbol'/> খ&#2503;ল&#2494;ধ&#2497;ল&#2494; স&#2434;ব&#2494;দ</h2>
+                        </div>
+                        <b:section id='sports-section' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML15' locked='false' title='Sports News' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'><![CDATA[<div class='news-grid'>
+<div class='news-card' data-title='প্রথম আলো খেলা' onclick="openReader('https://www.prothomalo.com/sports','প্রথম আলো খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=prothomalo.com'/><span>প্রথম আলো খেলা</span></div>
+<div class='news-card' data-title='কালের কণ্ঠ খেলা' onclick="openReader('https://www.kalerkantho.com/sports','কালের কণ্ঠ খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=kalerkantho.com'/><span>কালের কণ্ঠ খেলা</span></div>
+<div class='news-card' data-title='যুগান্তর খেলা' onclick="openReader('https://www.jugantor.com/sports','যুগান্তর খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jugantor.com'/><span>যুগান্তর খেলা</span></div>
+<div class='news-card' data-title='ইএসপিএন' onclick="openReader('https://www.espn.com','ইএসপিএন')"><img src='https://www.google.com/s2/favicons?sz=128&domain=espn.com'/><span>ইএসপিএন</span></div>
+<div class='news-card' data-title='স্কাই স্পোর্টস' onclick="openReader('https://www.skysports.com','স্কাই স্পোর্টস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=skysports.com'/><span>স্কাই স্পোর্টস</span></div>
+<div class='news-card' data-title='বিবিসি স্পোর্ট' onclick="openReader('https://www.bbc.com/sport','বিবিসি স্পোর্ট')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bbc.com'/><span>বিবিসি স্পোর্ট</span></div>
+<div class='news-card' data-title='ক্রিকবাজ' onclick="openReader('https://www.cricbuzz.com','ক্রিকবাজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=cricbuzz.com'/><span>ক্রিকবাজ</span></div>
+<div class='news-card' data-title='ইএসপিএন ক্রিকইনফো' onclick="openReader('https://www.espncricinfo.com','ইএসপিএন ক্রিকইনফো')"><img src='https://www.google.com/s2/favicons?sz=128&domain=espncricinfo.com'/><span>ইএসপিএন ক্রিকইনফো</span></div>
+<div class='news-card' data-title='স্পোর্টসকীড়া' onclick="openReader('https://www.sportskeeda.com','স্পোর্টসকীড়া')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sportskeeda.com'/><span>স্পোর্টসকীড়া</span></div>
+<div class='news-card' data-title='গোল.কম' onclick="openReader('https://www.goal.com','গোল.কম')"><img src='https://www.google.com/s2/favicons?sz=128&domain=goal.com'/><span>গোল.কম</span></div>
+<div class='news-card' data-title='স্পোর্টিং নিউজ' onclick="openReader('https://www.sportingnews.com','স্পোর্টিং নিউজ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=sportingnews.com'/><span>স্পোর্টিং নিউজ</span></div>
+<div class='news-card' data-title='মার্কা' onclick="openReader('https://www.marca.com','মার্কা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=marca.com'/><span>মার্কা</span></div>
+<div class='news-card' data-title='বিবিসি বাংলা খেলা' onclick="openReader('https://www.bbc.com/bengali/sport','বিবিসি বাংলা খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bbc.com'/><span>বিবিসি বাংলা খেলা</span></div>
+<div class='news-card' data-title='বাংলা ট্রিবিউন খেলা' onclick="openReader('https://www.banglatribune.com/sports','বাংলা ট্রিবিউন খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglatribune.com'/><span>বাংলা ট্রিবিউন খেলা</span></div>
+<div class='news-card' data-title='বাংলানিউজ২৪ খেলা' onclick="openReader('https://www.banglanews24.com/sports','বাংলানিউজ২৪ খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglanews24.com'/><span>বাংলানিউজ২৪ খেলা</span></div>
+<div class='news-card' data-title='জাগোনিউজ২৪ খেলা' onclick="openReader('https://www.jagonews24.com/sports','জাগোনিউজ২৪ খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=jagonews24.com'/><span>জাগোনিউজ২৪ খেলা</span></div>
+<div class='news-card' data-title='সময় নিউজ খেলা' onclick="openReader('https://www.somoynews.tv/sports','সময় নিউজ খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=somoynews.tv'/><span>সময় নিউজ খেলা</span></div>
+<div class='news-card' data-title='রাইজিং বিডি খেলা' onclick="openReader('https://www.risingbd.com/sports','রাইজিং বিডি খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=risingbd.com'/><span>রাইজিং বিডি খেলা</span></div>
+<div class='news-card' data-title='ঢাকা ট্রিবিউন খেলা' onclick="openReader('https://www.dhakatribune.com/sports','ঢাকা ট্রিবিউন খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=dhakatribune.com'/><span>ঢাকা ট্রিবিউন খেলা</span></div>
+<div class='news-card' data-title='বিডিনিউজ২৪ খেলা' onclick="openReader('https://www.bdnews24.com/sport','বিডিনিউজ২৪ খেলা')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bdnews24.com'/><span>বিডিনিউজ২৪ খেলা</span></div>
+<div class='news-card' data-title='ক্রিক ফ্রেনজি' onclick="openReader('https://www.cricfrenzy.com','ক্রিক ফ্রেনজি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=cricfrenzy.com'/><span>ক্রিক ফ্রেনজি</span></div>
+<div class='news-card' data-title='বিডি ক্রিক টাইম' onclick="openReader('https://www.bdcrictime.com','বিডি ক্রিক টাইম')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bdcrictime.com'/><span>বিডি ক্রিক টাইম</span></div>
+<div class='news-card' data-title='টাইগার ক্রিকেট বিডি' onclick="openReader('https://www.tigercricket.com.bd','টাইগার ক্রিকেট বিডি')"><img src='https://www.google.com/s2/favicons?sz=128&domain=tigercricket.com.bd'/><span>টাইগার ক্রিকেট বিডি</span></div>
+<div class='news-card' data-title='বাফুফে সংবাদ' onclick="openReader('https://www.bff.com.bd','বাফুফে সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=bff.com.bd'/><span>বাফুফে সংবাদ</span></div>
+<div class='news-card' data-title='ফিফা সংবাদ' onclick="openReader('https://www.fifa.com','ফিফা সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=fifa.com'/><span>ফিফা সংবাদ</span></div>
+<div class='news-card' data-title='আইসিসি সংবাদ' onclick="openReader('https://www.icc-cricket.com','আইসিসি সংবাদ')"><img src='https://www.google.com/s2/favicons?sz=128&domain=icc-cricket.com'/><span>আইসিসি সংবাদ</span></div>
+<div class='news-card' data-title='সি এন এন স্পোর্টস' onclick="openReader('https://www.cnn.com/sport','সি এন এন স্পোর্টস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=cnn.com'/><span>সি এন এন স্পোর্টস</span></div>
+<div class='news-card' data-title='ইউরোস্পোর্ট' onclick="openReader('https://www.eurosport.com','ইউরোস্পোর্ট')"><img src='https://www.google.com/s2/favicons?sz=128&domain=eurosport.com'/><span>ইউরোস্পোর্ট</span></div>
+<div class='news-card' data-title='বাংলা স্পোর্টস' onclick="openReader('https://www.banglasports.com','বাংলা স্পোর্টস')"><img src='https://www.google.com/s2/favicons?sz=128&domain=banglasports.com'/><span>বাংলা স্পোর্টস</span></div>
+</div>]]></b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+
+                </b:if>
+
+                <b:if cond='data:view.isPost or data:view.isPage'>
+                    <b:section id='post-body-sec' maxwidgets='1' showaddelement='no'>
+                      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                          <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+                          <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                          <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                          <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                          <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='reactionsLabel'/>
+                          <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                          <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                          <b:widget-setting name='showLabels'>true</b:widget-setting>
+                          <b:widget-setting name='showLocation'>true</b:widget-setting>
+                          <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                          <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                          <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                          <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                          <b:widget-setting name='showReactions'>false</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <b:loop values='data:posts' var='post'>
+                                    <div class='post-container'>
+                                        <h1 class='post-title'><data:post.title/></h1>
+                                        <div class='post-meta'>
+                                            <span><i class='far fa-calendar'/> <data:post.date/></span>
+                                            <span><i class='far fa-user'/> <data:post.author.name/></span>
+                                        </div>
+                                        <div class='post-body'>
+                                            <data:post.body/>
+                                        </div>
+                                    </div>
+                                </b:loop>
+                            </b:includable>
+                        <b:includable id='aboutPostAuthor'>
+  <div class='author-name'>
+    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+      <span>
+        <data:post.author.name/>
+      </span>
+    </a>
+  </div>
+  <div>
+    <span class='author-desc'>
+      <data:post.author.aboutMe/>
+    </span>
+  </div>
+</b:includable>
+                        <b:includable id='addComments'>
+  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:message name='messages.postAComment'/>
+  </a>
+</b:includable>
+                        <b:includable id='commentAuthorAvatar'>
+  <div class='avatar-image-container'>
+    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+  </div>
+</b:includable>
+                        <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+                        <b:includable id='commentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+                        <b:includable id='commentFormIframeSrc' var='post'>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+                        <b:includable id='commentItem' var='comment'>
+  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
+
+    <div class='comment-block'>
+      <div class='comment-author'>
+        <b:if cond='data:comment.authorUrl'>
+          <b:message name='messages.authorSaidWithLink'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+          </b:message>
+        <b:else/>
+          <b:message name='messages.authorSaid'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+          </b:message>
+        </b:if>
+      </div>
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
+      <div class='comment-footer'>
+        <span class='comment-timestamp'>
+          <a expr:href='data:comment.url' title='comment permalink'>
+            <data:comment.timestamp/>
+          </a>
+          <b:include data='comment' name='commentDeleteIcon'/>
+        </span>
+      </div>
+    </div>
+  </div>
+</b:includable>
+                        <b:includable id='commentList' var='comments'>
+  <div id='comments-block'>
+    <b:loop values='data:comments' var='comment'>
+      <b:include data='comment' name='commentItem'/>
+    </b:loop>
+  </div>
+</b:includable>
+                        <b:includable id='commentPicker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threadedComments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+                        <b:includable id='comments' var='post'>
+  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+
+      <b:include name='commentsTitle'/>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <div class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+              <data:messages.oldest/>
+            </a>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+              <data:messages.older/>
+            </a>
+          </b:if>
+
+          <span class='comment-range-text'>
+            <data:post.commentRangeText/>
+          </span>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+              <data:messages.newer/>
+            </a>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+              <data:messages.newest/>
+            </a>
+          </b:if>
+        </div>
+      </b:if>
+
+      <div class='footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='commentForm'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <b:include data='post' name='addComments'/>
+          </b:if>
+        </b:if>
+      </div>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+                        <b:includable id='commentsTitle'>
+  <h3 class='title'><data:messages.comments/></h3>
+</b:includable>
+                        <b:includable id='feedLinks'>
+  <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.allowComments and data:post.feedLinks'>
+          <b:include data='post.feedLinks' name='feedLinksBody'/>
+        </b:if>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+                        <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:messages.subscribeTo/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+                        <b:includable id='homePageLink'>
+  <a class='home-link' expr:href='data:blog.homepageUrl'>
+    <data:messages.home/>
+  </a>
+</b:includable>
+                        <b:includable id='iframeComments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+                        <b:includable id='inlineAd' var='post'>
+  <b:if cond='!data:view.isPreview'>
+    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
+      <!-- Ad -->
+      <div class='inline-ad'>
+        <b:if cond='data:this.adCode != &quot;&quot;'>
+          <data:this.adCode/>
+        <b:else/>
+          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
+        </b:if>
+      </div>
+    </b:if>
+  <b:else/>
+    <div class='inline-ad'>
+      <div class='inline-ad-placeholder'>
+        <span><b:message name='messages.adsGoHere'/></span>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+                        <b:includable id='nextPageLink'>
+  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+    <data:messages.olderPosts/>
+  </a>
+</b:includable>
+                        <b:includable id='post' var='post'>
+  <div class='post'>
+    <b:include data='post' name='postMeta'/>
+    <b:include data='post' name='postTitle'/>
+    <b:include name='headerByline'/>
+    <b:if cond='data:view.isSingleItem'>
+      <b:include data='post' name='postBody'/>
+    <b:else/>
+      <b:include data='post' name='postBodySnippet'/>
+      <b:include data='post' name='postJumpLink'/>
+    </b:if>
+    <b:include data='post' name='postFooter'/>
+  </div>
+</b:includable>
+                        <b:includable id='postBody' var='post'>
+  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+    <data:post.body/>
+  </div>
+</b:includable>
+                        <b:includable id='postBodySnippet' var='post'>
+  <b:include data='post' name='postBody'/>
+</b:includable>
+                        <b:includable id='postCommentsAndAd' var='post'>
+  <article class='post-outer-container'>
+    <!-- Post title and body -->
+    <div class='post-outer'>
+      <b:include data='post' name='post'/>
+    </div>
+
+    <!-- Comments -->
+    <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+
+    <!-- Show ad inside post container, after comments, if single item. -->
+    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
+  </article>
+
+  <!-- Show ad outside post container (between posts) for feed pages. -->
+  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+</b:includable>
+                        <b:includable id='postCommentsLink'>
+  <b:if cond='data:view.isMultipleItems'>
+    <span class='byline post-comment-link container'>
+      <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+    </span>
+  </b:if>
+</b:includable>
+                        <b:includable id='postFooter' var='post'>
+  <div class='post-footer'>
+    <b:include name='footerBylines'/>
+    <b:include data='post' name='postFooterAuthorProfile'/>
+  </div>
+</b:includable>
+                        <b:includable id='postFooterAuthorProfile' var='post'>
+  <b:if cond='data:post.author.aboutMe and data:view.isPost'>
+    <div class='author-profile'>
+      <b:if cond='data:post.author.authorPhoto.url'>
+        <img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
+        <div class='author-about'>
+          <b:include data='post' name='aboutPostAuthor'/>
+        </div>
+      <b:else/>
+        <b:include data='post' name='aboutPostAuthor'/>
+      </b:if>
+    </div>
+  </b:if>
+</b:includable>
+                        <b:includable id='postHeader' var='post'>
+  <b:include name='headerByline'/>
+</b:includable>
+                        <b:includable id='postMeta' var='post'>
+  <b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+                        <b:includable id='postPagination'>
+  <div class='blog-pager container' id='blog-pager'>
+    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+  </div>
+</b:includable>
+                        <b:includable id='postTitle' var='post'>
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title entry-title'>
+      <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+        <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+    </h3>
+  </b:if>
+</b:includable>
+                        <b:includable id='previousPageLink'>
+  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+    <data:messages.newerPosts/>
+  </a>
+</b:includable>
+                        <b:includable id='threadedCommentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+                        <b:includable id='threadedCommentJs' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+  <b:template-script inline='true' name='threaded_comments'/>
+  <script type='text/javascript'>
+    blogger.widgets.blog.initThreadedComments(
+        <data:post.commentJso/>,
+        <data:post.commentMsgs/>,
+        <data:post.commentConfig/>);
+  </script>
+</b:includable>
+                        <b:includable id='threadedComments' var='post'>
+  <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+
+    <b:include name='commentsTitle'/>
+
+    <div class='comments-content'>
+      <b:if cond='data:post.embedCommentForm'>
+        <b:include data='post' name='threadedCommentJs'/>
+      </b:if>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threadedCommentForm'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+      <b:if cond='data:post.showManageComments'>
+        <b:include data='post' name='manageComments'/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+                        <b:includable id='tooltipCss'>
+  <!-- LINT.IfChange -->
+  <style>
+    .post-body a.b-tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip {
+      display: block !important;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-20%, 1px);
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip iframe {
+      width: 200px;
+      height: 198px;
+      max-width: none;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) {
+      .post-body a.b-tooltip-container:hover .b-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  </style>
+  <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
+</b:includable>
+                      </b:widget>
+                    </b:section>
+                </b:if>
+            </main>
+
+            <aside>
+                <div class='sidebar-widget'>
+                    <div class='widget-title'>স&#2509;পনসর ব&#2495;জ&#2509;ঞ&#2494;পন</div>
+                    <b:section id='sidebar-ad-sec' maxwidgets='1' showaddelement='yes'>
+                      <b:widget id='HTML3' locked='false' title='Sidebar Square Ad' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'/>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <div class='pro-ad-slot'>
+                                    <data:content/>
+                                    <b:if cond='data:content == &quot;&quot;'>Square Ad (300x250)</b:if>
+                                </div>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+
+                <div class='sidebar-widget'>
+                    <div class='widget-title'>জনপ&#2509;র&#2495;য় প&#2507;স&#2509;ট</div>
+                    <b:section id='pop-posts' name='Popular Posts' showaddelement='yes'>
+                      <b:widget id='PopularPosts1' locked='false' title='Trending' type='PopularPosts' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
+                          <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                          <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                          <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <b:loop values='data:posts' var='post'>
+                                    <div style='margin-bottom:15px; display:flex; gap:10px; border-bottom:1px solid #eee; padding-bottom:10px;'>
+                                        <img expr:src='data:post.featuredImage' style='width:60px; height:60px; object-fit:cover; border-radius:4px;'/>
+                                        <a expr:href='data:post.url' style='text-decoration:none; color:var(--pro-secondary); font-size:13px; font-weight:600; line-height:1.4;'><data:post.title/></a>
+                                    </div>
+                                </b:loop>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class='container'>
+            <div class='footer-grid'>
+                <div>
+                    <span class='footer-logo'>NEWS PORTAL</span>
+                    <p style='color:#bdc1c6; font-size:14px;'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সবচ&#2503;য়&#2503; জনপ&#2509;র&#2495;য় ন&#2495;উজ ড&#2495;র&#2503;ক&#2509;টর&#2495; এব&#2434; ইনফরম&#2503;শন প&#2507;র&#2509;ট&#2494;ল&#2404; আমর&#2494; দ&#2503;শ-ব&#2495;দ&#2503;শ&#2503;র সঠ&#2495;ক স&#2434;ব&#2494;দ সব&#2494;র আগ&#2503; আপন&#2494;র ক&#2494;ছ&#2503; প&#2508;&#2433;ছ&#2503; দ&#2495;ত&#2503; বদ&#2509;ধপর&#2495;কর&#2404;</p>
+                </div>
+                <div>
+                    <span style='font-weight:700; display:block; margin-bottom:20px;'>ক&#2509;য&#2494;ট&#2494;গর&#2495;</span>
+                    <ul class='footer-links'>
+                        <li><a href='#national'>জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক</a></li>
+                        <li><a href='#online'>অনল&#2494;ইন প&#2507;র&#2509;ট&#2494;ল</a></li>
+                        <li><a href='#tv'>ট&#2495;ভ&#2495; চ&#2509;য&#2494;ন&#2503;ল</a></li>
+                        <li><a href='#sports'>খ&#2503;ল&#2494;ধ&#2497;ল&#2494;</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span style='font-weight:700; display:block; margin-bottom:20px;'>প&#2509;রয়&#2507;জন&#2496;য় প&#2494;ত&#2494;</span>
+                    <ul class='footer-links'>
+                        <li><a href='/p/about-us.html'>আম&#2494;দ&#2503;র সম&#2509;বন&#2509;ধ&#2503;</a></li>
+                        <li><a href='/p/contact-us.html'>য&#2507;গ&#2494;য&#2507;গ কর&#2497;ন</a></li>
+                        <li><a href='/p/privacy-policy.html'>গ&#2507;পন&#2496;য়ত&#2494; ন&#2496;ত&#2495;</a></li>
+                        <li><a href='/p/disclaimer.html'>দ&#2494;ব&#2495;ত&#2509;য&#2494;গ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style='text-align:center; margin-top:60px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:13px; color:#9aa0a6;'>
+                &amp;copy; <script>document.write(new Date().getFullYear())</script> NEWS PORTAL BANGLA. Built for AdSense Approval.
+            </div>
+        </div>
+    </footer>
+
+    <div class='scroll-top-btn' id='scrollTopBtn' onclick='scrollToTop()'>
+        <i class='fas fa-arrow-up'/>
+    </div>
+
+    <div id='proReader' style='position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; display:none; flex-direction:column;'>
+        <div style='background:var(--pro-secondary); color:white; padding:12px 25px; display:flex; justify-content:space-between; align-items:center;'>
+            <span id='readerTitle' style='font-weight:700;'/>
+            <div style='display:flex; gap:12px;'>
+                <a href='#' id='readerExt' style='background:var(--pro-primary); color:white; padding:6px 15px; border-radius:4px; text-decoration:none; font-size:13px;' target='_blank'>নত&#2497;ন ট&#2509;য&#2494;ব&#2503; খ&#2497;ল&#2497;ন</a>
+                <button onclick='closeReader()' style='background:#fff; border:none; padding:6px 15px; cursor:pointer; font-weight:700; border-radius:4px;'>বন&#2509;ধ কর&#2497;ন</button>
+            </div>
+        </div>
+        <div class='iframe-container' id='iframeContainer'>
+            <iframe id='readerFrame' src='' style='width:100%; height:100%; border:none;'/>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+        //<![CDATA[
+        let loadTimeout;
+        let currentSiteName = '';
+        let errorDisplayed = false;
+        
+        const dateOpt = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const dateElement = document.getElementById('proDate');
+        if(dateElement) {
+            dateElement.innerText = new Date().toLocaleDateString('bn-BD', dateOpt);
+        }
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let body = document.body;
+            
+            if (scrollTop > 50) {
+                body.classList.add('header-compact');
+            } else {
+                body.classList.remove('header-compact');
+            }
+            
+            let scrollBtn = document.getElementById('scrollTopBtn');
+            if (scrollTop > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function showSearchBar() {
+            let searchInput = document.getElementById('proSearch');
+            if(searchInput) {
+                searchInput.focus();
+                searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function proFilter() {
+            let input = document.getElementById('proSearch').value.toLowerCase();
+            let cards = document.querySelectorAll('.news-card');
+            cards.forEach(card => {
+                let name = card.getAttribute('data-title');
+                if(name) {
+                    card.style.display = name.toLowerCase().includes(input) ? "block" : "none";
+                }
+            });
+        }
+
+        function showErrorMessage() {
+            if(errorDisplayed) return;
+            errorDisplayed = true;
+            
+            const container = document.getElementById('iframeContainer');
+            const existingOverlay = document.querySelector('.iframe-error-overlay');
+            if(existingOverlay) existingOverlay.remove();
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'iframe-error-overlay';
+            errorDiv.innerHTML = `
+                <div class='error-content'>
+                    <div class='error-icon'>
+                        <i class='fas fa-exclamation-triangle'></i>
+                    </div>
+                    <div class='error-title'>
+                        ⚠️ সাইটটি লোড হয়নি!
+                    </div>
+                    <div class='error-message'>
+                        <strong>${currentSiteName || 'এই সাইট'}</strong> টি বর্তমানে লোড করা সম্ভব হয়নি।<br><br>
+                        এটি হতে পারে:<br>
+                        • সাইটটির সার্ভার ডাউন রয়েছে<br>
+                        • আপনার ইন্টারনেট সংযোগ সমস্যা<br>
+                        • সাইটটির ঠিকানা পরিবর্তন হয়েছে<br><br>
+                        আপনি চাইলে নিচের বাটনে ক্লিক করে সরাসরি সাইটটি ভিজিট করতে পারেন।
+                    </div>
+                    <button class='retry-btn' onclick='window.open(document.getElementById("readerExt").href, "_blank")'>
+                        <i class='fas fa-external-link-alt'></i> সরাসরি ভিজিট করুন
+                    </button>
+                </div>
+            `;
+            container.appendChild(errorDiv);
+        }
+
+        function hideErrorMessage() {
+            errorDisplayed = false;
+            const existingOverlay = document.querySelector('.iframe-error-overlay');
+            if(existingOverlay) existingOverlay.remove();
+        }
+
+        function openReader(url, name) {
+            currentSiteName = name;
+            errorDisplayed = false;
+            document.getElementById('readerTitle').innerText = "পড়ছেন: " + name;
+            const iframe = document.getElementById('readerFrame');
+            
+            hideErrorMessage();
+            iframe.src = '';
+            
+            clearTimeout(loadTimeout);
+            loadTimeout = setTimeout(() => {
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    if (!iframeDoc || iframeDoc.location.href === 'about:blank' || iframeDoc.location.href === '') {
+                        showErrorMessage();
+                    }
+                } catch(e) {
+                    if(e.message && e.message.includes('network')) {
+                        showErrorMessage();
+                    }
+                }
+            }, 10000);
+            
+            iframe.src = url;
+            document.getElementById('readerExt').href = url;
+            document.getElementById('proReader').style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeReader() {
+            clearTimeout(loadTimeout);
+            hideErrorMessage();
+            document.getElementById('proReader').style.display = "none";
+            document.getElementById('readerFrame').src = "";
+            document.body.style.overflow = "auto";
+            currentSiteName = '';
+        }
+        //]]>
+    </script>
+</body>
+</html>
