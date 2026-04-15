@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+
+    <b:skin version='2'><![CDATA[
+        /*
+         * CORE PREMIUM FRAMEWORK STYLES
+         * Designed specifically for AdSense high-conversion rates.
+         */
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #1557b0;
+            --primary-light: #e8f0fe;
+            --accent: #d93025;
+            --secondary: #202124;
+            --text-main: #3c4043;
+            --text-muted: #5f6368;
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --border: #dadce0;
+            --shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 8px;
+        }
+
+        body.dark-mode {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --secondary: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); font-family: 'Inter', 'Hind Siliguri', sans-serif; color: var(--text-main); line-height: 1.6; padding-top: 160px; transition: var(--transition); }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER & NAVIGATION */
+        header { background: var(--surface); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 1px 2px rgba(60,64,67,0.3); border-bottom: 1px solid var(--border); }
+        .top-bar { background: var(--secondary); color: var(--surface); padding: 8px 0; font-size: 13px; }
+        .top-flex { display: flex; justify-content: space-between; align-items: center; }
+        .top-links a { color: #bdc1c6; text-decoration: none; margin-left: 15px; }
+        .top-links a:hover { color: #fff; }
+
+        .main-header { padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 28px; font-weight: 900; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--secondary); }
+
+        .header-ad { width: 728px; height: 90px; background: rgba(0,0,0,0.02); border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-muted); }
+
+        nav { background: var(--surface); border-bottom: 1px solid var(--border); }
+        .nav-list { display: flex; list-style: none; overflow-x: auto; white-space: nowrap; }
+        .nav-list li a { display: block; padding: 16px 20px; text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 14px; transition: var(--transition); }
+        .nav-list li a:hover, .nav-list li.active a { color: var(--primary); background: var(--primary-light); }
+
+        /* ADVANCED SUB-NAVIGATION & SEARCH */
+        .sub-nav { background: #fff; border-bottom: 1px solid var(--border); padding: 10px 0; }
+        body.dark-mode .sub-nav { background: #1e293b; }
+        .sub-flex { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        
+        .search-wrapper { position: relative; flex: 1; max-width: 600px; display: flex; background: var(--bg); border: 1px solid var(--border); border-radius: 30px; padding: 4px 15px; align-items: center; }
+        .search-wrapper input { border: none; background: transparent; padding: 8px 10px; width: 100%; outline: none; font-size: 15px; color: var(--text-main); font-family: inherit; }
+        .search-wrapper i { color: var(--text-muted); }
+
+        .ticker { flex: 1; overflow: hidden; display: flex; align-items: center; background: var(--primary-light); border-radius: 30px; padding: 8px 15px; max-width: 400px; font-size: 13px; font-weight: 600; color: var(--primary); }
+
+        /* AD SPOTS */
+        .ad-container { margin: 25px auto; text-align: center; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+        .ad-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 1px; }
+        .ad-box { background: rgba(0,0,0,0.02); border: 1px dashed var(--border); width: 100%; min-height: 90px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--text-muted); }
+
+        /* MAIN CONTENT GRID */
+        .main-wrapper { display: grid; grid-template-columns: 1fr 320px; gap: 30px; margin-top: 30px; }
+
+        /* CATEGORY DIRECTORY CARDS (THE HEART OF THE HUB) */
+        .cat-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; margin-bottom: 35px; box-shadow: 0 1px 2px rgba(60,64,67,0.1); }
+        .cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 2px solid var(--bg); padding-bottom: 15px; }
+        .cat-header h2 { font-size: 22px; font-weight: 800; display: flex; align-items: center; gap: 10px; color: var(--secondary); }
+        .cat-header h2 i { color: var(--primary); font-size: 24px; }
+        .badge { background: var(--primary-light); color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); gap: 15px; }
+        .news-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 15px 5px; text-align: center; transition: var(--transition); cursor: pointer; text-decoration: none; position: relative; }
+        .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--primary); }
+        .news-card img { width: 42px; height: 42px; object-fit: contain; margin-bottom: 10px; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid #eee; }
+        .news-card span { display: block; font-weight: 700; font-size: 13px; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* SIDEBAR COMPONENTS */
+        .sidebar-widget { background: var(--surface); padding: 20px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 30px; box-shadow: 0 1px 2px rgba(60,64,67,0.1); }
+        .widget-title { font-size: 16px; font-weight: 800; border-left: 4px solid var(--primary); padding-left: 10px; margin-bottom: 20px; color: var(--secondary); }
+
+        /* FOOTER */
+        footer { background: var(--secondary); color: #fff; padding: 80px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+        .footer-logo { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 20px; display: block; }
+        .footer-logo span { color: var(--primary); }
+        .footer-title { font-size: 16px; font-weight: 700; color: var(--primary-light); margin-bottom: 25px; display: block; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #bdc1c6; text-decoration: none; font-size: 14px; transition: var(--transition); }
+        .footer-links a:hover { color: #fff; padding-left: 5px; }
+
+        /* MODAL READER */
+        .reader-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 9999; display: none; flex-direction: column; }
+        body.dark-mode .reader-modal { background: #0f172a; }
+        .reader-header { background: var(--secondary); color: #fff; padding: 12px 25px; display: flex; justify-content: space-between; align-items: center; }
+        .reader-btn { background: var(--primary); color: #fff; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 13px; text-decoration: none; }
+        iframe#reader-frame { flex: 1; border: none; width: 100%; }
+
+        @media (max-width: 1024px) {
+            .header-ad { display: none; }
+            body { padding-top: 130px; }
+        }
+        @media (max-width: 768px) {
+            .main-wrapper { grid-template-columns: 1fr; }
+            .ticker { display: none; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <!-- FIXED HEADER -->
+    <header>
+        <div class='top-bar'>
+            <div class='container top-flex'>
+                <div id='real-time-date'/>
+                <div class='top-links'>
+                    <a href='/p/about.html'>আম&#2494;দ&#2503;র সম&#2509;পর&#2509;ক&#2503;</a>
+                    <a href='/p/contact.html'>য&#2507;গ&#2494;য&#2507;গ</a>
+                    <a href='/p/privacy.html'>গ&#2507;পন&#2496;য&#2492;ত&#2494; ন&#2496;ত&#2495;</a>
+                    <a href='/p/terms.html'>শর&#2509;ত&#2494;বল&#2496;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class='container main-header'>
+            <a class='logo' href='/'>
+                <i class='fas fa-bolt'/> NEWS<span>HUB</span> BANGLA
+            </a>
+            
+            <!-- AdSense Header (728x90) Slot -->
+            <b:section id='header-ad-section' maxwidgets='1' showaddelement='yes'>
+              <b:widget id='HTML1' locked='false' title='Header Ad' type='HTML' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<!-- Paste AdSense Code Here -->]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                        <div class='header-ad'>
+                            <data:content/>
+                            <b:if cond='data:content == &quot;&quot;'>Leaderboard Advertisement Slot (728x90)</b:if>
+                        </div>
+                    </b:includable>
+              </b:widget>
+            </b:section>
+        </div>
+
+        <nav>
+            <div class='container'>
+                <ul class='nav-list'>
+                    <li class='active'><a href='/'><i class='fas fa-home'/> হ&#2507;মস</a></li>
+                    <li><a href='#national'>জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক</a></li>
+                    <li><a href='#online'>অনল&#2494;ইন প&#2507;র&#2509;ট&#2494;ল</a></li>
+                    <li><a href='#tv'>ট&#2495;ভ&#2495; চ&#2509;য&#2494;ন&#2503;ল</a></li>
+                    <li><a href='#international'>আন&#2509;তর&#2509;জ&#2494;ত&#2495;ক</a></li>
+                    <li><a href='#sports'>খ&#2503;ল&#2494;ধ&#2497;ল&#2494;</a></li>
+                    <li><a href='#tech'>ব&#2495;জ&#2509;ঞ&#2494;ন ও প&#2509;রয&#2497;ক&#2509;ত&#2495;</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class='sub-nav'>
+            <div class='container sub-flex'>
+                <div class='search-wrapper'>
+                    <i class='fas fa-search'/>
+                    <input id='live-search' onkeyup='filterHub()' placeholder='যেকোনো পত্রিকা বা সাইট খুঁজুন (যেমন: প্রথম আলো)...' type='text'/>
+                </div>
+                <div class='ticker'>
+                    <i class='fas fa-bullhorn' style='margin-right:10px;'/>
+                    <marquee scrollamount='4'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সকল শ&#2496;র&#2509;ষস&#2509;থ&#2494;ন&#2496;য&#2492; পত&#2509;র&#2495;ক&#2494; এব&#2434; অনল&#2494;ইন ন&#2495;উজ প&#2507;র&#2509;ট&#2494;ল এখন এক জ&#2494;য&#2492;গ&#2494;য&#2492;&#2404; অত&#2495; দ&#2509;র&#2497;ত ও ন&#2495;র&#2494;পদ&#2503; খবর পড&#2492;ত&#2503; আম&#2494;দ&#2503;র স&#2494;থ&#2503;ই থ&#2494;ক&#2497;ন&#2404;</marquee>
+                </div>
+                <button onclick='toggleTheme()' style='background:none; border:none; color:var(--text-main); font-size:20px; cursor:pointer;' title='Toggle Dark Mode'>
+                    <i class='fas fa-moon'/>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class='container'>
+        <!-- Above Content Ad Slot -->
+        <div class='ad-container'>
+            <span class='ad-label'>ব&#2495;জ&#2509;ঞ&#2494;পন</span>
+            <div class='ad-box' style='height: 90px;'>
+                <b:section id='content-top-ad' maxwidgets='1' showaddelement='yes'>
+                  <b:widget id='HTML2' locked='false' title='Top Ad' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'/>
+                    </b:widget-settings>
+                    <b:includable id='main'><data:content/><b:if cond='data:content == &quot;&quot;'>Responsive Horizontal Ad Above Content</b:if></b:includable>
+                  </b:widget>
+                </b:section>
+            </div>
+        </div>
+
+        <!-- MAIN HUB GRID -->
+        <div class='main-wrapper'>
+            
+            <main class='main-content'>
+                
+                <!-- CATEGORY 1: NATIONAL DAILIES (20+ SITES) -->
+                <div class='cat-box' id='national'>
+                    <div class='cat-header'>
+                        <h2><i class='fas fa-newspaper'/> জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক পত&#2509;র&#2495;ক&#2494;</h2>
+                        <span class='badge'>২২ট&#2495; স&#2494;ইট</span>
+                    </div>
+                    <div class='news-grid'>
+                        <a class='news-card' data-title='প্রথম আলো' onclick='openHub(&quot;https://prothomalo.com&quot;, &quot;প্রথম আলো&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=prothomalo.com'/>
+                            <span>প&#2509;রথম আল&#2507;</span>
+                        </a>
+                        <a class='news-card' data-title='ইত্তেফাক' onclick='openHub(&quot;https://ittefaq.com.bd&quot;, &quot;ইত্তেফাক&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=ittefaq.com.bd'/>
+                            <span>ইত&#2509;ত&#2503;ফ&#2494;ক</span>
+                        </a>
+                        <a class='news-card' data-title='কালের কণ্ঠ' onclick='openHub(&quot;https://kalerkantho.com&quot;, &quot;কালের কণ্ঠ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=kalerkantho.com'/>
+                            <span>ক&#2494;ল&#2503;র কণ&#2509;ঠ</span>
+                        </a>
+                        <a class='news-card' data-title='যুগান্তর' onclick='openHub(&quot;https://jugantor.com&quot;, &quot;যুগান্তর&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=jugantor.com'/>
+                            <span>য&#2497;গ&#2494;ন&#2509;তর</span>
+                        </a>
+                        <a class='news-card' data-title='সমকাল' onclick='openHub(&quot;https://samakal.com&quot;, &quot;সমকাল&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=samakal.com'/>
+                            <span>সমক&#2494;ল</span>
+                        </a>
+                        <a class='news-card' data-title='নয়া দিগন্ত' onclick='openHub(&quot;https://dailynayadiganta.com&quot;, &quot;নয়া দিগন্ত&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dailynayadiganta.com'/>
+                            <span>নয&#2492;&#2494; দ&#2495;গন&#2509;ত</span>
+                        </a>
+                        <a class='news-card' data-title='মানবজমিন' onclick='openHub(&quot;https://mzamin.com&quot;, &quot;মানবজমিন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=mzamin.com'/>
+                            <span>ম&#2494;নবজম&#2495;ন</span>
+                        </a>
+                        <a class='news-card' data-title='ইনকিলাব' onclick='openHub(&quot;https://dailyinqilab.com&quot;, &quot;ইনকিলাব&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dailyinqilab.com'/>
+                            <span>ইনক&#2495;ল&#2494;ব</span>
+                        </a>
+                        <a class='news-card' data-title='ভোরের কাগজ' onclick='openHub(&quot;https://bhorerkagoj.com&quot;, &quot;ভোরের কাগজ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=bhorerkagoj.com'/>
+                            <span>ভ&#2507;র&#2503;র ক&#2494;গজ</span>
+                        </a>
+                        <a class='news-card' data-title='যায়যায়দিন' onclick='openHub(&quot;https://jaijaidinbd.com&quot;, &quot;যায়যায়দিন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=jaijaidinbd.com'/>
+                            <span>য&#2494;য&#2492;য&#2494;য&#2492;দ&#2495;ন</span>
+                        </a>
+                        <a class='news-card' data-title='জনকণ্ঠ' onclick='openHub(&quot;https://dailyjanakantha.com&quot;, &quot;জনকণ্ঠ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dailyjanakantha.com'/>
+                            <span>জনকণ&#2509;ঠ</span>
+                        </a>
+                        <a class='news-card' data-title='সংবাদ' onclick='openHub(&quot;https://sangbad.net.bd&quot;, &quot;সংবাদ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=sangbad.net.bd'/>
+                            <span>স&#2434;ব&#2494;দ</span>
+                        </a>
+                        <a class='news-card' data-title='আলোকিত বাংলাদেশ' onclick='openHub(&quot;https://alokitobangladesh.com&quot;, &quot;আলোকিত বাংলাদেশ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=alokitobangladesh.com'/>
+                            <span>আল&#2507;ক&#2495;ত ব&#2494;&#2434;ল&#2494;দ&#2503;শ</span>
+                        </a>
+                        <a class='news-card' data-title='আমাদের সময়' onclick='openHub(&quot;https://dainikamadershomoy.com&quot;, &quot;আমাদের সময়&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dainikamadershomoy.com'/>
+                            <span>আম&#2494;দ&#2503;র সময&#2492;</span>
+                        </a>
+                        <a class='news-card' data-title='মানব কণ্ঠ' onclick='openHub(&quot;https://manobkantha.com.bd&quot;, &quot;মানব কণ্ঠ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=manobkantha.com.bd'/>
+                            <span>ম&#2494;নব কণ&#2509;ঠ</span>
+                        </a>
+                        <a class='news-card' data-title='সংগ্রাম' onclick='openHub(&quot;https://dailysangram.com&quot;, &quot;সংগ্রাম&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dailysangram.com'/>
+                            <span>স&#2434;গ&#2509;র&#2494;ম</span>
+                        </a>
+                        <a class='news-card' data-title='শেয়ার বিজ' onclick='openHub(&quot;https://sharebiz.net&quot;, &quot;শেয়ার বিজ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=sharebiz.net'/>
+                            <span>শ&#2503;য&#2492;&#2494;র ব&#2495;জ</span>
+                        </a>
+                        <a class='news-card' data-title='বাণিজ্য প্রতিদিন' onclick='openHub(&quot;https://banijjoprotidin.com&quot;, &quot;বাণিজ্য প্রতিদিন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=banijjoprotidin.com'/>
+                            <span>ব&#2494;ণ&#2495;জ&#2509;য প&#2509;রত&#2495;দ&#2495;ন</span>
+                        </a>
+                        <a class='news-card' data-title='দেশ রূপান্তর' onclick='openHub(&quot;https://deshrupantor.com&quot;, &quot;দেশ রূপান্তর&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=deshrupantor.com'/>
+                            <span>দ&#2503;শ র&#2498;প&#2494;ন&#2509;তর</span>
+                        </a>
+                        <a class='news-card' data-title='সময়ের আলো' onclick='openHub(&quot;https://shomoyeralo.com&quot;, &quot;সময়ের আলো&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=shomoyeralo.com'/>
+                            <span>সময&#2492;&#2503;র আল&#2507;</span>
+                        </a>
+                        <a class='news-card' data-title='খোলা কাগজ' onclick='openHub(&quot;https://kholakagojbd.com&quot;, &quot;খোলা কাগজ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=kholakagojbd.com'/>
+                            <span>খ&#2507;ল&#2494; ক&#2494;গজ</span>
+                        </a>
+                        <a class='news-card' data-title='আজকের পত্রিকা' onclick='openHub(&quot;https://ajkerpatrika.com&quot;, &quot;আজকের পত্রিকা&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=ajkerpatrika.com'/>
+                            <span>আজক&#2503;র পত&#2509;র&#2495;ক&#2494;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: ONLINE PORTALS (20+ SITES) -->
+                <div class='cat-box' id='online'>
+                    <div class='cat-header'>
+                        <h2><i class='fas fa-globe'/> অনল&#2494;ইন ন&#2495;উজ প&#2507;র&#2509;ট&#2494;ল</h2>
+                        <span class='badge'>২০ট&#2495; স&#2494;ইট</span>
+                    </div>
+                    <div class='news-grid'>
+                        <a class='news-card' data-title='বিডিনিউজ২৪' onclick='openHub(&quot;https://bangla.bdnews24.com&quot;, &quot;বিডিনিউজ২৪&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=bdnews24.com'/>
+                            <span>ব&#2495;ড&#2495;ন&#2495;উজ২৪</span>
+                        </a>
+                        <a class='news-card' data-title='বাংলানিউজ২৪' onclick='openHub(&quot;https://banglanews24.com&quot;, &quot;বাংলানিউজ২৪&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=banglanews24.com'/>
+                            <span>ব&#2494;&#2434;ল&#2494;ন&#2495;উজ২৪</span>
+                        </a>
+                        <a class='news-card' data-title='জাগো নিউজ' onclick='openHub(&quot;https://jagonews24.com&quot;, &quot;জাগো নিউজ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=jagonews24.com'/>
+                            <span>জ&#2494;গ&#2507; ন&#2495;উজ</span>
+                        </a>
+                        <a class='news-card' data-title='ঢাকা পোস্ট' onclick='openHub(&quot;https://dhakapost.com&quot;, &quot;ঢাকা পোস্ট&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dhakapost.com'/>
+                            <span>ঢ&#2494;ক&#2494; প&#2507;স&#2509;ট</span>
+                        </a>
+                        <a class='news-card' data-title='রাইজিংবিডি' onclick='openHub(&quot;https://risingbd.com&quot;, &quot;রাইজিংবিডি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=risingbd.com'/>
+                            <span>র&#2494;ইজ&#2495;&#2434;ব&#2495;ড&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='বার্তা২৪' onclick='openHub(&quot;https://barta24.com&quot;, &quot;বার্তা২৪&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=barta24.com'/>
+                            <span>ব&#2494;র&#2509;ত&#2494;২৪</span>
+                        </a>
+                        <a class='news-card' data-title='সারাবাংলা' onclick='openHub(&quot;https://sarabangla.net&quot;, &quot;সারাবাংলা&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=sarabangla.net'/>
+                            <span>স&#2494;র&#2494;ব&#2494;&#2434;ল&#2494;</span>
+                        </a>
+                        <a class='news-card' data-title='প্রিয়' onclick='openHub(&quot;https://priyo.com&quot;, &quot;প্রিয়&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=priyo.com'/>
+                            <span>প&#2509;র&#2495;য&#2492;</span>
+                        </a>
+                        <a class='news-card' data-title='এনডিটিভি বাংলা' onclick='openHub(&quot;https://bangla.ndtv.com&quot;, &quot;এনডিটিভি বাংলা&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=ndtv.com'/>
+                            <span>এনড&#2495;ট&#2495;ভ&#2495; ব&#2494;&#2434;ল&#2494;</span>
+                        </a>
+                        <a class='news-card' data-title='বাংলা ট্রিবিউন' onclick='openHub(&quot;https://banglatribune.com&quot;, &quot;বাংলা ট্রিবিউন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=banglatribune.com'/>
+                            <span>ব&#2494;&#2434;ল&#2494; ট&#2509;র&#2495;ব&#2495;উন</span>
+                        </a>
+                        <a class='news-card' data-title='চ্যানেল আই অনলাইন' onclick='openHub(&quot;https://channelionline.com&quot;, &quot;চ্যানেল আই অনলাইন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=channelionline.com'/>
+                            <span>চ&#2509;য&#2494;ন&#2503;ল আই</span>
+                        </a>
+                        <a class='news-card' data-title='সময় নিউজ' onclick='openHub(&quot;https://somoynews.tv&quot;, &quot;সময় নিউজ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=somoynews.tv'/>
+                            <span>সময&#2492; ন&#2495;উজ</span>
+                        </a>
+                        <a class='news-card' data-title='বিবিসি বাংলা' onclick='openHub(&quot;https://bbc.com/bengali&quot;, &quot;বিবিসি বাংলা&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=bbc.com'/>
+                            <span>ব&#2495;ব&#2495;স&#2495; ব&#2494;&#2434;ল&#2494;</span>
+                        </a>
+                        <a class='news-card' data-title='ডয়চে ভেলে বাংলা' onclick='openHub(&quot;https://dw.com/bn&quot;, &quot;ডয়চে ভেলে বাংলা&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dw.com'/>
+                            <span>DW ব&#2494;&#2434;ল&#2494;</span>
+                        </a>
+                        <a class='news-card' data-title='আরটিভি অনলাইন' onclick='openHub(&quot;https://rtvonline.com&quot;, &quot;আরটিভি অনলাইন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=rtvonline.com'/>
+                            <span>আরট&#2495;ভ&#2495; অনল&#2494;ইন</span>
+                        </a>
+                        <a class='news-card' data-title='এনটিভি অনলাইন' onclick='openHub(&quot;https://ntvbd.com&quot;, &quot;এনটিভি অনলাইন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=ntvbd.com'/>
+                            <span>এনট&#2495;ভ&#2495; অনল&#2494;ইন</span>
+                        </a>
+                        <a class='news-card' data-title='ব্রেকিং নিউজ' onclick='openHub(&quot;https://breakingnews.com.bd&quot;, &quot;ব্রেকিং নিউজ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=breakingnews.com.bd'/>
+                            <span>ব&#2509;র&#2503;ক&#2495;&#2434; ন&#2495;উজ</span>
+                        </a>
+                        <a class='news-card' data-title='পূর্বপশ্চিম' onclick='openHub(&quot;https://purboposhchim.com&quot;, &quot;পূর্বপশ্চিম&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=purboposhchim.com'/>
+                            <span>প&#2498;র&#2509;বপশ&#2509;চ&#2495;ম</span>
+                        </a>
+                        <a class='news-card' data-title='বার্তা বাজার' onclick='openHub(&quot;https://bartabazar.com&quot;, &quot;বার্তা বাজার&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=bartabazar.com'/>
+                            <span>ব&#2494;র&#2509;ত&#2494; ব&#2494;জ&#2494;র</span>
+                        </a>
+                        <a class='news-card' data-title='ডেইলি বাংলাদেশ' onclick='openHub(&quot;https://daily-bangladesh.com&quot;, &quot;ডেইলি বাংলাদেশ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=daily-bangladesh.com'/>
+                            <span>ড&#2503;ইল&#2495; ব&#2494;&#2434;ল&#2494;দ&#2503;শ</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ad Slot Between Content -->
+                <div class='ad-container'>
+                    <span class='ad-label'>ব&#2495;জ&#2509;ঞ&#2494;পন</span>
+                    <div class='ad-box' style='height: 250px;'>
+                        <b:section id='mid-feed-ad' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML3' locked='false' title='Mid Ad' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'/>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/><b:if cond='data:content == &quot;&quot;'>In-Feed In-Article Ad Slot (300x250 or Native)</b:if></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 3: TV CHANNELS (20+ SITES) -->
+                <div class='cat-box' id='tv'>
+                    <div class='cat-header'>
+                        <h2><i class='fas fa-tv'/> ল&#2494;ইভ ট&#2495;ভ&#2495; ও ন&#2495;উজ চ&#2509;য&#2494;ন&#2503;ল</h2>
+                        <span class='badge'>২০ট&#2495; স&#2494;ইট</span>
+                    </div>
+                    <div class='news-grid'>
+                        <a class='news-card' data-title='সময় টিভি' onclick='openHub(&quot;https://somoynews.tv&quot;, &quot;সময় টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=somoynews.tv'/>
+                            <span>সময&#2492; ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='যমুনা টিভি' onclick='openHub(&quot;https://jamuna.tv&quot;, &quot;যমুনা টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=jamuna.tv'/>
+                            <span>যম&#2497;ন&#2494; ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='ডিবিসি নিউজ' onclick='openHub(&quot;https://dbcnews.tv&quot;, &quot;ডিবিসি নিউজ&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=dbcnews.tv'/>
+                            <span>ড&#2495;ব&#2495;স&#2495; ন&#2495;উজ</span>
+                        </a>
+                        <a class='news-card' data-title='একাত্তর টিভি' onclick='openHub(&quot;https://ekattor.tv&quot;, &quot;একাত্তর টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=ekattor.tv'/>
+                            <span>এক&#2494;ত&#2509;তর ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='নিউজ২৪' onclick='openHub(&quot;https://news24bd.tv&quot;, &quot;নিউজ২৪&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=news24bd.tv'/>
+                            <span>ন&#2495;উজ২৪</span>
+                        </a>
+                        <a class='news-card' data-title='চ্যানেল ২৪' onclick='openHub(&quot;https://channel24bd.tv&quot;, &quot;চ্যানেল ২৪&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=channel24bd.tv'/>
+                            <span>চ&#2509;য&#2494;ন&#2503;ল ২৪</span>
+                        </a>
+                        <a class='news-card' data-title='ইনডিপেনডেন্ট টিভি' onclick='openHub(&quot;https://independent24.tv&quot;, &quot;ইনডিপেনডেন্ট টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=independent24.tv'/>
+                            <span>ইনড&#2495;প&#2503;নড&#2503;ন&#2509;ট</span>
+                        </a>
+                        <a class='news-card' data-title='এটিএন বাংলা' onclick='openHub(&quot;https://atnbangla.tv&quot;, &quot;এটিএন বাংলা&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=atnbangla.tv'/>
+                            <span>এট&#2495;এন ব&#2494;&#2434;ল&#2494;</span>
+                        </a>
+                        <a class='news-card' data-title='এনটিভি' onclick='openHub(&quot;https://ntvbd.com&quot;, &quot;এনটিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=ntvbd.com'/>
+                            <span>এনট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='আরটিভি' onclick='openHub(&quot;https://rtvonline.com&quot;, &quot;আরটিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=rtvonline.com'/>
+                            <span>আরট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='মাছরাঙা টিভি' onclick='openHub(&quot;https://maasranga.tv&quot;, &quot;মাছরাঙা টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=maasranga.tv'/>
+                            <span>ম&#2494;ছর&#2494;ঙ&#2494; ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='বাংলাভিশন' onclick='openHub(&quot;https://bvnews24.com&quot;, &quot;বাংলাভিশন&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=bvnews24.com'/>
+                            <span>ব&#2494;&#2434;ল&#2494;ভ&#2495;শন</span>
+                        </a>
+                        <a class='news-card' data-title='একুশে টিভি' onclick='openHub(&quot;https://ekushey-tv.com&quot;, &quot;একুশে টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=ekushey-tv.com'/>
+                            <span>এক&#2497;শ&#2503; ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='চ্যানেল আই' onclick='openHub(&quot;https://channelionline.com&quot;, &quot;চ্যানেল আই&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=channelionline.com'/>
+                            <span>চ&#2509;য&#2494;ন&#2503;ল আই</span>
+                        </a>
+                        <a class='news-card' data-title='দেশ টিভি' onclick='openHub(&quot;https://desh.tv&quot;, &quot;দেশ টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=desh.tv'/>
+                            <span>দ&#2503;শ ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='মোহনা টিভি' onclick='openHub(&quot;https://mohanatv.com&quot;, &quot;মোহনা টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=mohanatv.com'/>
+                            <span>ম&#2507;হন&#2494; ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='এশিয়ান টিভি' onclick='openHub(&quot;https://asiantvbd.tv&quot;, &quot;এশিয়ান টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=asiantvbd.tv'/>
+                            <span>এশ&#2495;য&#2492;&#2494;ন ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='এসএ টিভি' onclick='openHub(&quot;https://satv.tv&quot;, &quot;এসএ টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=satv.tv'/>
+                            <span>এসএ ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='মাই টিভি' onclick='openHub(&quot;https://mytvbd.tv&quot;, &quot;মাই টিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=mytvbd.tv'/>
+                            <span>ম&#2494;ই ট&#2495;ভ&#2495;</span>
+                        </a>
+                        <a class='news-card' data-title='জিটিভি' onclick='openHub(&quot;https://gazitv.com&quot;, &quot;জিটিভি&quot;)'>
+                            <img src='https://www.google.com/s2/favicons?sz=64&amp;domain=gazitv.com'/>
+                            <span>জ&#2495;ট&#2495;ভ&#2495;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- OTHER DYNAMIC SECTIONS PROCESSED VIA WIDGETS -->
+                <b:section id='dynamic-post-section' name='Written News &amp; Posts' showaddelement='yes'>
+                  <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                      <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+                      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                      <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                      <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='reactionsLabel'/>
+                      <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                      <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                      <b:widget-setting name='showLabels'>true</b:widget-setting>
+                      <b:widget-setting name='showLocation'>true</b:widget-setting>
+                      <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                      <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                      <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                      <b:widget-setting name='showReactions'>false</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <b:if cond='data:view.isPost or data:view.isPage'>
+                                <b:loop values='data:posts' var='post'>
+                                    <div style='background:var(--surface); padding:40px; border-radius:var(--radius); border:1px solid var(--border);'>
+                                        <h1 style='font-size:32px; font-weight:800; line-height:1.2; margin-bottom:20px;'><data:post.title/></h1>
+                                        <div style='font-size:14px; color:var(--text-muted); margin-bottom:30px;'>
+                                            <span><i class='far fa-calendar'/> <data:post.date/></span> | 
+                                            <span><i class='far fa-user'/> <data:post.author.name/></span>
+                                        </div>
+                                        <div style='font-size:16px; color:var(--text-main); line-height:1.8;'>
+                                            <data:post.body/>
+                                        </div>
+                                    </div>
+                                </b:loop>
+                            </b:if>
+                        </b:includable>
+                    <b:includable id='aboutPostAuthor'>
+  <div class='author-name'>
+    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+      <span>
+        <data:post.author.name/>
+      </span>
+    </a>
+  </div>
+  <div>
+    <span class='author-desc'>
+      <data:post.author.aboutMe/>
+    </span>
+  </div>
+</b:includable>
+                    <b:includable id='addComments'>
+  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:message name='messages.postAComment'/>
+  </a>
+</b:includable>
+                    <b:includable id='commentAuthorAvatar'>
+  <div class='avatar-image-container'>
+    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+  </div>
+</b:includable>
+                    <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+                    <b:includable id='commentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+                    <b:includable id='commentFormIframeSrc' var='post'>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+                    <b:includable id='commentItem' var='comment'>
+  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
+
+    <div class='comment-block'>
+      <div class='comment-author'>
+        <b:if cond='data:comment.authorUrl'>
+          <b:message name='messages.authorSaidWithLink'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+          </b:message>
+        <b:else/>
+          <b:message name='messages.authorSaid'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+          </b:message>
+        </b:if>
+      </div>
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
+      <div class='comment-footer'>
+        <span class='comment-timestamp'>
+          <a expr:href='data:comment.url' title='comment permalink'>
+            <data:comment.timestamp/>
+          </a>
+          <b:include data='comment' name='commentDeleteIcon'/>
+        </span>
+      </div>
+    </div>
+  </div>
+</b:includable>
+                    <b:includable id='commentList' var='comments'>
+  <div id='comments-block'>
+    <b:loop values='data:comments' var='comment'>
+      <b:include data='comment' name='commentItem'/>
+    </b:loop>
+  </div>
+</b:includable>
+                    <b:includable id='commentPicker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threadedComments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+                    <b:includable id='comments' var='post'>
+  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+
+      <b:include name='commentsTitle'/>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <div class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+              <data:messages.oldest/>
+            </a>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+              <data:messages.older/>
+            </a>
+          </b:if>
+
+          <span class='comment-range-text'>
+            <data:post.commentRangeText/>
+          </span>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+              <data:messages.newer/>
+            </a>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+              <data:messages.newest/>
+            </a>
+          </b:if>
+        </div>
+      </b:if>
+
+      <div class='footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='commentForm'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <b:include data='post' name='addComments'/>
+          </b:if>
+        </b:if>
+      </div>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+                    <b:includable id='commentsTitle'>
+  <h3 class='title'><data:messages.comments/></h3>
+</b:includable>
+                    <b:includable id='feedLinks'>
+  <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.allowComments and data:post.feedLinks'>
+          <b:include data='post.feedLinks' name='feedLinksBody'/>
+        </b:if>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+                    <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:messages.subscribeTo/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+                    <b:includable id='homePageLink'>
+  <a class='home-link' expr:href='data:blog.homepageUrl'>
+    <data:messages.home/>
+  </a>
+</b:includable>
+                    <b:includable id='iframeComments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+                    <b:includable id='inlineAd' var='post'>
+  <b:if cond='!data:view.isPreview'>
+    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
+      <!-- Ad -->
+      <div class='inline-ad'>
+        <b:if cond='data:this.adCode != &quot;&quot;'>
+          <data:this.adCode/>
+        <b:else/>
+          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
+        </b:if>
+      </div>
+    </b:if>
+  <b:else/>
+    <div class='inline-ad'>
+      <div class='inline-ad-placeholder'>
+        <span><b:message name='messages.adsGoHere'/></span>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+                    <b:includable id='nextPageLink'>
+  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+    <data:messages.olderPosts/>
+  </a>
+</b:includable>
+                    <b:includable id='post' var='post'>
+  <div class='post'>
+    <b:include data='post' name='postMeta'/>
+    <b:include data='post' name='postTitle'/>
+    <b:include name='headerByline'/>
+    <b:if cond='data:view.isSingleItem'>
+      <b:include data='post' name='postBody'/>
+    <b:else/>
+      <b:include data='post' name='postBodySnippet'/>
+      <b:include data='post' name='postJumpLink'/>
+    </b:if>
+    <b:include data='post' name='postFooter'/>
+  </div>
+</b:includable>
+                    <b:includable id='postBody' var='post'>
+  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+    <data:post.body/>
+  </div>
+</b:includable>
+                    <b:includable id='postBodySnippet' var='post'>
+  <b:include data='post' name='postBody'/>
+</b:includable>
+                    <b:includable id='postCommentsAndAd' var='post'>
+  <article class='post-outer-container'>
+    <!-- Post title and body -->
+    <div class='post-outer'>
+      <b:include data='post' name='post'/>
+    </div>
+
+    <!-- Comments -->
+    <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+
+    <!-- Show ad inside post container, after comments, if single item. -->
+    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
+  </article>
+
+  <!-- Show ad outside post container (between posts) for feed pages. -->
+  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+</b:includable>
+                    <b:includable id='postCommentsLink'>
+  <b:if cond='data:view.isMultipleItems'>
+    <span class='byline post-comment-link container'>
+      <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+    </span>
+  </b:if>
+</b:includable>
+                    <b:includable id='postFooter' var='post'>
+  <div class='post-footer'>
+    <b:include name='footerBylines'/>
+    <b:include data='post' name='postFooterAuthorProfile'/>
+  </div>
+</b:includable>
+                    <b:includable id='postFooterAuthorProfile' var='post'>
+  <b:if cond='data:post.author.aboutMe and data:view.isPost'>
+    <div class='author-profile'>
+      <b:if cond='data:post.author.authorPhoto.url'>
+        <img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
+        <div class='author-about'>
+          <b:include data='post' name='aboutPostAuthor'/>
+        </div>
+      <b:else/>
+        <b:include data='post' name='aboutPostAuthor'/>
+      </b:if>
+    </div>
+  </b:if>
+</b:includable>
+                    <b:includable id='postHeader' var='post'>
+  <b:include name='headerByline'/>
+</b:includable>
+                    <b:includable id='postMeta' var='post'>
+  <b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+                    <b:includable id='postPagination'>
+  <div class='blog-pager container' id='blog-pager'>
+    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+  </div>
+</b:includable>
+                    <b:includable id='postTitle' var='post'>
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title entry-title'>
+      <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+        <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+    </h3>
+  </b:if>
+</b:includable>
+                    <b:includable id='previousPageLink'>
+  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+    <data:messages.newerPosts/>
+  </a>
+</b:includable>
+                    <b:includable id='threadedCommentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+                    <b:includable id='threadedCommentJs' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+  <b:template-script inline='true' name='threaded_comments'/>
+  <script type='text/javascript'>
+    blogger.widgets.blog.initThreadedComments(
+        <data:post.commentJso/>,
+        <data:post.commentMsgs/>,
+        <data:post.commentConfig/>);
+  </script>
+</b:includable>
+                    <b:includable id='threadedComments' var='post'>
+  <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+
+    <b:include name='commentsTitle'/>
+
+    <div class='comments-content'>
+      <b:if cond='data:post.embedCommentForm'>
+        <b:include data='post' name='threadedCommentJs'/>
+      </b:if>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threadedCommentForm'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+      <b:if cond='data:post.showManageComments'>
+        <b:include data='post' name='manageComments'/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+                    <b:includable id='tooltipCss'>
+  <!-- LINT.IfChange -->
+  <style>
+    .post-body a.b-tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip {
+      display: block !important;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-20%, 1px);
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip iframe {
+      width: 200px;
+      height: 198px;
+      max-width: none;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) {
+      .post-body a.b-tooltip-container:hover .b-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  </style>
+  <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
+</b:includable>
+                  </b:widget>
+                </b:section>
+            </main>
+
+            <!-- SIDEBAR WITH STICKY AD -->
+            <aside>
+                <div class='sidebar-widget'>
+                    <div class='widget-title'><i class='fas fa-ad'/> স&#2509;পন&#2509;সর ব&#2495;জ&#2509;ঞ&#2494;পন</div>
+                    <div class='ad-box' style='min-height: 250px;'>
+                        <b:section id='sidebar-ad' maxwidgets='1' showaddelement='yes'>
+                          <b:widget id='HTML4' locked='false' title='Sidebar Ad' type='HTML' version='2' visible='true'>
+                            <b:widget-settings>
+                              <b:widget-setting name='content'/>
+                            </b:widget-settings>
+                            <b:includable id='main'><data:content/><b:if cond='data:content == &quot;&quot;'>Square Ad (300x250) Sidebar</b:if></b:includable>
+                          </b:widget>
+                        </b:section>
+                    </div>
+                </div>
+
+                <div class='sidebar-widget'>
+                    <div class='widget-title'><i class='fas fa-bolt'/> ব&#2509;র&#2503;ক&#2495;&#2434; ব&#2509;লগ ন&#2495;উজ</div>
+                    <b:section id='popular-posts-sec' name='Popular Posts' showaddelement='yes'>
+                      <b:widget id='PopularPosts1' locked='false' title='Trending' type='PopularPosts' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
+                          <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                          <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                          <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <b:loop values='data:posts' var='post'>
+                                    <div style='margin-bottom:15px; display:flex; gap:10px; border-bottom:1px solid var(--border); padding-bottom:10px;'>
+                                        <img expr:src='data:post.featuredImage' style='width:60px; height:60px; object-fit:cover; border-radius:4px;'/>
+                                        <a expr:href='data:post.url' style='text-decoration:none; color:var(--text-main); font-size:13px; font-weight:700; line-height:1.4;'><data:post.title/></a>
+                                    </div>
+                                </b:loop>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class='container'>
+            <div class='footer-grid'>
+                <div>
+                    <span class='footer-logo'>NEWS<span>HUB</span></span>
+                    <p style='color:#bdc1c6; font-size:14px;'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সবচ&#2503;য&#2492;&#2503; বড&#2492; ন&#2495;উজপ&#2507;র&#2509;ট&#2494;ল হ&#2494;ব&#2404; ২৪ ঘন&#2509;ট&#2494; ন&#2495;র&#2509;ভরয&#2507;গ&#2509;য এব&#2434; দ&#2509;র&#2497;ত স&#2434;ব&#2494;দ এক ঠ&#2495;ক&#2494;ন&#2494;য&#2492; প&#2503;ত&#2503; আম&#2494;দ&#2503;র অন&#2497;সরণ কর&#2497;ন&#2404;</p>
+                </div>
+                <div>
+                    <span class='footer-title'>প&#2509;রয&#2492;&#2507;জন&#2496;য&#2492; প&#2494;ত&#2494;</span>
+                    <ul class='footer-links'>
+                        <li><a href='/p/about.html'>আম&#2494;দ&#2503;র সম&#2509;পর&#2509;ক&#2503;</a></li>
+                        <li><a href='/p/contact.html'>য&#2507;গ&#2494;য&#2507;গ</a></li>
+                        <li><a href='/p/privacy.html'>গ&#2507;পন&#2496;য&#2492;ত&#2494; ন&#2496;ত&#2495;</a></li>
+                        <li><a href='/p/terms.html'>শর&#2509;ত&#2494;বল&#2496;</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class='footer-title'>স&#2507;শ&#2509;য&#2494;ল ম&#2495;ড&#2495;য&#2492;&#2494;</span>
+                    <ul class='footer-links'>
+                        <li><a href='#'><i class='fab fa-facebook'/> ফ&#2503;সব&#2497;ক</a></li>
+                        <li><a href='#'><i class='fab fa-twitter'/> ট&#2497;ইট&#2494;র</a></li>
+                        <li><a href='#'><i class='fab fa-youtube'/> ইউট&#2495;উব</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style='text-align:center; margin-top:50px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:13px; color:#9aa0a6;'>
+                &amp;lamp;copy; 2026 NEWSHUB BANGLA. Designed to comply with standard AdSense approval procedures.
+            </div>
+        </div>
+    </footer>
+
+    <!-- REAL-TIME READER SYSTEM -->
+    <div class='reader-modal' id='app-reader'>
+        <div class='reader-header'>
+            <span id='active-site-title' style='font-weight:700;'/>
+            <div style='display:flex; gap:12px;'>
+                <a class='reader-btn' href='#' id='ext-tab' target='_blank'>নত&#2497;ন উইন&#2509;ড&#2507;ত&#2503; খ&#2497;ল&#2497;ন</a>
+                <button class='reader-btn' onclick='closeHub()' style='background:var(--accent);'>বন&#2509;ধ কর&#2497;ন</button>
+            </div>
+        </div>
+        <iframe id='reader-frame' src=''/>
+    </div>
+
+    <script type='text/javascript'>
+        //<![CDATA[
+        // Date Generation
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('real-time-date').innerText = new Date().toLocaleDateString('bn-BD', options);
+
+        // Dark Mode Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Live Dynamic Search Filter
+        function filterHub() {
+            let input = document.getElementById('live-search').value.toLowerCase();
+            let cards = document.querySelectorAll('.news-card');
+            cards.forEach(card => {
+                let name = card.getAttribute('data-title').toLowerCase();
+                if (name.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Hub Loading System
+        function openHub(url, name) {
+            document.getElementById('active-site-title').innerText = "পড়ছেন: " + name;
+            document.getElementById('reader-frame').src = url;
+            document.getElementById('ext-tab').href = url;
+            document.getElementById('app-reader').style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeHub() {
+            document.getElementById('app-reader').style.display = "none";
+            document.getElementById('reader-frame').src = "";
+            document.body.style.overflow = "auto";
+        }
+        //]]>
+    </script>
+</body>
+</html>

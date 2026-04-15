@@ -1,0 +1,1207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    
+    <!-- Premium Fonts & Icons -->
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+
+    <!-- ==========================================
+         PRO-LABEL PREMIUM NEWSPAPER THEME CSS
+         ========================================== -->
+    <b:skin version='2'><![CDATA[
+        :root {
+            --primary: #1a73e8; /* Google Brand Blue */
+            --primary-dark: #1557b0;
+            --primary-light: #e8f0fe;
+            --secondary: #202124;
+            --secondary-light: #3c4043;
+            --accent: #d93025; /* Red */
+            --bg-light: #f8f9fa;
+            --bg-dark: #121212;
+            --surface: #ffffff;
+            --text-dark: #202124;
+            --text-muted: #5f6368;
+            --border: #dadce0;
+            --shadow-sm: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        /* --- DARK MODE OVERRIDES --- */
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: #e8eaed;
+            --surface: #1e1e1e;
+            --text-dark: #e8eaed;
+            --text-muted: #9aa0a6;
+            --border: #3c4043;
+            --pro-bg: #121212;
+        }
+        
+        body.dark-mode header,
+        body.dark-mode nav,
+        body.dark-mode .sub-nav,
+        body.dark-mode .cat-box,
+        body.dark-mode .news-card,
+        body.dark-mode .sidebar-widget,
+        body.dark-mode .post-container {
+            background-color: #1e1e1e;
+            border-color: #3c4043;
+            color: #e8eaed;
+        }
+        
+        body.dark-mode .news-card:hover {
+            border-color: var(--primary);
+            background-color: #2d2d2d;
+        }
+
+        /* --- CORE STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-light);
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            color: var(--text-dark);
+            padding-top: 165px;
+            line-height: 1.6;
+            transition: background-color 0.3s ease;
+        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        
+        /* --- UTILITIES --- */
+        .text-center { text-align: center; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .grid { display: grid; gap: 20px; }
+
+        /* --- SKELETON LOADER --- */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* --- HEADER AREA --- */
+        header {
+            background: var(--surface);
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+        
+        .header-top { border-bottom: 1px solid var(--border); padding: 12px 0; background: #fff; }
+        
+        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon {
+            width: 45px; height: 45px;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(26, 115, 232, 0.2);
+        }
+        .logo-text { font-size: 26px; font-weight: 800; color: var(--secondary); letter-spacing: -0.5px; }
+        .logo-text span { color: var(--primary); }
+
+        /* --- ADSENSE OPTIMIZED SLOTS --- */
+        .pro-ad-slot {
+            margin: 25px auto;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+            border: 1px dashed var(--border);
+            padding: 10px;
+            border-radius: var(--radius-md);
+        }
+        body.dark-mode .pro-ad-slot { background: #121212; }
+        .ad-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; font-weight: 700; }
+        
+        .header-ad-area {
+            width: 728px; height: 90px;
+            background: #fafafa;
+            border: 1px dashed var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-radius: var(--radius-sm);
+        }
+        body.dark-mode .header-ad-area { background: #121212; }
+
+        /* --- PRO NAVBAR --- */
+        nav { background: var(--surface); border-bottom: 1px solid var(--border); }
+        .nav-list { display: flex; list-style: none; padding: 0; margin: 0; overflow-x: auto; scrollbar-width: none; }
+        .nav-list::-webkit-scrollbar { display: none; }
+        .nav-list li a {
+            display: block;
+            padding: 16px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+        .nav-list li a:hover { color: var(--primary); border-bottom-color: var(--primary); background: rgba(26,115,232,0.04); }
+        .nav-list li a.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+        /* --- SUB NAV & TICKER --- */
+        .sub-nav { background: #fff; border-bottom: 1px solid var(--border); padding: 8px 0; }
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            background: #f1f3f4;
+            border-radius: 24px;
+            padding: 2px 15px;
+            align-items: center;
+            transition: var(--transition);
+        }
+        body.dark-mode .search-wrapper { background: #2d2d2d; }
+        .search-wrapper:focus-within { background: #fff; box-shadow: 0 0 0 2px var(--primary); }
+        body.dark-mode .search-wrapper:focus-within { background: #2d2d2d; }
+        .search-wrapper input { border: none; background: transparent; padding: 10px; width: 100%; outline: none; font-size: 14px; color: inherit; }
+        
+        .ticker-bar { display: flex; align-items: center; gap: 15px; overflow: hidden; font-size: 13px; font-weight: 600; color: var(--accent); }
+        .ticker-label { background: var(--accent); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; text-transform: uppercase; }
+
+        /* --- MAIN GRID LAYOUT --- */
+        .main-wrapper { display: grid; grid-template-columns: 1fr 320px; gap: 30px; margin-top: 30px; }
+
+        /* --- DIRECTORY STYLING --- */
+        .cat-box { background: #fff; border: 1px solid var(--pro-border); border-radius: var(--radius-lg); padding: 25px; margin-bottom: 35px; box-shadow: var(--shadow-sm); }
+        .cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 2px solid var(--bg-light); padding-bottom: 15px; }
+        body.dark-mode .cat-header { border-bottom-color: #3c4043; }
+        .cat-header h2 { font-size: 20px; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 10px; color: var(--primary); }
+        .cat-header .badge { background: var(--primary-light); color: var(--primary); font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 20px; }
+
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
+        .news-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 10px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+        .news-card img { width: 45px; height: 45px; object-fit: contain; margin-bottom: 12px; border-radius: var(--radius-sm); }
+        .news-card span { display: block; font-weight: 700; font-size: 13px; color: var(--text-dark); line-height: 1.3; }
+
+        /* --- SINGLE POST / PAGE --- */
+        .post-container { background: #fff; padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+        .post-title { font-size: 36px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: var(--secondary); }
+        body.dark-mode .post-title { color: #fff; }
+        .post-meta { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; display: flex; gap: 20px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        .post-body { font-size: 16px; color: var(--text-dark); line-height: 1.8; }
+        .post-body img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin: 15px 0; }
+        .post-body h2, .post-body h3 { margin: 25px 0 15px; }
+
+        /* --- SIDEBAR --- */
+        .sidebar-widget { background: #fff; padding: 25px; border-radius: var(--radius-lg); border: 1px solid var(--border); margin-bottom: 30px; box-shadow: var(--shadow-sm); }
+        .widget-title { font-size: 18px; font-weight: 800; border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; color: var(--secondary); }
+        body.dark-mode .widget-title { color: #fff; }
+        
+        .popular-item { display: flex; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        .popular-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .popular-img { width: 65px; height: 65px; object-fit: cover; border-radius: var(--radius-sm); }
+        .popular-text { font-size: 13px; font-weight: 700; line-height: 1.4; color: var(--text-dark); text-decoration: none; }
+        .popular-text:hover { color: var(--primary); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--secondary); color: #fff; padding: 70px 0 30px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 20px; display: block; color: var(--primary); text-decoration: none; }
+        .footer-logo span { color: #fff; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #bdc1c6; text-decoration: none; font-size: 14px; transition: var(--transition); }
+        .footer-links a:hover { color: #fff; padding-left: 5px; }
+
+        /* --- MODAL READER --- */
+        .reader-view {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+        }
+        body.dark-mode .reader-view { background: #121212; }
+        .reader-bar { background: var(--secondary); color: #fff; padding: 12px 25px; display: flex; justify-content: space-between; align-items: center; }
+        iframe#readerFrame { flex: 1; border: none; width: 100%; }
+
+        /* --- DARK MODE TOGGLE --- */
+        .theme-switch {
+            background: #f1f3f4;
+            border: none;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        body.dark-mode .theme-switch { background: #2d2d2d; color: #fff; }
+        .theme-switch:hover { background: #dadce0; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .header-ad-area { display: none; }
+            body { padding-top: 130px; }
+            .main-wrapper { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 180px; }
+            .post-container { padding: 20px; }
+            .post-title { font-size: 26px; }
+            .header-flex { flex-direction: column; gap: 15px; }
+            .sub-nav .container { flex-direction: column; gap: 10px; }
+            .search-wrapper { max-width: 100%; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <header>
+        <!-- Header Top -->
+        <div class='header-top'>
+            <div class='container header-flex'>
+                <a class='logo-area' href='/'>
+                    <div class='logo-icon'><i class='fas fa-bolt'/></div>
+                    <div class='logo-text'>NEWS<span>PORTAL</span></div>
+                </a>
+                
+                <!-- AdSense Header Slot -->
+                <b:section id='header-ad' maxwidgets='1' showaddelement='yes'>
+                  <b:widget id='HTML1' locked='false' title='Header Ad' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='content'><![CDATA[<!-- Paste AdSense Code Here -->]]></b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                            <div class='header-ad-area'>
+                                <data:content/>
+                                <b:if cond='data:content == &quot;&quot;'>Responsive Header Ad (728x90)</b:if>
+                            </div>
+                        </b:includable>
+                  </b:widget>
+                </b:section>
+                
+                <button class='theme-switch' id='themeToggle' onclick='toggleTheme()'>
+                    <i class='fas fa-moon'/>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pro Navbar -->
+        <nav>
+            <div class='container'>
+                <ul class='nav-list'>
+                    <li><a class='active' href='/'><i class='fas fa-home'/> প&#2509;রচ&#2509;ছদ</a></li>
+                    <li><a href='#national'><i class='fas fa-landmark'/> জ&#2494;ত&#2496;য&#2492; দ&#2504;ন&#2495;ক</a></li>
+                    <li><a href='#online'><i class='fas fa-globe'/> অনল&#2494;ইন প&#2507;র&#2509;ট&#2494;ল</a></li>
+                    <li><a href='#tv'><i class='fas fa-tv'/> ট&#2495;ভ&#2495; চ&#2509;য&#2494;ন&#2503;ল</a></li>
+                    <li><a href='#international'><i class='fas fa-globe-americas'/> আন&#2509;তর&#2509;জ&#2494;ত&#2495;ক</a></li>
+                    <li><a href='#sports'><i class='fas fa-futbol'/> খ&#2503;ল&#2494;ধ&#2497;ল&#2494;</a></li>
+                    <li><a href='#district'><i class='fas fa-map-marker-alt'/> জ&#2503;ল&#2494; ভ&#2495;ত&#2509;ত&#2495;ক</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sub Navigation / Search -->
+        <div class='sub-nav'>
+            <div class='container' style='display:flex; justify-content:space-between; align-items:center;'>
+                <div class='search-wrapper'>
+                    <i class='fas fa-search' style='color:#5f6368'/>
+                    <input id='proSearch' onkeyup='proFilter()' placeholder='পত্রিকা বা খবরের নাম দিয়ে খুঁজুন...' type='text'/>
+                </div>
+                <div class='ticker-bar'>
+                    <span class='ticker-label'>ব&#2509;র&#2503;ক&#2495;&#2434;</span>
+                    <marquee onmouseout='this.start();' onmouseover='this.stop();'>
+                        ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সবচ&#2494;ইত&#2503; বড় পত&#2509;র&#2495;ক&#2494; ড&#2495;র&#2503;ক&#2509;টর&#2495; এখন আপন&#2494;র স&#2509;ক&#2509;র&#2495;ন&#2503;&#2404; দ&#2503;শ ও ব&#2495;দ&#2503;শ&#2503;র সকল খবর সব&#2494;র আগ&#2503;&#2404;
+                    </marquee>
+                </div>
+                <div id='proDate' style='font-size:13px; font-weight:700; color:var(--primary); white-space:nowrap;'/>
+            </div>
+        </div>
+    </header>
+
+    <div class='container'>
+        <div class='main-wrapper'>
+            
+            <!-- MAIN CONTENT AREA -->
+            <main>
+                <!-- 1. AD ABOVE CONTENT -->
+                <div class='pro-ad-slot'>
+                    <span class='ad-label'>Advertisement</span>
+                    <b:section id='above-content-ad' maxwidgets='1' showaddelement='yes'>
+                      <b:widget id='HTML2' locked='false' title='Above Content Ad' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'/>
+                        </b:widget-settings>
+                        <b:includable id='main'><data:content/><b:if cond='data:content == &quot;&quot;'>Horizontal Leaderboard Slot</b:if></b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+
+                <!-- 2. HOME VIEW (DIRECTORY SYSTEM) -->
+                <b:if cond='data:view.isHomepage'>
+                    
+                    <!-- Dynamic rendering powered by JS loop below -->
+                    <div id='portalIndex'/>
+
+                    <!-- In-feed Ad Slot -->
+                    <div class='pro-ad-slot'>
+                        <span class='ad-label'>Advertisement</span>
+                        <div style='width:100%; height:100px; background:#fafafa; display:flex; align-items:center; justify-content:center; color:#999;'>In-Feed Grid Ad Slot</div>
+                    </div>
+
+                </b:if>
+
+                <!-- 3. ARTICLE / POST PAGE VIEW -->
+                <b:if cond='data:view.isPost or data:view.isPage'>
+                    <b:section id='post-body-sec' maxwidgets='1' showaddelement='no'>
+                      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                          <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+                          <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                          <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                          <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                          <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='reactionsLabel'/>
+                          <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                          <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                          <b:widget-setting name='showLabels'>true</b:widget-setting>
+                          <b:widget-setting name='showLocation'>true</b:widget-setting>
+                          <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                          <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                          <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                          <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                          <b:widget-setting name='showReactions'>false</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <b:loop values='data:posts' var='post'>
+                                    <div class='post-container'>
+                                        <h1 class='post-title'><data:post.title/></h1>
+                                        <div class='post-meta'>
+                                            <span><i class='far fa-calendar'/> <data:post.date/></span>
+                                            <span><i class='far fa-user'/> <data:post.author.name/></span>
+                                        </div>
+                                        <div class='post-body'>
+                                            <!-- Post Top Ad -->
+                                            <div class='ad-slot' style='margin-bottom:20px;'>Article Top Ad Slot</div>
+                                            
+                                            <data:post.body/>
+                                            
+                                            <!-- Post Bottom Ad -->
+                                            <div class='ad-slot' style='margin-top:20px;'>Article Bottom Ad Slot</div>
+                                        </div>
+                                    </div>
+                                </b:loop>
+                            </b:includable>
+                        <b:includable id='aboutPostAuthor'>
+  <div class='author-name'>
+    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+      <span>
+        <data:post.author.name/>
+      </span>
+    </a>
+  </div>
+  <div>
+    <span class='author-desc'>
+      <data:post.author.aboutMe/>
+    </span>
+  </div>
+</b:includable>
+                        <b:includable id='addComments'>
+  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:message name='messages.postAComment'/>
+  </a>
+</b:includable>
+                        <b:includable id='commentAuthorAvatar'>
+  <div class='avatar-image-container'>
+    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+  </div>
+</b:includable>
+                        <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+                        <b:includable id='commentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+                        <b:includable id='commentFormIframeSrc' var='post'>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+                        <b:includable id='commentItem' var='comment'>
+  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
+
+    <div class='comment-block'>
+      <div class='comment-author'>
+        <b:if cond='data:comment.authorUrl'>
+          <b:message name='messages.authorSaidWithLink'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+          </b:message>
+        <b:else/>
+          <b:message name='messages.authorSaid'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+          </b:message>
+        </b:if>
+      </div>
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
+      <div class='comment-footer'>
+        <span class='comment-timestamp'>
+          <a expr:href='data:comment.url' title='comment permalink'>
+            <data:comment.timestamp/>
+          </a>
+          <b:include data='comment' name='commentDeleteIcon'/>
+        </span>
+      </div>
+    </div>
+  </div>
+</b:includable>
+                        <b:includable id='commentList' var='comments'>
+  <div id='comments-block'>
+    <b:loop values='data:comments' var='comment'>
+      <b:include data='comment' name='commentItem'/>
+    </b:loop>
+  </div>
+</b:includable>
+                        <b:includable id='commentPicker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threadedComments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+                        <b:includable id='comments' var='post'>
+  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+
+      <b:include name='commentsTitle'/>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <div class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+              <data:messages.oldest/>
+            </a>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+              <data:messages.older/>
+            </a>
+          </b:if>
+
+          <span class='comment-range-text'>
+            <data:post.commentRangeText/>
+          </span>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+              <data:messages.newer/>
+            </a>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+              <data:messages.newest/>
+            </a>
+          </b:if>
+        </div>
+      </b:if>
+
+      <div class='footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='commentForm'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <b:include data='post' name='addComments'/>
+          </b:if>
+        </b:if>
+      </div>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+                        <b:includable id='commentsTitle'>
+  <h3 class='title'><data:messages.comments/></h3>
+</b:includable>
+                        <b:includable id='feedLinks'>
+  <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:if cond='data:post.allowComments and data:post.feedLinks'>
+          <b:include data='post.feedLinks' name='feedLinksBody'/>
+        </b:if>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+                        <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:messages.subscribeTo/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+                        <b:includable id='homePageLink'>
+  <a class='home-link' expr:href='data:blog.homepageUrl'>
+    <data:messages.home/>
+  </a>
+</b:includable>
+                        <b:includable id='iframeComments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+                        <b:includable id='inlineAd' var='post'>
+  <b:if cond='!data:view.isPreview'>
+    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
+      <!-- Ad -->
+      <div class='inline-ad'>
+        <b:if cond='data:this.adCode != &quot;&quot;'>
+          <data:this.adCode/>
+        <b:else/>
+          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
+        </b:if>
+      </div>
+    </b:if>
+  <b:else/>
+    <div class='inline-ad'>
+      <div class='inline-ad-placeholder'>
+        <span><b:message name='messages.adsGoHere'/></span>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
+                        <b:includable id='nextPageLink'>
+  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+    <data:messages.olderPosts/>
+  </a>
+</b:includable>
+                        <b:includable id='post' var='post'>
+  <div class='post'>
+    <b:include data='post' name='postMeta'/>
+    <b:include data='post' name='postTitle'/>
+    <b:include name='headerByline'/>
+    <b:if cond='data:view.isSingleItem'>
+      <b:include data='post' name='postBody'/>
+    <b:else/>
+      <b:include data='post' name='postBodySnippet'/>
+      <b:include data='post' name='postJumpLink'/>
+    </b:if>
+    <b:include data='post' name='postFooter'/>
+  </div>
+</b:includable>
+                        <b:includable id='postBody' var='post'>
+  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+    <data:post.body/>
+  </div>
+</b:includable>
+                        <b:includable id='postBodySnippet' var='post'>
+  <b:include data='post' name='postBody'/>
+</b:includable>
+                        <b:includable id='postCommentsAndAd' var='post'>
+  <article class='post-outer-container'>
+    <!-- Post title and body -->
+    <div class='post-outer'>
+      <b:include data='post' name='post'/>
+    </div>
+
+    <!-- Comments -->
+    <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+
+    <!-- Show ad inside post container, after comments, if single item. -->
+    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
+  </article>
+
+  <!-- Show ad outside post container (between posts) for feed pages. -->
+  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+</b:includable>
+                        <b:includable id='postCommentsLink'>
+  <b:if cond='data:view.isMultipleItems'>
+    <span class='byline post-comment-link container'>
+      <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+    </span>
+  </b:if>
+</b:includable>
+                        <b:includable id='postFooter' var='post'>
+  <div class='post-footer'>
+    <b:include name='footerBylines'/>
+    <b:include data='post' name='postFooterAuthorProfile'/>
+  </div>
+</b:includable>
+                        <b:includable id='postFooterAuthorProfile' var='post'>
+  <b:if cond='data:post.author.aboutMe and data:view.isPost'>
+    <div class='author-profile'>
+      <b:if cond='data:post.author.authorPhoto.url'>
+        <img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
+        <div class='author-about'>
+          <b:include data='post' name='aboutPostAuthor'/>
+        </div>
+      <b:else/>
+        <b:include data='post' name='aboutPostAuthor'/>
+      </b:if>
+    </div>
+  </b:if>
+</b:includable>
+                        <b:includable id='postHeader' var='post'>
+  <b:include name='headerByline'/>
+</b:includable>
+                        <b:includable id='postMeta' var='post'>
+  <b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+                        <b:includable id='postPagination'>
+  <div class='blog-pager container' id='blog-pager'>
+    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+  </div>
+</b:includable>
+                        <b:includable id='postTitle' var='post'>
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title != &quot;&quot;'>
+    <h3 class='post-title entry-title'>
+      <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+        <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+    </h3>
+  </b:if>
+</b:includable>
+                        <b:includable id='previousPageLink'>
+  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+    <data:messages.newerPosts/>
+  </a>
+</b:includable>
+                        <b:includable id='threadedCommentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+                        <b:includable id='threadedCommentJs' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+  <b:template-script inline='true' name='threaded_comments'/>
+  <script type='text/javascript'>
+    blogger.widgets.blog.initThreadedComments(
+        <data:post.commentJso/>,
+        <data:post.commentMsgs/>,
+        <data:post.commentConfig/>);
+  </script>
+</b:includable>
+                        <b:includable id='threadedComments' var='post'>
+  <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+
+    <b:include name='commentsTitle'/>
+
+    <div class='comments-content'>
+      <b:if cond='data:post.embedCommentForm'>
+        <b:include data='post' name='threadedCommentJs'/>
+      </b:if>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threadedCommentForm'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+      <b:if cond='data:post.showManageComments'>
+        <b:include data='post' name='manageComments'/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable>
+                        <b:includable id='tooltipCss'>
+  <!-- LINT.IfChange -->
+  <style>
+    .post-body a.b-tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip {
+      display: block !important;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-20%, 1px);
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .post-body a.b-tooltip-container .b-tooltip iframe {
+      width: 200px;
+      height: 198px;
+      max-width: none;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) {
+      .post-body a.b-tooltip-container:hover .b-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  </style>
+  <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
+</b:includable>
+                      </b:widget>
+                    </b:section>
+                </b:if>
+            </main>
+
+            <!-- SIDEBAR AREA -->
+            <aside>
+                <!-- Sticky Sidebar Ad -->
+                <div class='sidebar-widget'>
+                    <div class='widget-title'>স&#2509;পন&#2509;সর ব&#2495;জ&#2509;ঞ&#2494;পন</div>
+                    <b:section id='sidebar-ad-sec' maxwidgets='1' showaddelement='yes'>
+                      <b:widget id='HTML3' locked='false' title='Sidebar Square Ad' type='HTML' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='content'/>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <div class='pro-ad-slot' style='min-height:250px;'>
+                                    <data:content/>
+                                    <b:if cond='data:content == &quot;&quot;'>Square Ad (300x250 or 300x600)</b:if>
+                                </div>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+
+                <!-- Blogger Default Popular Posts -->
+                <div class='sidebar-widget'>
+                    <div class='widget-title'>জনপ&#2509;র&#2495;য&#2492; স&#2434;ব&#2494;দ</div>
+                    <b:section id='pop-posts' name='Popular Posts' showaddelement='yes'>
+                      <b:widget id='PopularPosts1' locked='false' title='Trending' type='PopularPosts' version='2' visible='true'>
+                        <b:widget-settings>
+                          <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
+                          <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                          <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                          <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                                <b:loop values='data:posts' var='post'>
+                                    <div class='popular-item'>
+                                        <img class='popular-img' expr:src='data:post.featuredImage'/>
+                                        <a class='popular-text' expr:href='data:post.url'><data:post.title/></a>
+                                    </div>
+                                </b:loop>
+                            </b:includable>
+                      </b:widget>
+                    </b:section>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- FOOTER AREA -->
+    <footer>
+        <div class='container'>
+            <div class='footer-grid'>
+                <div>
+                    <a class='footer-logo' href='/'>NEWS<span>PORTAL</span></a>
+                    <p style='color:#bdc1c6; font-size:14px; line-height:1.6;'>ব&#2494;&#2434;ল&#2494;দ&#2503;শ&#2503;র সবচ&#2503;য&#2492;&#2503; বড&#2492; প&#2509;র&#2495;ম&#2495;য&#2492;&#2494;ম ন&#2495;উজ ড&#2495;র&#2503;ক&#2509;টর&#2495; এব&#2434; ইনফরম&#2503;শন প&#2507;র&#2509;ট&#2494;ল&#2404; আমর&#2494; শত শত পত&#2509;র&#2495;ক&#2494;ক&#2503; এক স&#2498;ত&#2509;র&#2503; গ&#2503;&#2433;থ&#2503;ছ&#2495; আপন&#2494;র স&#2497;ব&#2495;ধ&#2494;র জন&#2509;য&#2404;</p>
+                </div>
+                <div>
+                    <span style='font-weight:700; display:block; margin-bottom:20px; font-size:16px;'>প&#2509;রয&#2492;&#2507;জন&#2496;য&#2492; প&#2494;ত&#2494;</span>
+                    <ul class='footer-links'>
+                        <li><a href='/p/about-us.html'>আম&#2494;দ&#2503;র সম&#2509;পর&#2509;ক&#2503;</a></li>
+                        <li><a href='/p/contact-us.html'>য&#2507;গ&#2494;য&#2507;গ কর&#2497;ন</a></li>
+                        <li><a href='/p/privacy-policy.html'>প&#2509;র&#2494;ইভ&#2503;স&#2495; পল&#2495;স&#2495;</a></li>
+                        <li><a href='/p/disclaimer.html'>দ&#2494;ব&#2495;ত&#2509;য&#2494;গ (Disclaimer)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <span style='font-weight:700; display:block; margin-bottom:20px; font-size:16px;'>স&#2507;শ&#2509;য&#2494;ল ম&#2495;ড&#2495;য&#2492;&#2494;</span>
+                    <div style='display:flex; gap:15px; font-size:20px;'>
+                        <a href='#' style='color:#fff;'><i class='fab fa-facebook'/></a>
+                        <a href='#' style='color:#fff;'><i class='fab fa-twitter'/></a>
+                        <a href='#' style='color:#fff;'><i class='fab fa-youtube'/></a>
+                        <a href='#' style='color:#fff;'><i class='fab fa-instagram'/></a>
+                    </div>
+                </div>
+            </div>
+            <div style='text-align:center; margin-top:50px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:13px; color:#bdc1c6;'>
+                &amp;copy; <script>document.write(new Date().getFullYear())</script> NEWS PORTAL BANGLA. Built for AdSense Approval.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL IFRAME READER -->
+    <div class='reader-view' id='proReader'>
+        <div class='reader-bar'>
+            <span id='readerTitle' style='font-weight:700; font-size:16px;'/>
+            <div style='display:flex; gap:12px;'>
+                <a class='theme-switch' href='#' id='readerExt' style='text-decoration:none; color:inherit; padding:5px 15px; font-size:13px; border-radius:4px;' target='_blank'>নত&#2497;ন ট&#2509;য&#2494;ব&#2503; দ&#2503;খ&#2497;ন</a>
+                <button onclick='closeReader()' style='background:var(--accent); color:#fff; border:none; padding:6px 15px; cursor:pointer; font-weight:700; border-radius:4px;'>বন&#2509;ধ কর&#2497;ন</button>
+            </div>
+        </div>
+        <iframe id='readerFrame' src=''/>
+    </div>
+
+    <!-- ==========================================
+         MASSIVE JAVASCRIPT DATABASE (120+ SITES)
+         ========================================== -->
+    <script type='text/javascript'>
+        //<![CDATA[
+        
+        // Massive Array of Newspaper Data (20+ sites per section)
+        const newsDatabase = [
+            // --- NATIONAL DAILIES (20) ---
+            { name: "প্রথম আলো", url: "https://www.prothomalo.com", cat: "national" },
+            { name: "কালের কণ্ঠ", url: "https://www.kalerkantho.com", cat: "national" },
+            { name: "ইত্তেফাক", url: "https://www.ittefaq.com.bd", cat: "national" },
+            { name: "যুগান্তর", url: "https://www.jugantor.com", cat: "national" },
+            { name: "সমকাল", url: "https://www.samakal.com", cat: "national" },
+            { name: "আমাদের সময়", url: "https://www.amadershomoy.com", cat: "national" },
+            { name: "মানবজমিন", url: "https://www.mzamin.com", cat: "national" },
+            { name: "নয়া দিগন্ত", url: "https://www.dailynayadiganta.com", cat: "national" },
+            { name: "ভোরের কাগজ", url: "https://www.bhorerkagoj.com", cat: "national" },
+            { name: "ইনকিলাব", url: "https://www.dailyinqilab.com", cat: "national" },
+            { name: "সংবাদ", url: "https://www.sangbad.net", cat: "national" },
+            { name: "জনকণ্ঠ", url: "https://www.dailyjanakantha.com", cat: "national" },
+            { name: "বণিক বার্তা", url: "https://www.bonikbarta.net", cat: "national" },
+            { name: "বাংলাদেশ প্রতিদিন", url: "https://www.bd-pratidin.com", cat: "national" },
+            { name: "ডেইলি স্টার", url: "https://www.thedailystar.net", cat: "national" },
+            { name: "ঢাকা ট্রিবিউন", url: "https://www.dhakatribune.com", cat: "national" },
+            { name: "ডেইলি অবজার্ভার", url: "https://www.observerbd.com", cat: "national" },
+            { name: "বিজনেস স্ট্যান্ডার্ড", url: "https://www.tbsnews.net", cat: "national" },
+            { name: "আজকের পত্রিকা", url: "https://www.ajkerpatrika.com", cat: "national" },
+            { name: "দেশ রূপান্তর", url: "https://www.deshrupantor.com", cat: "national" },
+
+            // --- ONLINE PORTALS (20) ---
+            { name: "বিডিনিউজ২৪", url: "https://bangla.bdnews24.com", cat: "online" },
+            { name: "বাংলানিউজ২৪", url: "https://www.banglanews24.com", cat: "online" },
+            { name: "জাগো নিউজ", url: "https://www.jagonews24.com", cat: "online" },
+            { name: "ঢাকা পোস্ট", url: "https://www.dhakapost.com", cat: "online" },
+            { name: "রাইজিংবিডি", url: "https://www.risingbd.com", cat: "online" },
+            { name: "বার্তা২৪", url: "https://www.barta24.com", cat: "online" },
+            { name: "সারাবাংলা", url: "https://www.sarabangla.net", cat: "online" },
+            { name: "অধিকার", url: "https://www.odhikar.news", cat: "online" },
+            { name: "প্রিয়.কম", url: "https://www.priyo.com", cat: "online" },
+            { name: "চ্যানেল আই অনলাইন", url: "https://www.channelionline.com", cat: "online" },
+            { name: "ডিএমপি নিউজ", url: "https://www.dmpnews.org", cat: "online" },
+            { name: "আরটিভি অনলাইন", url: "https://www.rtvonline.com", cat: "online" },
+            { name: "এনটিভি অনলাইন", url: "https://www.ntvbd.com", cat: "online" },
+            { name: "ডিবিসি অনলাইন", url: "https://www.dbcnews.tv", cat: "online" },
+            { name: "নিউজ২৪ অনলাইন", url: "https://www.news24bd.tv", cat: "online" },
+            { name: "একাত্তর অনলাইন", url: "https://www.ekattor.tv", cat: "online" },
+            { name: "সময় অনলাইন", url: "https://www.somoynews.tv", cat: "online" },
+            { name: "যমুনা অনলাইন", url: "https://www.jamuna.tv", cat: "online" },
+            { name: "ইনডিপেনডেন্ট টিভি", url: "https://www.independent24.com", cat: "online" },
+            { name: "মাছরাঙা অনলাইন", url: "https://www.maasranga.tv", cat: "online" },
+
+            // --- TV CHANNELS (20) ---
+            { name: "সময় টিভি", url: "https://www.somoynews.tv", cat: "tv" },
+            { name: "যমুনা টিভি", url: "https://www.jamuna.tv", cat: "tv" },
+            { name: "এনটিভি", url: "https://www.ntvbd.com", cat: "tv" },
+            { name: "চ্যানেল আই", url: "https://www.channelionline.com", cat: "tv" },
+            { name: "এটিএন বাংলা", url: "https://www.atnbangla.tv", cat: "tv" },
+            { name: "আরটিভি", url: "https://www.rtvonline.com", cat: "tv" },
+            { name: "ইনডিপেনডেন্ট", url: "https://www.independent24.com", cat: "tv" },
+            { name: "ডিবিসি নিউজ", url: "https://www.dbcnews.tv", cat: "tv" },
+            { name: "একাত্তর টিভি", url: "https://www.ekattor.tv", cat: "tv" },
+            { name: "নিউজ২৪", url: "https://www.news24bd.tv", cat: "tv" },
+            { name: "মাছরাঙা টিভি", url: "https://www.maasranga.tv", cat: "tv" },
+            { name: "বাংলাভিশন", url: "https://www.bvnews24.com", cat: "tv" },
+            { name: "বৈশাখী টিভি", url: "https://www.boishakhionline.com", cat: "tv" },
+            { name: "দেশ টিভি", url: "https://www.desh.tv", cat: "tv" },
+            { name: "মোহনা টিভি", url: "https://www.mohonatv.com", cat: "tv" },
+            { name: "ইটিভি", url: "https://www.ekushey-tv.com", cat: "tv" },
+            { name: "চ্যানেল ২৪", url: "https://www.channel24bd.tv", cat: "tv" },
+            { name: "এশিয়ান টিভি", url: "https://www.asiantvbd.tv", cat: "tv" },
+            { name: "এসএ টিভি", url: "https://www.satv.tv", cat: "tv" },
+            { name: "বিজয় টিভি", url: "https://www.bijoy.tv", cat: "tv" },
+
+            // --- INTERNATIONAL (20) ---
+            { name: "বিবিসি বাংলা", url: "https://www.bbc.com/bengali", cat: "international" },
+            { name: "আল জাজিরা", url: "https://www.aljazeera.com", cat: "international" },
+            { name: "রয়টার্স", url: "https://www.reuters.com", cat: "international" },
+            { name: "ডয়চে ভেলে", url: "https://www.dw.com/bn", cat: "international" },
+            { name: "ভয়েস অব আমেরিকা", url: "https://www.voabangla.com", cat: "international" },
+            { name: "সিএনএন", url: "https://www.cnn.com", cat: "international" },
+            { name: "বিবিসি নিউজ", url: "https://www.bbc.com", cat: "international" },
+            { name: "দ্য গার্ডিয়ান", url: "https://www.theguardian.com", cat: "international" },
+            { name: "নিউ ইয়র্ক টাইমস", url: "https://www.nytimes.com", cat: "international" },
+            { name: "ওয়াশিংটন পোস্ট", url: "https://www.washingtonpost.com", cat: "international" },
+            { name: "ব্লুমবার্গ", url: "https://www.bloomberg.com", cat: "international" },
+            { name: "ফোর্বস", url: "https://www.forbes.com", cat: "international" },
+            { name: "সিনহুয়া", url: "https://www.xinhuanet.com", cat: "international" },
+            { name: "এনডিটিভি", url: "https://www.ndtv.com", cat: "international" },
+            { name: "টাইমস অব ইন্ডিয়া", url: "https://timesofindia.indiatimes.com", cat: "international" },
+            { name: "আরব নিউজ", url: "https://www.arabnews.com", cat: "international" },
+            { name: "খালিজ টাইমস", url: "https://www.khaleejtimes.com", cat: "international" },
+            { name: "আনাদোলু এজেন্সি", url: "https://www.aa.com.tr", cat: "international" },
+            { name: "টিআরটি ওয়ার্ল্ড", url: "https://www.trtworld.com", cat: "international" },
+            { name: "আনন্দবাজার", url: "https://www.anandabazar.com", cat: "international" },
+
+            // --- SPORTS (20) ---
+            { name: "ক্রিকইনফো", url: "https://www.espncricinfo.com", cat: "sports" },
+            { name: "প্যাভিলিয়ন", url: "https://www.pavilion.com.bd", cat: "sports" },
+            { name: "ক্রিকফ্রেনজি", url: "https://www.cricfrenzy.com", cat: "sports" },
+            { name: "বিডিক্রিকটাইম", url: "https://www.bdcrictime.com", cat: "sports" },
+            { name: "ক্রিকবাজ", url: "https://www.cricbuzz.com", cat: "sports" },
+            { name: "গোল.কম", url: "https://www.goal.com/bn", cat: "sports" },
+            { name: "ফিফা নিউজ", url: "https://www.fifa.com", cat: "sports" },
+            { name: "আইসিসি", url: "https://www.icc-cricket.com", cat: "sports" },
+            { name: "স্কাই স্পোর্টস", url: "https://www.skysports.com", cat: "sports" },
+            { name: "ইউরোস্পোর্ট", url: "https://www.eurosport.com", cat: "sports" },
+            { name: "ডাব্লিউডাব্লিউই", url: "https://www.wwe.com", cat: "sports" },
+            { name: "খেলা৭১", url: "https://www.khela71.com", cat: "sports" },
+            { name: "অল স্পোর্টস", url: "https://www.allsportsbd.com", cat: "sports" },
+            { name: "খেলাধুলা", url: "https://www.kheladhula.com", cat: "sports" },
+            { name: "স্পোর্টস নিউজ", url: "https://www.sportsnews.com", cat: "sports" },
+            { name: "টেনিস ডটকম", url: "https://www.tennis.com", cat: "sports" },
+            { name: "এনবিএ ডটকম", url: "https://www.nba.com", cat: "sports" },
+            { name: "ফর্মুলা ১", url: "https://www.formula1.com", cat: "sports" },
+            { name: "ক্রিকট্র্যাকার", url: "https://www.crictracker.com", cat: "sports" },
+            { name: "ফুটবল২৪", url: "https://www.football24.com", cat: "sports" },
+
+            // --- DISTRICT (20) ---
+            { name: "দৈনিক আজাদী", url: "https://www.dainikazadi.org", cat: "district" },
+            { name: "দৈনিক পূর্বঞ্চল", url: "https://www.purbanchal.com", cat: "district" },
+            { name: "দৈনিক করতোয়া", url: "https://www.karatoa.com.bd", cat: "district" },
+            { name: "সিলেট ভিউ ২৪", url: "https://www.sylhetview24.net", cat: "district" },
+            { name: "গ্রামের কাগজ", url: "https://www.gramerkagoj.com", cat: "district" },
+            { name: "মাথাভাঙ্গা", url: "https://www.mathabhanga.com", cat: "district" },
+            { name: "কক্সবাজার নিউজ", url: "https://www.coxsbazar-news.com", cat: "district" },
+            { name: "বরিশাল টাইমস", url: "https://www.barishaltimes.com", cat: "district" },
+            { name: "খুলনা নিউজ", url: "https://www.khulnanews.com", cat: "district" },
+            { name: "চাটগাঁর বাণী", url: "https://www.chatgarbani.com", cat: "district" },
+            { name: "রাজশাহী সংবাদ", url: "https://www.rajshahisangbad.com", cat: "district" },
+            { name: "রংপুর নিউজ", url: "https://www.rangpurnews.com", cat: "district" },
+            { name: "ময়মনসিংহ লাইভ", url: "https://www.mymensinghlive.com", cat: "district" },
+            { name: "কুমিল্লা নিউজ", url: "https://www.cumillanews.com", cat: "district" },
+            { name: "বগুড়া সংবাদ", url: "https://www.bogurasangbad.com", cat: "district" },
+            { name: "পাবনা নিউজ", url: "https://www.pabnanews.com", cat: "district" },
+            { name: "টাঙ্গাইল বার্তা", url: "https://www.tangailbarta.com", cat: "district" },
+            { name: "কুষ্টিয়া বার্তা", url: "https://www.kushtiabarta.com", cat: "district" },
+            { name: "দিনাজপুর নিউজ", url: "https://www.dinajpurnews.com", cat: "district" },
+            { name: "ফরিদপুর বার্তা", url: "https://www.faridpurbarta.com", cat: "district" }
+        ];
+
+        const catNames = {
+            national: "জাতীয় দৈনিক পত্রিকা",
+            online: "জনপ্রিয় অনলাইন পোর্টাল",
+            tv: "টিভি চ্যানেল ও নিউজ",
+            international: "আন্তর্জাতিক সংবাদ",
+            sports: "খেলাধুলা ও বিনোদন",
+            district: "জেলা ভিত্তিক পত্রিকা"
+        };
+
+        const catIcons = {
+            national: "fa-landmark",
+            online: "fa-globe",
+            tv: "fa-tv",
+            international: "fa-globe-americas",
+            sports: "fa-futbol",
+            district: "fa-map-marker-alt"
+        };
+
+        // Render Portal Dynamically on Homepage
+        function renderPortal() {
+            const container = document.getElementById('portalIndex');
+            if (!container) return; // Exit if not on homepage
+
+            let html = '';
+            
+            // Loop through categories
+            for (const key in catNames) {
+                const sites = newsDatabase.filter(site => site.cat === key);
+                
+                html += `
+                <div class="cat-box" id="${key}">
+                    <div class="cat-header">
+                        <h2><i class="fas ${catIcons[key]}"></i> ${catNames[key]}</h2>
+                        <span class="badge">${sites.length}+ সাইট</span>
+                    </div>
+                    <div class="news-grid">
+                        ${sites.map(site => `
+                            <div class="news-card" data-title="${site.name}" onclick="openReader('${site.url}', '${site.name}')">
+                                <img src="https://www.google.com/s2/favicons?sz=128&domain=${site.url}" alt="${site.name}" />
+                                <span>${site.name}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>`;
+            }
+            container.innerHTML = html;
+        }
+
+        // --- FILTER FUNCTION ---
+        function proFilter() {
+            let input = document.getElementById('proSearch').value.toLowerCase();
+            let cards = document.querySelectorAll('.news-card');
+            cards.forEach(card => {
+                let name = card.getAttribute('data-title').toLowerCase();
+                card.style.display = name.includes(input) ? "flex" : "none";
+            });
+        }
+
+        // --- DATE SETTER ---
+        function setDate() {
+            const dateOpt = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateElem = document.getElementById('proDate');
+            if (dateElem) {
+                dateElem.innerText = new Date().toLocaleDateString('bn-BD', dateOpt);
+            }
+        }
+
+        // --- THEME TOGGLER ---
+        function toggleTheme() {
+            const body = document.body;
+            const toggleBtn = document.getElementById('themeToggle');
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // --- MODAL READER HANDLERS ---
+        function openReader(url, name) {
+            document.getElementById('readerTitle').innerText = "পড়ছেন: " + name;
+            document.getElementById('readerFrame').src = url;
+            document.getElementById('readerExt').href = url;
+            document.getElementById('proReader').style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeReader() {
+            document.getElementById('proReader').style.display = "none";
+            document.getElementById('readerFrame').src = "";
+            document.body.style.overflow = "auto";
+        }
+
+        // Execute on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPortal();
+            setDate();
+            
+            // Check stored theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        });
+
+        // ESC key to close modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeReader();
+        });
+        //]]>
+    </script>
+</body>
+</html>
